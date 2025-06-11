@@ -6,23 +6,49 @@ import { ThemeProvider } from '@/components/ui/theme-provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'DevHub - 开发者工具导航站 | 400+精选开发工具',
-  description: '为开发者精选400+优质工具和资源，涵盖环境部署、开发工具、AI工具等8大分类。',
-  keywords: '开发者工具,编程工具,云服务,AI工具,开发资源,DevHub',
+  title: 'ByteHive - AI工具生态系统 | 精选500+顶级AI工具',
+  description: '探索未来科技的蜂巢，汇聚全球500+优质AI工具和资源。从创意设计到代码开发，从数据分析到自动化办公，ByteHive为您打造专业的AI工具生态系统。',
+  keywords: 'AI工具,人工智能,机器学习,深度学习,自动化,创意工具,开发工具,数据分析,ByteHive',
   openGraph: {
-    title: 'DevHub - 开发者工具导航站',
-    description: '为开发者精选400+优质工具和资源',
+    title: 'ByteHive - AI工具生态系统',
+    description: '探索未来科技的蜂巢，汇聚全球500+优质AI工具和资源',
     type: 'website',
     locale: 'zh_CN',
+    url: 'https://bytehive.site',
+    siteName: 'ByteHive',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DevHub - 开发者工具导航站',
-    description: '为开发者精选400+优质工具和资源',
+    title: 'ByteHive - AI工具生态系统',
+    description: '探索未来科技的蜂巢，汇聚全球500+优质AI工具和资源',
+    site: '@ByteHive',
   },
   robots: {
     index: true,
     follow: true,
+  },
+  authors: [{ name: 'ByteHive Team' }],
+  creator: 'ByteHive',
+  publisher: 'ByteHive',
+  alternates: {
+    canonical: 'https://bytehive.site',
+  },
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#000000' },
+    ],
+  },
+  manifest: '/site.webmanifest',
+  other: {
+    'msapplication-TileColor': '#000000',
+    'theme-color': '#000000',
   },
 };
 
