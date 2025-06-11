@@ -2,10 +2,18 @@
 
 import { useState } from 'react';
 import { ExternalLink, Star } from 'lucide-react';
-import { AITool } from '@/types';
+import { Tool } from '@/types';
+import { getCategoryBySlug } from '@/data/categories';
+import Link from 'next/link';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
-export default function ToolCard({ tool }: { tool: AITool }) {
+interface ToolCardProps {
+  tool: Tool;
+  searchQuery?: string;
+}
+
+export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   
   const getPaymentBadgeColor = (model: string) => {
@@ -23,19 +31,34 @@ export default function ToolCard({ tool }: { tool: AITool }) {
     }
   };
   
-  const renderPopularityStars = (popularity: number) => {
+  const getPopularityStars = (popularity: number) => {
+    const stars = Math.round(popularity / 20); // Convert 0-100 to 0-5 stars
     return Array.from({ length: 5 }).map((_, index) => (
       <Star 
         key={index} 
         className={cn(
-          "h-4 w-4",
-          index < popularity 
+          "h-3 w-3",
+          index < stars 
             ? "fill-amber-400 text-amber-400" 
             : "fill-none text-muted-foreground/30"
         )}
       />
     ));
   };
+
+  const highlightText = (text: string, query?: string) => {
+    if (!query || !query.trim()) return text;
+    
+    const parts = text.split(new RegExp(`(${query})`, 'gi'));
+    return parts.map((part, index) => 
+      part.toLowerCase() === query.toLowerCase() ? 
+        <mark key={index} className="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">
+          {part}
+        </mark> : part
+    );
+  };
+
+  const category = getCategoryBySlug(tool.category);
 
   return (
     <div 
@@ -44,79 +67,111 @@ export default function ToolCard({ tool }: { tool: AITool }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="p-8 flex-1 flex flex-col">
-        <div className="flex items-start justify-between mb-6">
-          <div className="flex items-center">
-            {tool.logoUrl ? (
-              <div className="h-12 w-12 rounded-xl overflow-hidden mr-4 bg-secondary flex items-center justify-center">
-                <div
-                  className="h-full w-full bg-contain bg-center bg-no-repeat"
-                  style={{ backgroundImage: `url(${tool.logoUrl})` }}
-                ></div>
+        <div className="flex items-start gap-4 mb-4">
+          {tool.logo ? (
+            <div className="flex-shrink-0">
+              <Image
+                src={tool.logo}
+                alt={`${tool.name} logo`}
+                width={48}
+                height={48}
+                className="rounded-xl"
+              />
+            </div>
+          ) : (
+            <div className="h-12 w-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 text-xl font-semibold">
+              {tool.name.charAt(0)}
+            </div>
+          )}
+          <div className="flex-1 min-w-0">
+            <h3 className="font-semibold text-lg mb-1 line-clamp-1">
+              {highlightText(tool.name, searchQuery)}
+            </h3>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1">
+                {getPopularityStars(tool.popularity)}
               </div>
-            ) : (
-              <div className="h-12 w-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mr-4 text-xl font-semibold">
-                {tool.name.charAt(0)}
-              </div>
-            )}
-            <h3 className="font-semibold text-xl">{tool.name}</h3>
-          </div>
-          <div className="flex">
-            {renderPopularityStars(tool.popularity)}
+              <span className="text-xs text-muted-foreground">
+                {tool.popularity}/100
+              </span>
+            </div>
           </div>
         </div>
         
-        <p className="text-muted-foreground mb-6 text-base flex-grow">
-          {tool.description}
+        <p className="text-muted-foreground mb-4 text-sm flex-grow line-clamp-3">
+          {highlightText(tool.description, searchQuery)}
         </p>
         
-        <div className="mb-6">
-          <ul className="space-y-2">
-            {tool.shortEvaluation.map((feature, index) => (
-              <li key={index} className="flex items-start text-sm">
-                <span className="text-emerald-500 mr-2">✓</span>
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </div>
+        {tool.features && tool.features.length > 0 && (
+          <div className="mb-4">
+            <ul className="space-y-1">
+              {tool.features.slice(0, 2).map((feature, index) => (
+                <li key={index} className="flex items-start text-xs text-muted-foreground">
+                  <span className="text-emerald-500 mr-2 text-sm">✓</span>
+                  <span className="line-clamp-1">{feature}</span>
+                </li>
+              ))}
+              {tool.features.length > 2 && (
+                <li className="text-xs text-muted-foreground ml-4">
+                  +{tool.features.length - 2} 更多功能
+                </li>
+              )}
+            </ul>
+          </div>
+        )}
         
         <div className="flex flex-wrap gap-2 mt-auto">
           <span className={cn(
-            "px-3 py-1.5 rounded-full text-sm font-medium",
-            getPaymentBadgeColor(tool.paymentModel)
+            "px-2 py-1 rounded text-xs font-medium",
+            getPaymentBadgeColor(tool.pricing)
           )}>
-            {tool.paymentModel}
+            {tool.pricing === 'Open Source' ? '开源' : 
+             tool.pricing === 'Free' ? '免费' :
+             tool.pricing === 'Freemium' ? '免费试用' : '付费'}
           </span>
           
-          {tool.categories.slice(0, 2).map((category, index) => (
-            <span key={index} className="bg-secondary text-secondary-foreground px-3 py-1.5 rounded-full text-sm">
-              {category}
+          {category && (
+            <span className="bg-secondary text-secondary-foreground px-2 py-1 rounded text-xs">
+              {category.name}
+            </span>
+          )}
+          
+          {tool.tags.slice(0, 2).map((tag, index) => (
+            <span key={index} className="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">
+              {tag}
             </span>
           ))}
           
-          {tool.categories.length > 2 && (
-            <span className="bg-secondary text-secondary-foreground px-3 py-1.5 rounded-full text-sm">
-              +{tool.categories.length - 2}
+          {tool.tags.length > 2 && (
+            <span className="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">
+              +{tool.tags.length - 2}
             </span>
           )}
         </div>
       </div>
       
-      <a 
-        href={tool.url} 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className={cn(
-          "w-full py-4 px-6 flex items-center justify-center gap-2 text-base font-medium transition-colors",
-          "border-t-2 border-border group-hover:border-primary/20",
-          isHovered 
-            ? "bg-primary text-primary-foreground" 
-            : "bg-secondary/50 text-secondary-foreground hover:bg-secondary"
-        )}
-      >
-        Visit Website
-        <ExternalLink className="h-4 w-4" />
-      </a>
+      <div className="flex gap-2 p-4 border-t">
+        <Link 
+          href={`/tool/${tool.slug}`}
+          className="flex-1 py-2 px-4 text-center text-sm font-medium bg-secondary hover:bg-secondary/80 rounded-lg transition-colors"
+        >
+          查看详情
+        </Link>
+        <a 
+          href={tool.website} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={cn(
+            "flex-1 py-2 px-4 flex items-center justify-center gap-2 text-sm font-medium transition-colors rounded-lg",
+            isHovered 
+              ? "bg-primary text-primary-foreground" 
+              : "bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground"
+          )}
+        >
+          访问官网
+          <ExternalLink className="h-3 w-3" />
+        </a>
+      </div>
     </div>
   );
 }

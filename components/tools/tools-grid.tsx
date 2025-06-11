@@ -1,17 +1,17 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { AITool, FilterState } from '@/types';
+import { Tool, FilterState } from '@/types';
 import ToolCard from './tool-card';
 import Fuse from 'fuse.js';
 
 interface ToolsGridProps {
-  tools: AITool[];
+  tools: Tool[];
   filters: FilterState;
 }
 
 export default function ToolsGrid({ tools, filters }: ToolsGridProps) {
-  const [filteredTools, setFilteredTools] = useState<AITool[]>(tools);
+  const [filteredTools, setFilteredTools] = useState<Tool[]>(tools);
   
   useEffect(() => {
     let result = [...tools];
@@ -19,22 +19,22 @@ export default function ToolsGrid({ tools, filters }: ToolsGridProps) {
     // Filter by categories if any selected
     if (filters.categories.length > 0) {
       result = result.filter(tool => 
-        tool.categories.some(category => filters.categories.includes(category))
+        filters.categories.includes(tool.category)
       );
     }
     
     // Filter by payment models if any selected
     if (filters.paymentModels.length > 0) {
       result = result.filter(tool => 
-        filters.paymentModels.includes(tool.paymentModel)
+        filters.paymentModels.includes(tool.pricing)
       );
     }
     
     // Filter by search query if provided
     if (filters.searchQuery) {
       const fuse = new Fuse(result, {
-        keys: ['name', 'description', 'shortEvaluation', 'tags'],
-        threshold: 0.4,
+        keys: ['name', 'description', 'longDescription', 'tags'],
+        threshold: 0.3,
         includeScore: true
       });
       
@@ -64,7 +64,7 @@ export default function ToolsGrid({ tools, filters }: ToolsGridProps) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {filteredTools.map(tool => (
-        <ToolCard key={tool.id} tool={tool} />
+        <ToolCard key={tool.id} tool={tool} searchQuery={filters.searchQuery} />
       ))}
     </div>
   );

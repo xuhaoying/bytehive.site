@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { FilterState, ToolCategory, PaymentModel } from '@/types';
+import { getCategoryBySlug } from '@/data/categories';
 import { cn } from '@/lib/utils';
 
 interface CategoryFilterProps {
@@ -54,13 +55,13 @@ export default function CategoryFilter({
   return (
     <div className="w-full mb-12">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-semibold">Filters</h2>
+        <h2 className="text-2xl font-semibold">筛选</h2>
         <div className="flex items-center gap-4">
           <button 
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden bg-secondary px-4 py-2 rounded-xl text-base"
           >
-            {isOpen ? 'Hide Filters' : 'Show Filters'}
+            {isOpen ? '隐藏筛选' : '显示筛选'}
           </button>
           
           {hasActiveFilters && (
@@ -68,7 +69,7 @@ export default function CategoryFilter({
               onClick={clearFilters}
               className="text-base text-primary hover:text-primary/80 transition-colors"
             >
-              Clear all
+              清除全部
             </button>
           )}
         </div>
@@ -79,40 +80,52 @@ export default function CategoryFilter({
         isOpen ? "block" : "hidden md:grid"
       )}>
         <div>
-          <h3 className="font-medium text-lg mb-4">Categories</h3>
+          <h3 className="font-medium text-lg mb-4">工具分类</h3>
           <div className="flex flex-wrap gap-2">
-            {categories.map(category => (
-              <button
-                key={category}
-                onClick={() => toggleCategory(category)}
-                className={cn(
-                  "px-4 py-2 rounded-xl text-base transition-colors",
-                  selectedFilters.categories.includes(category)
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-secondary hover:bg-secondary/80"
-                )}
-              >
-                {category}
-              </button>
-            ))}
+            {categories.map(category => {
+              const categoryInfo = getCategoryBySlug(category);
+              return (
+                <button
+                  key={category}
+                  onClick={() => toggleCategory(category)}
+                  className={cn(
+                    "px-4 py-2 rounded-xl text-sm transition-colors flex items-center gap-2",
+                    selectedFilters.categories.includes(category)
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-secondary hover:bg-secondary/80"
+                  )}
+                >
+                  {categoryInfo ? (
+                    <>
+                      <span>{categoryInfo.icon}</span>
+                      <span>{categoryInfo.name}</span>
+                    </>
+                  ) : (
+                    category
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
         
         <div>
-          <h3 className="font-medium text-lg mb-4">Payment Models</h3>
+          <h3 className="font-medium text-lg mb-4">定价模式</h3>
           <div className="flex flex-wrap gap-2">
             {paymentModels.map(model => (
               <button
                 key={model}
                 onClick={() => togglePaymentModel(model)}
                 className={cn(
-                  "px-4 py-2 rounded-xl text-base transition-colors",
+                  "px-4 py-2 rounded-xl text-sm transition-colors",
                   selectedFilters.paymentModels.includes(model)
                     ? "bg-primary text-primary-foreground"
                     : "bg-secondary hover:bg-secondary/80"
                 )}
               >
-                {model}
+                {model === 'Open Source' ? '开源' : 
+                 model === 'Free' ? '免费' :
+                 model === 'Freemium' ? '免费试用' : '付费'}
               </button>
             ))}
           </div>
