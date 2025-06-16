@@ -5,8 +5,11 @@ import { ExternalLink, Star } from 'lucide-react';
 import { Tool } from '@/types';
 import { getCategoryBySlug } from '@/data/categories';
 import Link from 'next/link';
-import Image from 'next/image';
+import { OptimizedImage } from '@/components/ui/optimized-image';
 import { cn } from '@/lib/utils';
+import { useGoogleAnalytics } from '@/components/analytics/google-analytics';
+import { BookmarkSystem } from '@/components/tools/bookmark-system';
+import { AffiliateLink } from '@/components/affiliate/affiliate-link';
 
 interface ToolCardProps {
   tool: Tool;
@@ -15,6 +18,7 @@ interface ToolCardProps {
 
 export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const { trackToolClick } = useGoogleAnalytics(process.env.NEXT_PUBLIC_GA_ID || '');
   
   const getPaymentBadgeColor = (model: string) => {
     switch (model) {
@@ -70,12 +74,13 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
         <div className="flex items-start gap-4 mb-4">
           {tool.logo ? (
             <div className="flex-shrink-0">
-              <Image
+              <OptimizedImage
                 src={tool.logo}
                 alt={`${tool.name} logo`}
                 width={48}
                 height={48}
                 className="rounded-xl"
+                loading="lazy"
               />
             </div>
           ) : (
@@ -84,9 +89,12 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
             </div>
           )}
           <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-lg mb-1 line-clamp-1">
-              {highlightText(tool.name, searchQuery)}
-            </h3>
+            <div className="flex items-start justify-between mb-1">
+              <h3 className="font-semibold text-lg line-clamp-1 flex-1">
+                {highlightText(tool.name, searchQuery)}
+              </h3>
+              <BookmarkSystem tool={tool} className="ml-2 flex-shrink-0" />
+            </div>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
                 {getPopularityStars(tool.popularity)}
@@ -154,23 +162,19 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
         <Link 
           href={`/tool/${tool.slug}`}
           className="flex-1 py-2 px-4 text-center text-sm font-medium bg-secondary hover:bg-secondary/80 rounded-lg transition-colors"
+          onClick={() => trackToolClick(tool.name, category?.name || '', 'view_details')}
         >
           查看详情
         </Link>
-        <a 
-          href={tool.website} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className={cn(
-            "flex-1 py-2 px-4 flex items-center justify-center gap-2 text-sm font-medium transition-colors rounded-lg",
-            isHovered 
-              ? "bg-primary text-primary-foreground" 
-              : "bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground"
-          )}
-        >
-          访问官网
-          <ExternalLink className="h-3 w-3" />
-        </a>
+        <div className="flex-1">
+          <AffiliateLink
+            tool={tool}
+            variant="outline"
+            showCommission={false}
+            trackingId={`card-${tool.id}`}
+            className="h-full [&>div]:space-y-0 [&_button]:h-full [&_button]:text-sm [&_button]:py-2 [&_button]:px-4"
+          />
+        </div>
       </div>
     </div>
   );

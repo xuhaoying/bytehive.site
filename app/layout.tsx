@@ -2,6 +2,10 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/ui/theme-provider';
+import { WebSiteStructuredData, OrganizationStructuredData } from '@/components/seo/structured-data';
+import { AdSenseScript, AutoAd } from '@/components/ads/adsense';
+import GoogleAnalytics from '@/components/analytics/google-analytics';
+import WebVitalsMonitor from '@/components/analytics/web-vitals';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -60,6 +64,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
+      <head>
+        <WebSiteStructuredData />
+        <OrganizationStructuredData />
+        <AdSenseScript />
+        <AutoAd />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics GA_TRACKING_ID={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
+      </head>
       <body className={inter.className}>
         <ThemeProvider 
           attribute="class" 
@@ -67,6 +80,7 @@ export default function RootLayout({
           enableSystem 
           disableTransitionOnChange
         >
+          <WebVitalsMonitor config={{ reportWebVitals: true, debug: process.env.NODE_ENV === 'development' }} />
           {children}
         </ThemeProvider>
       </body>

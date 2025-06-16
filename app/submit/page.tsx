@@ -10,8 +10,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
-import { AlertCircle, CheckCircle2, Plus, X } from 'lucide-react';
+import { AlertCircle, CheckCircle2, Plus, X, Crown, Star, Zap } from 'lucide-react';
 import { categories } from '@/data/categories';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const paymentModels = [
   { value: 'Free', label: '完全免费' },
@@ -37,13 +38,17 @@ export default function SubmitPage() {
     submitterName: '',
     submitterEmail: '',
     additionalNotes: '',
+    submissionType: 'free', // 'free' | 'premium' | 'featured'
+    urgentReview: false,
+    featuredPlacement: false,
+    sponsoredContent: false,
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     // Clear error when user starts typing
     if (errors[field]) {
@@ -126,9 +131,23 @@ export default function SubmitPage() {
       submitterName: '',
       submitterEmail: '',
       additionalNotes: '',
+      submissionType: 'free',
+      urgentReview: false,
+      featuredPlacement: false,
+      sponsoredContent: false,
     });
     setIsSubmitted(false);
     setErrors({});
+  };
+
+  const getSubmissionPrice = () => {
+    let price = 0;
+    if (formData.submissionType === 'premium') price += 49;
+    if (formData.submissionType === 'featured') price += 99;
+    if (formData.urgentReview) price += 29;
+    if (formData.featuredPlacement) price += 199;
+    if (formData.sponsoredContent) price += 299;
+    return price;
   };
 
   if (isSubmitted) {
@@ -176,6 +195,120 @@ export default function SubmitPage() {
 
       <div className="container mx-auto px-4 pb-16">
         <div className="max-w-2xl mx-auto">
+          {/* Submission Plans */}
+          <Tabs value={formData.submissionType} onValueChange={(value) => handleInputChange('submissionType', value)} className="mb-8">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="free">免费提交</TabsTrigger>
+              <TabsTrigger value="premium">高级提交</TabsTrigger>
+              <TabsTrigger value="featured">精选提交</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="free">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Star className="h-5 w-5" />
+                    免费提交
+                  </CardTitle>
+                  <CardDescription>
+                    基础工具提交，适合个人开发者和小型项目
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span>基础工具信息展示</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span>3-7个工作日审核</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span>普通搜索结果展示</span>
+                    </div>
+                    <div className="text-2xl font-bold text-green-600">免费</div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            
+            <TabsContent value="premium">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Crown className="h-5 w-5 text-amber-500" />
+                    高级提交
+                  </CardTitle>
+                  <CardDescription>
+                    加强版工具展示，提供更多曝光机会
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span>包含免费版所有功能</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span>24-48小时快速审核</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span>优先搜索排序</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span>社交媒体推广</span>
+                    </div>
+                    <div className="text-2xl font-bold text-amber-600">¥49</div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            
+            <TabsContent value="featured">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Zap className="h-5 w-5 text-purple-500" />
+                    精选提交
+                  </CardTitle>
+                  <CardDescription>
+                    最高级别展示，获得最大曝光度
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span>包含高级版所有功能</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span>12-24小时超快审核</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span>首页精选区域展示</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span>邮件订阅推送</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span>专属推广文章</span>
+                    </div>
+                    <div className="text-2xl font-bold text-purple-600">¥99</div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
+
           {/* Guidelines */}
           <Card className="mb-8">
             <CardHeader>
@@ -190,7 +323,7 @@ export default function SubmitPage() {
                 <li>• 工具应该是稳定可用的，避免推荐测试版本</li>
                 <li>• 提供准确的信息，包括定价和功能描述</li>
                 <li>• 我们会对所有提交进行人工审核</li>
-                <li>• 审核通过后，工具会在1-3个工作日内上线</li>
+                <li>• 付费服务支持支付宝、微信支付</li>
               </ul>
             </CardContent>
           </Card>
@@ -371,6 +504,65 @@ export default function SubmitPage() {
                   />
                 </div>
 
+                {/* Premium Add-ons */}
+                {formData.submissionType !== 'free' && (
+                  <div className="border-t pt-6">
+                    <h3 className="text-lg font-semibold mb-4">增值服务</h3>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between p-4 border rounded-lg">
+                        <div className="flex items-center space-x-3">
+                          <Checkbox
+                            id="urgentReview"
+                            checked={formData.urgentReview}
+                            onCheckedChange={(checked) => handleInputChange('urgentReview', checked)}
+                          />
+                          <div>
+                            <Label htmlFor="urgentReview" className="font-medium">加急审核</Label>
+                            <p className="text-sm text-muted-foreground">12小时内完成审核</p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-semibold">+¥29</div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center justify-between p-4 border rounded-lg">
+                        <div className="flex items-center space-x-3">
+                          <Checkbox
+                            id="featuredPlacement"
+                            checked={formData.featuredPlacement}
+                            onCheckedChange={(checked) => handleInputChange('featuredPlacement', checked)}
+                          />
+                          <div>
+                            <Label htmlFor="featuredPlacement" className="font-medium">首页推荐位</Label>
+                            <p className="text-sm text-muted-foreground">在首页显示30天</p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-semibold">+¥199</div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center justify-between p-4 border rounded-lg">
+                        <div className="flex items-center space-x-3">
+                          <Checkbox
+                            id="sponsoredContent"
+                            checked={formData.sponsoredContent}
+                            onCheckedChange={(checked) => handleInputChange('sponsoredContent', checked)}
+                          />
+                          <div>
+                            <Label htmlFor="sponsoredContent" className="font-medium">赞助内容推广</Label>
+                            <p className="text-sm text-muted-foreground">专属推广文章 + 多渠道推广</p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-semibold">+¥299</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Submitter Info */}
                 <div className="border-t pt-6">
                   <h3 className="text-lg font-semibold mb-4">联系信息</h3>
@@ -413,6 +605,48 @@ export default function SubmitPage() {
                   </div>
                 </div>
 
+                {/* Payment Summary */}
+                {getSubmissionPrice() > 0 && (
+                  <div className="border-t pt-6">
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h3 className="text-lg font-semibold mb-3">费用明细</h3>
+                      <div className="space-y-2">
+                        <div className="flex justify-between text-sm">
+                          <span>基础服务费</span>
+                          <span>¥{formData.submissionType === 'premium' ? '49' : formData.submissionType === 'featured' ? '99' : '0'}</span>
+                        </div>
+                        {formData.urgentReview && (
+                          <div className="flex justify-between text-sm">
+                            <span>加急审核</span>
+                            <span>¥29</span>
+                          </div>
+                        )}
+                        {formData.featuredPlacement && (
+                          <div className="flex justify-between text-sm">
+                            <span>首页推荐位</span>
+                            <span>¥199</span>
+                          </div>
+                        )}
+                        {formData.sponsoredContent && (
+                          <div className="flex justify-between text-sm">
+                            <span>赞助内容推广</span>
+                            <span>¥299</span>
+                          </div>
+                        )}
+                        <div className="border-t pt-2 mt-2">
+                          <div className="flex justify-between font-semibold">
+                            <span>总计</span>
+                            <span className="text-lg">¥{getSubmissionPrice()}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-3">
+                        支持支付宝、微信支付。付款后立即开始处理您的提交。
+                      </p>
+                    </div>
+                  </div>
+                )}
+
                 {/* Submit */}
                 <div className="flex gap-4">
                   <Button 
@@ -420,7 +654,7 @@ export default function SubmitPage() {
                     disabled={isSubmitting}
                     className="flex-1"
                   >
-                    {isSubmitting ? '提交中...' : '提交推荐'}
+                    {isSubmitting ? '提交中...' : getSubmissionPrice() > 0 ? `支付 ¥${getSubmissionPrice()} 并提交` : '免费提交'}
                   </Button>
                   <Button type="button" variant="outline" onClick={resetForm}>
                     重置

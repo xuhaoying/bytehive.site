@@ -12,6 +12,8 @@ import { categories, getTotalToolsCount } from '@/data/categories';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
+import { BannerAd } from '@/components/ads/adsense';
+import { SponsorBanner } from '@/components/sponsor/sponsor-banner';
 
 export default function Home() {
   const [filters, setFilters] = useState<FilterState>({
@@ -45,6 +47,13 @@ export default function Home() {
       <Header />
       
       <HeroSection onSearch={handleSearch} toolsCount={totalToolsCount} />
+      
+      {/* Top Banner Ad */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="flex justify-center">
+          <BannerAd className="w-full max-w-4xl border rounded-lg p-4 bg-muted/30" />
+        </div>
+      </section>
       
       {/* Categories Section */}
       <section className="container mx-auto px-4 py-16">
@@ -80,6 +89,18 @@ export default function Home() {
               </Card>
             </Link>
           ))}
+        </div>
+      </section>
+      
+      {/* Sponsor Section */}
+      <section className="container mx-auto px-4 py-12">
+        <SponsorBanner position="banner" className="mb-8" />
+      </section>
+      
+      {/* Middle Banner Ad */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="flex justify-center">
+          <BannerAd className="w-full max-w-4xl border rounded-lg p-4 bg-muted/30" />
         </div>
       </section>
       

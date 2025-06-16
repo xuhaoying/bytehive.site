@@ -8,8 +8,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import ToolCard from '@/components/tools/tool-card';
 import Link from 'next/link';
-import Image from 'next/image';
+import { OptimizedImage } from '@/components/ui/optimized-image';
 import { ChevronRight, Home, ExternalLink, Calendar, Users, Star } from 'lucide-react';
+import { SidebarAd, InArticleAd } from '@/components/ads/adsense';
+import { cn } from '@/lib/utils';
+import { RatingSystem } from '@/components/tools/rating-system';
+import { BookmarkSystem } from '@/components/tools/bookmark-system';
+import { SponsorBanner } from '@/components/sponsor/sponsor-banner';
+import { AffiliateLink, AffiliateProgramInfo } from '@/components/affiliate/affiliate-link';
 
 interface ToolPageProps {
   params: {
@@ -101,12 +107,13 @@ export default function ToolPage({ params }: ToolPageProps) {
             <div className="flex items-start gap-6 mb-8">
               {tool.logo && (
                 <div className="flex-shrink-0">
-                  <Image
+                  <OptimizedImage
                     src={tool.logo}
                     alt={`${tool.name} logo`}
                     width={80}
                     height={80}
                     className="rounded-xl"
+                    loading="eager"
                   />
                 </div>
               )}
@@ -127,19 +134,18 @@ export default function ToolPage({ params }: ToolPageProps) {
                     <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                     <span className="text-sm font-medium">{tool.popularity}/100</span>
                   </div>
+                  <BookmarkSystem tool={tool} />
                 </div>
 
-                <Button asChild size="lg" className="mb-4">
-                  <a 
-                    href={tool.website} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2"
-                  >
-                    访问官网
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
-                </Button>
+                <div className="mb-4">
+                  <AffiliateLink
+                    tool={tool}
+                    variant="default"
+                    showCommission={true}
+                    trackingId={`detail-${tool.id}`}
+                    className="[&_button]:w-auto [&_button]:px-8"
+                  />
+                </div>
               </div>
             </div>
 
@@ -176,6 +182,88 @@ export default function ToolPage({ params }: ToolPageProps) {
               </Card>
             )}
 
+            {/* Rating System */}
+            <Card className="mb-8">
+              <CardHeader>
+                <CardTitle>用户评价</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <RatingSystem 
+                  toolId={tool.id}
+                  toolName={tool.name}
+                  currentRating={tool.popularity / 20}
+                  totalRatings={Math.floor(tool.popularity / 10)}
+                />
+              </CardContent>
+            </Card>
+
+            {/* In-Article Ad */}
+            <div className="mb-8">
+              <InArticleAd className="border rounded-lg p-4 bg-muted/30" />
+            </div>
+
+            {/* Usage Guide */}
+            <Card className="mb-8">
+              <CardHeader>
+                <CardTitle>使用指南</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-medium mb-2">🚀 快速开始</h4>
+                    <p className="text-sm text-muted-foreground">
+                      访问 {tool.name} 官网，根据您的需求选择合适的计划。大多数工具都提供免费试用，让您在购买前体验完整功能。
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-2">💡 使用技巧</h4>
+                    <p className="text-sm text-muted-foreground">
+                      建议先浏览官方文档和教程，了解基本功能。如果是开发工具，请确保您的开发环境满足系统要求。
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-2">🔧 最佳实践</h4>
+                    <p className="text-sm text-muted-foreground">
+                      定期更新工具版本以获得最新功能和安全修复。加入相关社区和论坛，与其他用户交流经验。
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* FAQ */}
+            <Card className="mb-8">
+              <CardHeader>
+                <CardTitle>常见问题</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-medium mb-1">这个工具适合初学者吗？</h4>
+                    <p className="text-sm text-muted-foreground">
+                      {tool.pricing === 'Free' || tool.pricing === 'Freemium' 
+                        ? '是的，该工具提供免费版本，非常适合初学者入门学习。' 
+                        : '建议先通过免费试用来评估是否适合您的技能水平和需求。'}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-1">支持哪些平台？</h4>
+                    <p className="text-sm text-muted-foreground">
+                      {tool.platforms && tool.platforms.length > 0 
+                        ? `支持 ${tool.platforms.join('、')} 等平台。` 
+                        : '请查看官网了解具体的平台支持情况。'}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-1">如何获得技术支持？</h4>
+                    <p className="text-sm text-muted-foreground">
+                      大部分工具都提供官方文档、社区论坛或客服支持。建议优先查阅官方文档解决常见问题。
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             {/* Tags */}
             <Card>
               <CardHeader>
@@ -195,6 +283,13 @@ export default function ToolPage({ params }: ToolPageProps) {
 
           {/* Sidebar */}
           <div className="space-y-6">
+            {/* Sponsor Sidebar */}
+            <SponsorBanner position="sidebar" maxSponsors={2} />
+            
+            {/* Sidebar Ad */}
+            <div>
+              <SidebarAd className="border rounded-lg p-4 bg-muted/30" />
+            </div>
             {/* Tool Info */}
             <Card>
               <CardHeader>
@@ -264,23 +359,97 @@ export default function ToolPage({ params }: ToolPageProps) {
               </CardContent>
             </Card>
 
+            {/* Tool Statistics */}
+            <Card className="mb-6">
+              <CardHeader>
+                <CardTitle>工具统计</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">热度评分</span>
+                  <div className="flex items-center gap-1">
+                    <span className="font-medium">{tool.popularity}/100</span>
+                    <div className="flex">
+                      {Array.from({ length: 5 }).map((_, index) => (
+                        <Star 
+                          key={index} 
+                          className={cn(
+                            "h-3 w-3",
+                            index < Math.round(tool.popularity / 20) 
+                              ? "fill-amber-400 text-amber-400" 
+                              : "fill-none text-muted-foreground/30"
+                          )}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">同类工具</span>
+                  <span className="font-medium">{relatedTools.length + 1} 个</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">更新状态</span>
+                  <span className="text-xs text-emerald-600 bg-emerald-50 px-2 py-1 rounded dark:bg-emerald-950 dark:text-emerald-400">
+                    活跃维护
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Affiliate Program Info */}
+            <AffiliateProgramInfo toolId={tool.id} />
+
+            {/* Quick Actions */}
+            <Card className="mb-6">
+              <CardHeader>
+                <CardTitle>快速操作</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <AffiliateLink
+                  tool={tool}
+                  variant="default"
+                  showCommission={false}
+                  trackingId={`sidebar-${tool.id}`}
+                  className="[&_button]:w-full [&_button]:text-sm"
+                />
+                <Button variant="outline" className="w-full" size="sm">
+                  <Users className="h-4 w-4 mr-2" />
+                  加入社区讨论
+                </Button>
+                <Button variant="outline" className="w-full" size="sm">
+                  <Star className="h-4 w-4 mr-2" />
+                  收藏工具
+                </Button>
+              </CardContent>
+            </Card>
+
             {/* Related Tools */}
             {relatedTools.length > 0 && (
               <Card>
                 <CardHeader>
-                  <CardTitle>相关工具</CardTitle>
+                  <CardTitle className="flex items-center justify-between">
+                    <span>相关工具</span>
+                    <Link 
+                      href={`/category/${tool.category}`}
+                      className="text-xs text-primary hover:underline"
+                    >
+                      查看更多
+                    </Link>
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {relatedTools.map((relatedTool) => (
                       <div key={relatedTool.id} className="flex items-center gap-3 p-3 rounded-lg border hover:bg-muted/50 transition-colors">
                         {relatedTool.logo && (
-                          <Image
+                          <OptimizedImage
                             src={relatedTool.logo}
                             alt={`${relatedTool.name} logo`}
                             width={40}
                             height={40}
                             className="rounded-lg flex-shrink-0"
+                            loading="lazy"
                           />
                         )}
                         <div className="flex-1 min-w-0">
@@ -293,6 +462,24 @@ export default function ToolPage({ params }: ToolPageProps) {
                           <p className="text-sm text-muted-foreground line-clamp-2">
                             {relatedTool.description}
                           </p>
+                          <div className="flex items-center gap-1 mt-1">
+                            <div className="flex">
+                              {Array.from({ length: 5 }).map((_, index) => (
+                                <Star 
+                                  key={index} 
+                                  className={cn(
+                                    "h-2.5 w-2.5",
+                                    index < Math.round(relatedTool.popularity / 20) 
+                                      ? "fill-amber-400 text-amber-400" 
+                                      : "fill-none text-muted-foreground/30"
+                                  )}
+                                />
+                              ))}
+                            </div>
+                            <span className="text-xs text-muted-foreground ml-1">
+                              {relatedTool.popularity}/100
+                            </span>
+                          </div>
                         </div>
                       </div>
                     ))}
