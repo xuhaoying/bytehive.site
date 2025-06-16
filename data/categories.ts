@@ -8,13 +8,15 @@ export const categories: CategoryInfo[] = [
     icon: '🚀',
     color: '#3b82f6',
     subcategories: [
-      { slug: 'cloud-servers', name: '云服务器', count: 15 },
-      { slug: 'containers', name: '容器化', count: 12 },
-      { slug: 'cicd', name: 'CI/CD', count: 18 },
-      { slug: 'hosting', name: '托管服务', count: 15 }
+      { slug: 'cloud-servers', name: '云服务器', count: 3 },
+      { slug: 'containers', name: '容器化', count: 2 },
+      { slug: 'cicd', name: 'CI/CD', count: 1 },
+      { slug: 'hosting', name: '托管服务', count: 3 },
+      { slug: 'cdn', name: 'CDN服务', count: 1 },
+      { slug: 'infrastructure', name: '基础设施', count: 1 }
     ],
-    toolCount: 60,
-    featured: ['aws', 'docker', 'github-actions', 'vercel']
+    toolCount: 11,
+    featured: ['aws', 'docker', 'github-actions', 'vercel', 'kubernetes', 'cloudflare']
   },
   {
     slug: 'development',
@@ -23,14 +25,14 @@ export const categories: CategoryInfo[] = [
     icon: '💻',
     color: '#10b981',
     subcategories: [
-      { slug: 'code-editors', name: '代码编辑器', count: 15 },
-      { slug: 'version-control', name: '版本控制', count: 12 },
-      { slug: 'api-tools', name: 'API工具', count: 18 },
-      { slug: 'debugging', name: '调试工具', count: 15 },
-      { slug: 'frameworks', name: '开发框架', count: 20 }
+      { slug: 'code-editors', name: '代码编辑器', count: 6 },
+      { slug: 'version-control', name: '版本控制', count: 3 },
+      { slug: 'api-tools', name: 'API工具', count: 2 },
+      { slug: 'debugging', name: '调试工具', count: 0 },
+      { slug: 'frameworks', name: '开发框架', count: 0 }
     ],
-    toolCount: 80,
-    featured: ['vscode', 'github', 'postman', 'docker']
+    toolCount: 11,
+    featured: ['vscode', 'github', 'postman', 'git', 'vim', 'neovim']
   },
   {
     slug: 'ai-tools',
@@ -39,13 +41,17 @@ export const categories: CategoryInfo[] = [
     icon: '🤖',
     color: '#8b5cf6',
     subcategories: [
-      { slug: 'dev-assistants', name: '开发助手', count: 10 },
-      { slug: 'ai-platforms', name: 'AI平台', count: 12 },
-      { slug: 'ml-tools', name: '机器学习', count: 8 },
-      { slug: 'content-generation', name: '内容生成', count: 10 }
+      { slug: 'dev-assistants', name: '开发助手', count: 8 },
+      { slug: 'ai-platforms', name: 'AI平台', count: 6 },
+      { slug: 'ml-tools', name: '机器学习', count: 5 },
+      { slug: 'content-generation', name: '内容生成', count: 8 },
+      { slug: 'chat-assistants', name: '聊天助手', count: 6 },
+      { slug: 'writing-tools', name: '写作工具', count: 5 },
+      { slug: 'voice-tools', name: '语音工具', count: 4 },
+      { slug: 'data-analysis', name: '数据分析', count: 3 }
     ],
-    toolCount: 40,
-    featured: ['github-copilot', 'chatgpt', 'claude', 'cursor']
+    toolCount: 45,
+    featured: ['github-copilot', 'chatgpt', 'claude', 'cursor', 'dall-e-3', 'midjourney']
   },
   {
     slug: 'design',
@@ -54,13 +60,13 @@ export const categories: CategoryInfo[] = [
     icon: '🎨',
     color: '#f59e0b',
     subcategories: [
-      { slug: 'ui-design', name: 'UI设计', count: 15 },
-      { slug: 'prototyping', name: '原型设计', count: 12 },
-      { slug: 'graphics', name: '图形设计', count: 13 },
-      { slug: 'assets', name: '设计资源', count: 10 }
+      { slug: 'ui-design', name: 'UI设计', count: 4 },
+      { slug: 'prototyping', name: '原型设计', count: 3 },
+      { slug: 'graphics', name: '图形设计', count: 4 },
+      { slug: 'assets', name: '设计资源', count: 0 }
     ],
-    toolCount: 50,
-    featured: ['figma', 'sketch', 'adobe-xd', 'canva']
+    toolCount: 11,
+    featured: ['figma', 'canva', 'sketch', 'adobe-xd', 'photoshop', 'illustrator']
   },
   {
     slug: 'marketing',
@@ -69,13 +75,14 @@ export const categories: CategoryInfo[] = [
     icon: '📈',
     color: '#ef4444',
     subcategories: [
-      { slug: 'seo', name: 'SEO工具', count: 15 },
-      { slug: 'analytics', name: '数据分析', count: 12 },
-      { slug: 'social-media', name: '社交媒体', count: 18 },
-      { slug: 'email-marketing', name: '邮件营销', count: 15 }
+      { slug: 'analytics', name: '数据分析', count: 4 },
+      { slug: 'email-marketing', name: '邮件营销', count: 4 },
+      { slug: 'social-media', name: '社交媒体', count: 4 },
+      { slug: 'crm', name: '客户关系管理', count: 4 },
+      { slug: 'seo', name: 'SEO工具', count: 5 }
     ],
-    toolCount: 60,
-    featured: ['google-analytics', 'semrush', 'mailchimp', 'buffer']
+    toolCount: 21,
+    featured: ['google-analytics', 'mailchimp', 'hubspot', 'buffer']
   },
   {
     slug: 'database',
@@ -84,13 +91,14 @@ export const categories: CategoryInfo[] = [
     icon: '🗄️',
     color: '#06b6d4',
     subcategories: [
-      { slug: 'relational', name: '关系型数据库', count: 8 },
-      { slug: 'nosql', name: 'NoSQL数据库', count: 7 },
-      { slug: 'cloud-db', name: '云数据库', count: 10 },
-      { slug: 'db-tools', name: '数据库工具', count: 5 }
+      { slug: 'relational', name: '关系型数据库', count: 3 },
+      { slug: 'nosql', name: 'NoSQL数据库', count: 2 },
+      { slug: 'cloud-db', name: '云数据库', count: 3 },
+      { slug: 'db-tools', name: '数据库工具', count: 1 },
+      { slug: 'search', name: '搜索引擎', count: 1 }
     ],
-    toolCount: 30,
-    featured: ['postgresql', 'mongodb', 'redis', 'supabase']
+    toolCount: 10,
+    featured: ['postgresql', 'mysql', 'mongodb', 'redis', 'supabase', 'prisma']
   },
   {
     slug: 'monitoring',
@@ -99,13 +107,16 @@ export const categories: CategoryInfo[] = [
     icon: '📊',
     color: '#84cc16',
     subcategories: [
-      { slug: 'monitoring', name: '系统监控', count: 12 },
-      { slug: 'logging', name: '日志管理', count: 8 },
-      { slug: 'performance', name: '性能监控', count: 10 },
-      { slug: 'security', name: '安全监控', count: 5 }
+      { slug: 'monitoring', name: '系统监控', count: 8 },
+      { slug: 'logging', name: '日志管理', count: 2 },
+      { slug: 'performance', name: '性能监控', count: 0 },
+      { slug: 'security', name: '安全监控', count: 0 },
+      { slug: 'incident-management', name: '事件管理', count: 1 },
+      { slug: 'uptime-monitoring', name: '可用性监控', count: 2 },
+      { slug: 'cloud-monitoring', name: '云监控', count: 2 }
     ],
-    toolCount: 35,
-    featured: ['datadog', 'new-relic', 'splunk', 'grafana']
+    toolCount: 15,
+    featured: ['datadog', 'prometheus', 'grafana', 'sentry']
   },
   {
     slug: 'learning',
@@ -114,13 +125,13 @@ export const categories: CategoryInfo[] = [
     icon: '📚',
     color: '#f97316',
     subcategories: [
-      { slug: 'courses', name: '在线课程', count: 15 },
-      { slug: 'documentation', name: '技术文档', count: 12 },
-      { slug: 'practice', name: '练习平台', count: 10 },
-      { slug: 'communities', name: '技术社区', count: 8 }
+      { slug: 'courses', name: '在线课程', count: 9 },
+      { slug: 'documentation', name: '技术文档', count: 4 },
+      { slug: 'practice', name: '练习平台', count: 5 },
+      { slug: 'communities', name: '技术社区', count: 6 }
     ],
-    toolCount: 45,
-    featured: ['github', 'stackoverflow', 'mdn', 'coursera']
+    toolCount: 24,
+    featured: ['stack-overflow', 'mdn', 'freecodecamp', 'leetcode', 'codecademy']
   }
 ];
 

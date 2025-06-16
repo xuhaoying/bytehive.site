@@ -1,7 +1,7 @@
 {
-  "name": "ByteHive - AI工具生态系统",
+  "name": "ByteHive - AI工具导航站",
   "short_name": "ByteHive",
-  "description": "探索未来科技的蜂巢，汇聚全球500+优质AI工具和资源",
+  "description": "为用户精选500+优质AI工具和资源，涵盖AI创作、智能助手、图像生成等多个分类",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -16,8 +16,8 @@
       "purpose": "any maskable"
     }
   ],
-  "theme_color": "#f59e0b",
-  "background_color": "#000000",
+  "theme_color": "#9333ea",
+  "background_color": "#0a0a0a",
   "display": "standalone",
   "start_url": "/",
   "scope": "/",

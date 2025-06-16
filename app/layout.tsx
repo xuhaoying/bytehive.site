@@ -6,12 +6,12 @@ import { ThemeProvider } from '@/components/ui/theme-provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'ByteHive - AI工具生态系统 | 精选500+顶级AI工具',
-  description: '探索未来科技的蜂巢，汇聚全球500+优质AI工具和资源。从创意设计到代码开发，从数据分析到自动化办公，ByteHive为您打造专业的AI工具生态系统。',
-  keywords: 'AI工具,人工智能,机器学习,深度学习,自动化,创意工具,开发工具,数据分析,ByteHive',
+  title: 'ByteHive - AI工具导航站 | 精选500+优质AI工具',
+  description: '为用户精选500+优质AI工具和资源，涵盖AI创作、智能助手、图像生成等多个分类。',
+  keywords: 'AI工具,人工智能,智能助手,图像生成,AI创作,自动化工具,ByteHive',
   openGraph: {
-    title: 'ByteHive - AI工具生态系统',
-    description: '探索未来科技的蜂巢，汇聚全球500+优质AI工具和资源',
+    title: 'ByteHive - AI工具导航站',
+    description: '为用户精选500+优质AI工具和资源',
     type: 'website',
     locale: 'zh_CN',
     url: 'https://bytehive.site',
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ByteHive - AI工具生态系统',
-    description: '探索未来科技的蜂巢，汇聚全球500+优质AI工具和资源',
+    title: 'ByteHive - AI工具导航站',
+    description: '为用户精选500+优质AI工具和资源',
     site: '@ByteHive',
   },
   robots: {
@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
     ],
@@ -42,13 +43,13 @@ export const metadata: Metadata = {
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
     other: [
-      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#000000' },
+      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#f59e0b' },
     ],
   },
   manifest: '/site.webmanifest',
   other: {
-    'msapplication-TileColor': '#000000',
-    'theme-color': '#000000',
+    'msapplication-TileColor': '#9333ea',
+    'theme-color': '#9333ea',
   },
 };
 
