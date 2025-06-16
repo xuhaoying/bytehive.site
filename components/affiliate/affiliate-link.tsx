@@ -156,21 +156,21 @@ export function AffiliateLink({
     <div className={cn('space-y-3', className)}>
       {/* Special Offer Banner */}
       {program.specialOffer && (
-        <div className="bg-gradient-to-r from-green-50 to-emerald-50950/30950/30 border border-green-200800 rounded-lg p-3">
+        <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-lg p-3">
           <div className="flex items-center gap-2 mb-2">
             <Gift className="h-4 w-4 text-green-600" />
-            <span className="font-medium text-green-800200 text-sm">
+            <span className="font-medium text-green-800 text-sm">
               限时优惠
             </span>
             <Badge variant="secondary" className="text-xs">
               {program.specialOffer.discount}% OFF
             </Badge>
           </div>
-          <p className="text-sm text-green-700300 mb-2">
+          <p className="text-sm text-green-700 mb-2">
             {program.specialOffer.description}
           </p>
-          <div className="flex items-center gap-2 text-xs text-green-600400">
-            <span className="font-mono bg-green-100900/50 px-2 py-1 rounded">
+          <div className="flex items-center gap-2 text-xs text-green-600">
+            <span className="font-mono bg-green-100 px-2 py-1 rounded">
               {program.specialOffer.code}
             </span>
             <span>•</span>

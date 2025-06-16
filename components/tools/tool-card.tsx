@@ -23,15 +23,15 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
   const getPaymentBadgeColor = (model: string) => {
     switch (model) {
       case 'Free':
-        return 'bg-emerald-50 text-emerald-700950/30400';
+        return 'bg-emerald-50 text-emerald-700';
       case 'Freemium':
-        return 'bg-blue-50 text-blue-700950/30400';
+        return 'bg-blue-50 text-blue-700';
       case 'Paid':
-        return 'bg-purple-50 text-purple-700950/30400';
+        return 'bg-purple-50 text-purple-700';
       case 'Open Source':
-        return 'bg-amber-50 text-amber-700950/30400';
+        return 'bg-amber-50 text-amber-700';
       default:
-        return 'bg-gray-100 text-gray-700800300';
+        return 'bg-gray-100 text-gray-700';
     }
   };
   
@@ -56,7 +56,7 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
     const parts = text.split(new RegExp(`(${query})`, 'gi'));
     return parts.map((part, index) => 
       part.toLowerCase() === query.toLowerCase() ? 
-        <mark key={index} className="bg-yellow-200800 px-1 rounded">
+        <mark key={index} className="bg-yellow-200 px-1 rounded">
           {part}
         </mark> : part
     );
@@ -64,11 +64,17 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
 
   const category = getCategoryBySlug(tool.category);
 
+  const handleCardClick = () => {
+    trackToolClick(tool.name, tool.category, 'view_details');
+  };
+
   return (
-    <div 
-      className="group bg-card rounded-2xl overflow-hidden border-2 border-border hover:border-primary/20 transition-all duration-300 h-full flex flex-col"
+    <Link 
+      href={`/tool/${tool.slug}`}
+      className="group bg-card rounded-2xl overflow-hidden border-2 border-border hover:border-primary/20 transition-all duration-300 h-full flex flex-col cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleCardClick}
     >
       <div className="p-8 flex-1 flex flex-col">
         <div className="flex items-start gap-4 mb-4">
@@ -93,7 +99,9 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
               <h3 className="font-semibold text-lg line-clamp-1 flex-1">
                 {highlightText(tool.name, searchQuery)}
               </h3>
-              <BookmarkSystem tool={tool} className="ml-2 flex-shrink-0" />
+              <div onClick={(e) => e.stopPropagation()}>
+                <BookmarkSystem tool={tool} className="ml-2 flex-shrink-0" />
+              </div>
             </div>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
@@ -158,24 +166,15 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
         </div>
       </div>
       
-      <div className="flex gap-2 p-4 border-t">
-        <Link 
-          href={`/tool/${tool.slug}`}
-          className="flex-1 py-2 px-4 text-center text-sm font-medium bg-secondary hover:bg-secondary/80 rounded-lg transition-colors"
-          onClick={() => trackToolClick(tool.name, category?.name || '', 'view_details')}
-        >
-          查看详情
-        </Link>
-        <div className="flex-1">
-          <AffiliateLink
-            tool={tool}
-            variant="outline"
-            showCommission={false}
-            trackingId={`card-${tool.id}`}
-            className="h-full [&>div]:space-y-0 [&_button]:h-full [&_button]:text-sm [&_button]:py-2 [&_button]:px-4"
-          />
-        </div>
+      <div className="flex gap-2 p-4 border-t" onClick={(e) => e.stopPropagation()}>
+        <AffiliateLink
+          tool={tool}
+          variant="default"
+          showCommission={false}
+          trackingId={`card-${tool.id}`}
+          className="flex-1 [&>div]:space-y-0 [&_button]:w-full [&_button]:text-sm [&_button]:py-2"
+        />
       </div>
-    </div>
+    </Link>
   );
 }
