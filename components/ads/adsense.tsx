@@ -79,7 +79,7 @@ export function AdSense({
 
 // AdSense Script Component
 export function AdSenseScript() {
-  if (!ADSENSE_CONFIG.client || ADSENSE_CONFIG.client === 'ca-pub-XXXXXXXXXX') {
+  if (!ADSENSE_CONFIG.client) {
     return null;
   }
 
@@ -95,6 +95,10 @@ export function AdSenseScript() {
 
 // Predefined Ad Components
 export function BannerAd({ className }: { className?: string }) {
+  if (!ADSENSE_CONFIG.client || !ADSENSE_CONFIG.slots.homeTopBanner) {
+    return null;
+  }
+  
   return (
     <AdSense
       adSlot={ADSENSE_CONFIG.slots.homeTopBanner}
@@ -106,6 +110,10 @@ export function BannerAd({ className }: { className?: string }) {
 }
 
 export function SidebarAd({ className }: { className?: string }) {
+  if (!ADSENSE_CONFIG.client || !ADSENSE_CONFIG.slots.homeSidebar) {
+    return null;
+  }
+  
   return (
     <AdSense
       adSlot={ADSENSE_CONFIG.slots.homeSidebar}
@@ -117,6 +125,10 @@ export function SidebarAd({ className }: { className?: string }) {
 }
 
 export function InArticleAd({ className }: { className?: string }) {
+  if (!ADSENSE_CONFIG.client || !ADSENSE_CONFIG.slots.articleInContent) {
+    return null;
+  }
+  
   return (
     <AdSense
       adSlot={ADSENSE_CONFIG.slots.articleInContent}
@@ -129,6 +141,10 @@ export function InArticleAd({ className }: { className?: string }) {
 }
 
 export function SquareAd({ className }: { className?: string }) {
+  if (!ADSENSE_CONFIG.client || !ADSENSE_CONFIG.slots.homeSidebar) {
+    return null;
+  }
+  
   return (
     <AdSense
       adSlot={ADSENSE_CONFIG.slots.homeSidebar}
@@ -141,7 +157,7 @@ export function SquareAd({ className }: { className?: string }) {
 
 // Auto Ad Component
 export function AutoAd() {
-  if (!ADSENSE_CONFIG.client || ADSENSE_CONFIG.client === 'ca-pub-XXXXXXXXXX') {
+  if (!ADSENSE_CONFIG.client) {
     return null;
   }
 

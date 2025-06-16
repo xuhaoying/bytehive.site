@@ -1,31 +1,31 @@
 export const ADSENSE_CONFIG = {
   // 替换为您的 AdSense 发布商 ID
-  client: 'ca-pub-XXXXXXXXXX',
+  client: process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || '',
   
   // 广告位 ID 配置
   slots: {
     // 首页广告位
-    homeTopBanner: '1234567890',
-    homeSidebar: '2345678901',
-    homeInFeed: '3456789012',
+    homeTopBanner: process.env.NEXT_PUBLIC_ADSENSE_HOME_TOP || '',
+    homeSidebar: process.env.NEXT_PUBLIC_ADSENSE_HOME_SIDEBAR || '',
+    homeInFeed: process.env.NEXT_PUBLIC_ADSENSE_HOME_INFEED || '',
     
     // 工具详情页广告位
-    toolDetailTop: '4567890123',
-    toolDetailMiddle: '5678901234',
-    toolDetailSidebar: '6789012345',
-    toolDetailRelated: '7890123456',
+    toolDetailTop: process.env.NEXT_PUBLIC_ADSENSE_TOOL_TOP || '',
+    toolDetailMiddle: process.env.NEXT_PUBLIC_ADSENSE_TOOL_MIDDLE || '',
+    toolDetailSidebar: process.env.NEXT_PUBLIC_ADSENSE_TOOL_SIDEBAR || '',
+    toolDetailRelated: process.env.NEXT_PUBLIC_ADSENSE_TOOL_RELATED || '',
     
     // 博客/教程页广告位
-    articleTop: '8901234567',
-    articleInContent: '9012345678',
-    articleBottom: '0123456789',
+    articleTop: process.env.NEXT_PUBLIC_ADSENSE_ARTICLE_TOP || '',
+    articleInContent: process.env.NEXT_PUBLIC_ADSENSE_ARTICLE_CONTENT || '',
+    articleBottom: process.env.NEXT_PUBLIC_ADSENSE_ARTICLE_BOTTOM || '',
     
     // 搜索结果页广告位
-    searchResults: '1234567891',
+    searchResults: process.env.NEXT_PUBLIC_ADSENSE_SEARCH || '',
     
     // 分类页广告位
-    categoryTop: '2345678902',
-    categoryInFeed: '3456789013'
+    categoryTop: process.env.NEXT_PUBLIC_ADSENSE_CATEGORY_TOP || '',
+    categoryInFeed: process.env.NEXT_PUBLIC_ADSENSE_CATEGORY_INFEED || ''
   },
   
   // In-feed 广告布局密钥
