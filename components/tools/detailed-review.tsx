@@ -270,7 +270,7 @@ export function DetailedReview({ tool }: DetailedReviewProps) {
                 tier.popular && 'border-primary shadow-lg scale-105'
               )}>
                 {tier.popular && (
-                  <div className="absolute3 left-1/2 transform -translate-y-1/2">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <Badge className="bg-primary text-primary-foreground">最受欢迎</Badge>
                   </div>
                 )}
