@@ -10,7 +10,7 @@ import { InArticleAd, SidebarAd } from '@/components/ads/adsense';
 import { BreadcrumbStructuredData } from '@/components/seo/structured-data';
 import { ArticleStructuredData } from '@/components/seo/enhanced-structured-data';
 import RelatedTools from '@/components/related-tools';
-import ReactMarkdown from 'react-markdown';
+import MarkdownRenderer from '@/components/markdown-renderer';
 
 interface Props {
   params: { slug: string };
@@ -121,19 +121,7 @@ export default function BlogPostPage({ params }: Props) {
             {/* 文章内容 */}
             <div className="prose prose-lg max-w-none">
               <InArticleAd className="my-8" />
-              
-              <ReactMarkdown
-                components={{
-                  h2: ({ children }) => (
-                    <>
-                      <h2>{children}</h2>
-                      <InArticleAd className="my-8" />
-                    </>
-                  ),
-                }}
-              >
-                {post.content}
-              </ReactMarkdown>
+              <MarkdownRenderer content={post.content} />
             </div>
 
             {/* 标签 */}

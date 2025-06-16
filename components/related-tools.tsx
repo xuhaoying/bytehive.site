@@ -6,8 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Star, ExternalLink, TrendingUp } from 'lucide-react';
-import { toolsData } from '@/data/tools';
-import type { Tool } from '@/types/tool';
+import { tools } from '@/data/tools';
+import type { Tool } from '@/types';
 
 interface RelatedToolsProps {
   currentToolId?: string;
@@ -32,23 +32,23 @@ export default function RelatedTools({
 
     if (toolIds && toolIds.length > 0) {
       // 根据指定的工具ID获取工具
-      tools = toolsData.filter(tool => toolIds.includes(tool.id));
+      tools = tools.filter(tool => toolIds.includes(tool.id));
     } else if (category) {
       // 根据分类获取工具
-      tools = toolsData
+      tools = tools
         .filter(tool => tool.category === category && tool.id !== currentToolId)
-        .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+        .sort((a, b) => b.popularity - a.popularity);
     } else if (currentToolId) {
       // 获取当前工具的相关工具
-      const currentTool = toolsData.find(t => t.id === currentToolId);
+      const currentTool = tools.find(t => t.id === currentToolId);
       if (currentTool) {
         // 同分类工具
-        const sameCategoryTools = toolsData
+        const sameCategoryTools = tools
           .filter(t => t.category === currentTool.category && t.id !== currentToolId)
           .slice(0, 3);
         
         // 相似标签的工具
-        const similarTagTools = toolsData
+        const similarTagTools = tools
           .filter(t => 
             t.id !== currentToolId && 
             t.tags.some(tag => currentTool.tags.includes(tag))
@@ -103,13 +103,13 @@ export default function RelatedTools({
                   {/* 工具图标和名称 */}
                   <div className="flex items-start gap-3 mb-3">
                     <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0">
-                      <span className="text-2xl">{tool.icon}</span>
+                      <span className="text-2xl">🔧</span>
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="font-semibold group-hover:text-primary transition-colors truncate">
                         {tool.name}
                       </h3>
-                      {tool.featured && (
+                      {tool.popularity > 80 && (
                         <Badge variant="secondary" className="text-xs mt-1">
                           推荐
                         </Badge>
@@ -122,17 +122,19 @@ export default function RelatedTools({
                     {tool.description}
                   </p>
 
-                  {/* 评分和价格 */}
+                  {/* 受欢迎度和价格 */}
                   <div className="flex items-center justify-between text-xs">
                     <div className="flex items-center gap-1">
                       <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                      <span className="font-medium">{tool.rating}</span>
+                      <span className="font-medium">{(tool.popularity / 20).toFixed(1)}</span>
                       <span className="text-muted-foreground">
-                        ({tool.reviews})
+                        评分
                       </span>
                     </div>
-                    <Badge variant={tool.pricing === '免费' ? 'secondary' : 'outline'}>
-                      {tool.pricing}
+                    <Badge variant={tool.pricing === 'Free' ? 'secondary' : 'outline'}>
+                      {tool.pricing === 'Free' ? '免费' : 
+                       tool.pricing === 'Freemium' ? '免费试用' :
+                       tool.pricing === 'Open Source' ? '开源' : '付费'}
                     </Badge>
                   </div>
 
