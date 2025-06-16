@@ -95,7 +95,7 @@ export function OptimizedImage({
     <div
       ref={imgRef}
       className={cn(
-        'relative overflow-hidden bg-gray-100 dark:bg-gray-800',
+        'relative overflow-hidden bg-gray-100',
         className
       )}
       style={{ width, height }}

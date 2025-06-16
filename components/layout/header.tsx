@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Search, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ThemeToggle } from '@/components/ui/theme-toggle';
+// Removed theme toggle import
 import { useRouter } from 'next/navigation';
 import { categories } from '@/data/categories';
 
@@ -61,12 +61,6 @@ export default function Header() {
               className="text-sm font-medium hover:text-primary transition-colors"
             >
               资讯
-            </Link>
-            <Link 
-              href="/search" 
-              className="text-sm font-medium hover:text-primary transition-colors"
-            >
-              教程
             </Link>
             <div className="relative group">
               <button className="text-sm font-medium hover:text-primary transition-colors flex items-center">
@@ -125,12 +119,10 @@ export default function Header() {
                 className="pl-10 w-64"
               />
             </form>
-            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center space-x-2 md:hidden">
-            <ThemeToggle />
             <Button
               variant="ghost"
               size="sm"

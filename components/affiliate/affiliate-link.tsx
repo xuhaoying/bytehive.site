@@ -156,21 +156,21 @@ export function AffiliateLink({
     <div className={cn('space-y-3', className)}>
       {/* Special Offer Banner */}
       {program.specialOffer && (
-        <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-950/30 dark:to-emerald-950/30 border border-green-200 dark:border-green-800 rounded-lg p-3">
+        <div className="bg-gradient-to-r from-green-50 to-emerald-50950/30950/30 border border-green-200800 rounded-lg p-3">
           <div className="flex items-center gap-2 mb-2">
             <Gift className="h-4 w-4 text-green-600" />
-            <span className="font-medium text-green-800 dark:text-green-200 text-sm">
+            <span className="font-medium text-green-800200 text-sm">
               限时优惠
             </span>
             <Badge variant="secondary" className="text-xs">
               {program.specialOffer.discount}% OFF
             </Badge>
           </div>
-          <p className="text-sm text-green-700 dark:text-green-300 mb-2">
+          <p className="text-sm text-green-700300 mb-2">
             {program.specialOffer.description}
           </p>
-          <div className="flex items-center gap-2 text-xs text-green-600 dark:text-green-400">
-            <span className="font-mono bg-green-100 dark:bg-green-900/50 px-2 py-1 rounded">
+          <div className="flex items-center gap-2 text-xs text-green-600400">
+            <span className="font-mono bg-green-100900/50 px-2 py-1 rounded">
               {program.specialOffer.code}
             </span>
             <span>•</span>
@@ -196,7 +196,7 @@ export function AffiliateLink({
         </div>
         
         {/* Animated background effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:translate-x-full transition-transform duration-1000" />
       </Button>
 
       {/* Commission Info */}

@@ -162,7 +162,7 @@ function SearchContent() {
     const parts = text.split(new RegExp(`(${query})`, 'gi'));
     return parts.map((part, index) => 
       part.toLowerCase() === query.toLowerCase() ? 
-        <mark key={index} className="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">
+        <mark key={index} className="bg-yellow-200 text-yellow-800 px-1 rounded">
           {part}
         </mark> : part
     );

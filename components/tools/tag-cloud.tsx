@@ -153,9 +153,9 @@ export function TagCloud({
 
   const getTagColor = (tag: TagData) => {
     if (tag.trending) return 'bg-primary/10 text-primary border-primary/20 hover:bg-primary/20';
-    if (tag.count > 5) return 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100 dark:bg-blue-950/30 dark:text-blue-300 dark:border-blue-800';
-    if (tag.count > 3) return 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100 dark:bg-green-950/30 dark:text-green-300 dark:border-green-800';
-    return 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100 dark:bg-gray-950/30 dark:text-gray-300 dark:border-gray-800';
+    if (tag.count > 5) return 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100';
+    if (tag.count > 3) return 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100';
+    return 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100';
   };
 
   const handleTagClick = (tag: TagData) => {

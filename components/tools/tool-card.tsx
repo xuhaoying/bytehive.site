@@ -23,15 +23,15 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
   const getPaymentBadgeColor = (model: string) => {
     switch (model) {
       case 'Free':
-        return 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400';
+        return 'bg-emerald-50 text-emerald-700950/30400';
       case 'Freemium':
-        return 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400';
+        return 'bg-blue-50 text-blue-700950/30400';
       case 'Paid':
-        return 'bg-purple-50 text-purple-700 dark:bg-purple-950/30 dark:text-purple-400';
+        return 'bg-purple-50 text-purple-700950/30400';
       case 'Open Source':
-        return 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400';
+        return 'bg-amber-50 text-amber-700950/30400';
       default:
-        return 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300';
+        return 'bg-gray-100 text-gray-700800300';
     }
   };
   
@@ -56,7 +56,7 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
     const parts = text.split(new RegExp(`(${query})`, 'gi'));
     return parts.map((part, index) => 
       part.toLowerCase() === query.toLowerCase() ? 
-        <mark key={index} className="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">
+        <mark key={index} className="bg-yellow-200800 px-1 rounded">
           {part}
         </mark> : part
     );

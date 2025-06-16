@@ -102,13 +102,13 @@ function SponsorCard({ sponsor, compact = false, onClose }: { sponsor: Sponsor; 
   const getTierColor = (tier: string) => {
     switch (tier) {
       case 'platinum':
-        return 'border-purple-200 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30';
+        return 'border-purple-200 bg-gradient-to-r from-purple-50 to-pink-50950/30950/30';
       case 'gold':
-        return 'border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30';
+        return 'border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50950/30950/30';
       case 'silver':
-        return 'border-gray-200 bg-gradient-to-r from-gray-50 to-slate-50 dark:from-gray-950/30 dark:to-slate-950/30';
+        return 'border-gray-200 bg-gradient-to-r from-gray-50 to-slate-50950/30950/30';
       case 'bronze':
-        return 'border-orange-200 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-950/30 dark:to-red-950/30';
+        return 'border-orange-200 bg-gradient-to-r from-orange-50 to-red-50950/30950/30';
       default:
         return 'border-border bg-card';
     }
@@ -117,13 +117,13 @@ function SponsorCard({ sponsor, compact = false, onClose }: { sponsor: Sponsor; 
   const getTierBadge = (tier: string) => {
     switch (tier) {
       case 'platinum':
-        return <Badge className="bg-purple-100 text-purple-700 dark:bg-purple-950 dark:text-purple-300">白金赞助商</Badge>;
+        return <Badge className="bg-purple-100 text-purple-700950300">白金赞助商</Badge>;
       case 'gold':
-        return <Badge className="bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300">黄金赞助商</Badge>;
+        return <Badge className="bg-amber-100 text-amber-700950300">黄金赞助商</Badge>;
       case 'silver':
-        return <Badge className="bg-gray-100 text-gray-700 dark:bg-gray-950 dark:text-gray-300">银牌赞助商</Badge>;
+        return <Badge className="bg-gray-100 text-gray-700950300">银牌赞助商</Badge>;
       case 'bronze':
-        return <Badge className="bg-orange-100 text-orange-700 dark:bg-orange-950 dark:text-orange-300">铜牌赞助商</Badge>;
+        return <Badge className="bg-orange-100 text-orange-700950300">铜牌赞助商</Badge>;
       default:
         return <Badge variant="outline">赞助商</Badge>;
     }
@@ -161,7 +161,7 @@ function SponsorCard({ sponsor, compact = false, onClose }: { sponsor: Sponsor; 
           <Button
             variant="ghost"
             size="sm"
-            className="absolute -top-1 -right-1 h-6 w-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute11 h-6 w-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity"
             onClick={handleClose}
           >
             <X className="h-3 w-3" />

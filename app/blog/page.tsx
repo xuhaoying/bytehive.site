@@ -180,8 +180,13 @@ function BlogCard({ post, featured = false }: { post: BlogPost; featured?: boole
       featured && 'border-primary/20'
     )}>
       <div className="relative overflow-hidden">
-        <div className="aspect-video bg-muted flex items-center justify-center">
-          <span className="text-muted-foreground">封面图片</span>
+        <div className="aspect-video bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-dashed border-gray-200 flex items-center justify-center">
+          <div className="text-center">
+            <div className="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+              <span className="text-white text-2xl font-bold">AI</span>
+            </div>
+            <span className="text-muted-foreground text-sm">文章封面</span>
+          </div>
         </div>
         {post.featured && (
           <Badge className="absolute top-3 left-3 bg-primary">

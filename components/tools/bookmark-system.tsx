@@ -38,7 +38,7 @@ function BookmarkButton({ toolId, isBookmarked, onToggle, className }: BookmarkB
       onClick={onToggle}
       className={cn(
         'h-8 w-8 p-0',
-        isBookmarked && 'text-amber-600 dark:text-amber-400',
+        isBookmarked && 'text-amber-600 fill-amber-400',
         className
       )}
       title={isBookmarked ? '取消收藏' : '收藏工具'}
@@ -61,7 +61,7 @@ function FavoriteButton({ toolId, isFavorited, onToggle, className }: BookmarkBu
       onClick={onToggle}
       className={cn(
         'h-8 w-8 p-0',
-        isFavorited && 'text-red-600 dark:text-red-400',
+        isFavorited && 'text-red-600 fill-red-400',
         className
       )}
       title={isFavorited ? '取消喜欢' : '喜欢'}

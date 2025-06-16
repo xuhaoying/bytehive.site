@@ -1,7 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/ui/theme-provider';
+// Removed theme provider for light mode only
 import { WebSiteStructuredData, OrganizationStructuredData } from '@/components/seo/structured-data';
 import { AdSenseScript, AutoAd } from '@/components/ads/adsense';
 import GoogleAnalytics from '@/components/analytics/google-analytics';
@@ -74,15 +74,8 @@ export default function RootLayout({
         )}
       </head>
       <body className={inter.className}>
-        <ThemeProvider 
-          attribute="class" 
-          defaultTheme="system" 
-          enableSystem 
-          disableTransitionOnChange
-        >
           <WebVitalsMonitor config={{ reportWebVitals: true, debug: process.env.NODE_ENV === 'development' }} />
           {children}
-        </ThemeProvider>
       </body>
     </html>
   );

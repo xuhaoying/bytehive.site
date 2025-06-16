@@ -69,13 +69,13 @@ export default function ToolPage({ params }: ToolPageProps) {
     switch (pricing) {
       case 'Free':
       case 'Open Source':
-        return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
+        return 'bg-green-100 text-green-800';
       case 'Freemium':
-        return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
+        return 'bg-blue-100 text-blue-800';
       case 'Paid':
-        return 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200';
+        return 'bg-orange-100 text-orange-800';
       default:
-        return 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200';
+        return 'bg-gray-100 text-gray-800';
     }
   };
 
@@ -402,7 +402,7 @@ export default function ToolPage({ params }: ToolPageProps) {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">更新状态</span>
-                  <span className="text-xs text-emerald-600 bg-emerald-50 px-2 py-1 rounded dark:bg-emerald-950 dark:text-emerald-400">
+                  <span className="text-xs text-emerald-600 bg-emerald-50 px-2 py-1 rounded">
                     活跃维护
                   </span>
                 </div>
