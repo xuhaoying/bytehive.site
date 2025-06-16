@@ -213,69 +213,12 @@ export function BookmarkSystem({ tool, className }: BookmarkSystemProps) {
   };
 
   return (
-    <div className={cn('flex items-center gap-1', className)}>
-      <BookmarkButton
-        toolId={tool.id}
-        isBookmarked={isBookmarked}
-        onToggle={toggleBookmark}
-      />
-      
-      <FavoriteButton
-        toolId={tool.id}
-        isFavorited={isFavorited}
-        onToggle={toggleFavorite}
-      />
-      
-      <Dialog open={showCollections} onOpenChange={setShowCollections}>
-        <DialogTrigger asChild>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="h-8 w-8 p-0"
-            title="添加到收藏夹"
-          >
-            <Star className="h-4 w-4" />
-          </Button>
-        </DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>添加到收藏夹</DialogTitle>
-          </DialogHeader>
-          <div className="space-y-2">
-            {collections.map((collection) => {
-              const isInCollection = collection.tools.includes(tool.id);
-              return (
-                <div
-                  key={collection.id}
-                  className={cn(
-                    'flex items-center justify-between p-3 border rounded-lg cursor-pointer hover:bg-muted/50 transition-colors',
-                    isInCollection && 'bg-primary/5 border-primary/20'
-                  )}
-                  onClick={() => addToCollection(collection.id)}
-                >
-                  <div>
-                    <div className="font-medium">{collection.name}</div>
-                    {collection.description && (
-                      <div className="text-sm text-muted-foreground">
-                        {collection.description}
-                      </div>
-                    )}
-                    <div className="text-xs text-muted-foreground">
-                      {collection.tools.length} 个工具
-                    </div>
-                  </div>
-                  {isInCollection && (
-                    <Star className="h-4 w-4 fill-primary text-primary" />
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </DialogContent>
-      </Dialog>
-      
-      <ShareButton tool={tool} />
-    </div>
+    <BookmarkButton
+      toolId={tool.id}
+      isBookmarked={isBookmarked}
+      onToggle={toggleBookmark}
+      className={className}
+    />
   );
 }
 
