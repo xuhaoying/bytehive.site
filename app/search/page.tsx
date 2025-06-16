@@ -12,7 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { FilterState, Tool, ToolCategory, PaymentModel } from '@/types';
-import { Search, X } from 'lucide-react';
+import { Search, X, TrendingUp, Clock, Hash } from 'lucide-react';
 
 // Create Fuse.js instance for search
 const fuse = new Fuse(tools, {
@@ -20,6 +20,50 @@ const fuse = new Fuse(tools, {
   threshold: 0.3,
   includeScore: true,
 });
+
+// Hot search keywords (模拟热门搜索数据)
+const hotSearches = [
+  { keyword: 'AI写作工具', count: 1250 },
+  { keyword: 'ChatGPT替代', count: 980 },
+  { keyword: '免费AI工具', count: 856 },
+  { keyword: '图像生成', count: 723 },
+  { keyword: '代码助手', count: 645 },
+  { keyword: '视频编辑', count: 534 },
+  { keyword: 'PPT制作', count: 432 },
+  { keyword: '翻译工具', count: 387 },
+];
+
+// Search suggestions based on partial input
+const getSearchSuggestions = (query: string): string[] => {
+  if (!query.trim()) return [];
+  
+  const suggestions = new Set<string>();
+  
+  // Tool names
+  tools.forEach(tool => {
+    if (tool.name.toLowerCase().includes(query.toLowerCase())) {
+      suggestions.add(tool.name);
+    }
+  });
+  
+  // Tags
+  tools.forEach(tool => {
+    tool.tags.forEach(tag => {
+      if (tag.toLowerCase().includes(query.toLowerCase())) {
+        suggestions.add(tag);
+      }
+    });
+  });
+  
+  // Categories
+  categories.forEach(cat => {
+    if (cat.name.toLowerCase().includes(query.toLowerCase())) {
+      suggestions.add(cat.name);
+    }
+  });
+  
+  return Array.from(suggestions).slice(0, 8);
+};
 
 function SearchContent() {
   const searchParams = useSearchParams();
@@ -33,6 +77,8 @@ function SearchContent() {
   });
   const [searchResults, setSearchResults] = useState<Tool[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   // Get all available categories and payment models
   const allCategories = categories.map(cat => cat.slug);
@@ -68,12 +114,33 @@ function SearchContent() {
     setIsLoading(false);
   }, [filters]);
 
+  // Handle search input changes
+  const handleSearchInputChange = (value: string) => {
+    setSearchQuery(value);
+    if (value.trim()) {
+      setSuggestions(getSearchSuggestions(value));
+      setShowSuggestions(true);
+    } else {
+      setSuggestions([]);
+      setShowSuggestions(false);
+    }
+  };
+
   const handleSearch = (query: string) => {
     setSearchQuery(query);
     setFilters(prev => ({
       ...prev,
       searchQuery: query
     }));
+    setShowSuggestions(false);
+  };
+
+  const handleSuggestionClick = (suggestion: string) => {
+    handleSearch(suggestion);
+  };
+
+  const handleHotSearchClick = (keyword: string) => {
+    handleSearch(keyword);
   };
 
   const handleFilterChange = (newFilters: FilterState) => {
@@ -118,7 +185,21 @@ function SearchContent() {
                 type="text"
                 placeholder="搜索工具名称、描述或标签..."
                 value={searchQuery}
-                onChange={(e) => handleSearch(e.target.value)}
+                onChange={(e) => handleSearchInputChange(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    handleSearch(searchQuery);
+                  }
+                }}
+                onFocus={() => {
+                  if (searchQuery.trim()) {
+                    setShowSuggestions(true);
+                  }
+                }}
+                onBlur={() => {
+                  // Delay hiding suggestions to allow clicking
+                  setTimeout(() => setShowSuggestions(false), 200);
+                }}
                 className="pl-12 pr-12 h-14 text-lg"
               />
               {searchQuery && (
@@ -131,7 +212,48 @@ function SearchContent() {
                   <X className="h-4 w-4" />
                 </Button>
               )}
+              
+              {/* Search Suggestions */}
+              {showSuggestions && suggestions.length > 0 && (
+                <div className="absolute top-full left-0 right-0 mt-2 bg-card border rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
+                  {suggestions.map((suggestion, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 p-3 hover:bg-muted cursor-pointer border-b last:border-b-0"
+                      onClick={() => handleSuggestionClick(suggestion)}
+                    >
+                      <Search className="h-4 w-4 text-muted-foreground" />
+                      <span>{suggestion}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
+
+            {/* Hot Searches - only show when no search query */}
+            {!filters.searchQuery && (
+              <div className="mb-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <TrendingUp className="h-4 w-4 text-primary" />
+                  <span className="text-sm font-medium">热门搜索</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {hotSearches.slice(0, 6).map((item, index) => (
+                    <Button
+                      key={index}
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleHotSearchClick(item.keyword)}
+                      className="h-8 text-xs"
+                    >
+                      <Hash className="h-3 w-3 mr-1" />
+                      {item.keyword}
+                      <span className="ml-1 text-muted-foreground">({item.count})</span>
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Search Stats */}
             <div className="text-center text-muted-foreground">

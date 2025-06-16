@@ -9,13 +9,15 @@ import { Separator } from '@/components/ui/separator';
 import ToolCard from '@/components/tools/tool-card';
 import Link from 'next/link';
 import { OptimizedImage } from '@/components/ui/optimized-image';
-import { ChevronRight, Home, ExternalLink, Calendar, Users, Star } from 'lucide-react';
+import { ChevronRight, Home, ExternalLink, Calendar, Users, Star, BookOpen } from 'lucide-react';
 import { SidebarAd, InArticleAd } from '@/components/ads/adsense';
 import { cn } from '@/lib/utils';
 import { RatingSystem } from '@/components/tools/rating-system';
 import { BookmarkSystem } from '@/components/tools/bookmark-system';
 import { SponsorBanner } from '@/components/sponsor/sponsor-banner';
 import { AffiliateLink, AffiliateProgramInfo } from '@/components/affiliate/affiliate-link';
+import { DetailedReview } from '@/components/tools/detailed-review';
+import { RelatedTools, TagCloud } from '@/components/tools/tag-cloud';
 
 interface ToolPageProps {
   params: {
@@ -181,6 +183,16 @@ export default function ToolPage({ params }: ToolPageProps) {
                 </CardContent>
               </Card>
             )}
+
+            {/* Detailed Review */}
+            <Card className="mb-8">
+              <CardHeader>
+                <CardTitle>专业评测</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <DetailedReview tool={tool} />
+              </CardContent>
+            </Card>
 
             {/* Rating System */}
             <Card className="mb-8">
@@ -413,6 +425,12 @@ export default function ToolPage({ params }: ToolPageProps) {
                   trackingId={`sidebar-${tool.id}`}
                   className="[&_button]:w-full [&_button]:text-sm"
                 />
+                <Link href={`/tutorial/${tool.slug}`}>
+                  <Button variant="outline" className="w-full" size="sm">
+                    <BookOpen className="h-4 w-4 mr-2" />
+                    使用教程
+                  </Button>
+                </Link>
                 <Button variant="outline" className="w-full" size="sm">
                   <Users className="h-4 w-4 mr-2" />
                   加入社区讨论
@@ -425,68 +443,16 @@ export default function ToolPage({ params }: ToolPageProps) {
             </Card>
 
             {/* Related Tools */}
-            {relatedTools.length > 0 && (
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    <span>相关工具</span>
-                    <Link 
-                      href={`/category/${tool.category}`}
-                      className="text-xs text-primary hover:underline"
-                    >
-                      查看更多
-                    </Link>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {relatedTools.map((relatedTool) => (
-                      <div key={relatedTool.id} className="flex items-center gap-3 p-3 rounded-lg border hover:bg-muted/50 transition-colors">
-                        {relatedTool.logo && (
-                          <OptimizedImage
-                            src={relatedTool.logo}
-                            alt={`${relatedTool.name} logo`}
-                            width={40}
-                            height={40}
-                            className="rounded-lg flex-shrink-0"
-                            loading="lazy"
-                          />
-                        )}
-                        <div className="flex-1 min-w-0">
-                          <Link 
-                            href={`/tool/${relatedTool.slug}`}
-                            className="font-medium hover:text-primary line-clamp-1"
-                          >
-                            {relatedTool.name}
-                          </Link>
-                          <p className="text-sm text-muted-foreground line-clamp-2">
-                            {relatedTool.description}
-                          </p>
-                          <div className="flex items-center gap-1 mt-1">
-                            <div className="flex">
-                              {Array.from({ length: 5 }).map((_, index) => (
-                                <Star 
-                                  key={index} 
-                                  className={cn(
-                                    "h-2.5 w-2.5",
-                                    index < Math.round(relatedTool.popularity / 20) 
-                                      ? "fill-amber-400 text-amber-400" 
-                                      : "fill-none text-muted-foreground/30"
-                                  )}
-                                />
-                              ))}
-                            </div>
-                            <span className="text-xs text-muted-foreground ml-1">
-                              {relatedTool.popularity}/100
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            )}
+            <RelatedTools currentTool={tool} maxRecommendations={6} />
+
+            {/* Tag Cloud */}
+            <TagCloud 
+              maxTags={30} 
+              showSearch={false}
+              onTagClick={(tag) => {
+                window.location.href = `/search?q=${encodeURIComponent(tag)}`;
+              }}
+            />
           </div>
         </div>
       </div>

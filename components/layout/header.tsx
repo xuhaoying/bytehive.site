@@ -44,6 +44,30 @@ export default function Header() {
             >
               首页
             </Link>
+            <Link 
+              href="/compare" 
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
+              工具对比
+            </Link>
+            <Link 
+              href="/rankings" 
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
+              排行榜
+            </Link>
+            <Link 
+              href="/blog" 
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
+              资讯
+            </Link>
+            <Link 
+              href="/search" 
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
+              教程
+            </Link>
             <div className="relative group">
               <button className="text-sm font-medium hover:text-primary transition-colors flex items-center">
                 分类
