@@ -260,7 +260,37 @@ export function SponsorBanner({ position, className, maxSponsors = 3 }: SponsorB
     setSponsors(prev => prev.filter(s => s.id !== sponsorId));
   };
 
-  if (sponsors.length === 0) return null;
+  if (sponsors.length === 0) {
+    // Show placeholder in development environment
+    if (process.env.NODE_ENV === 'development') {
+      return (
+        <div className={cn('space-y-3', className)}>
+          <div className="flex items-center justify-between">
+            <h3 className="font-medium text-sm text-muted-foreground">赞助商推荐</h3>
+            <Badge variant="outline" className="text-xs">广告</Badge>
+          </div>
+          <Card className="cursor-pointer hover:shadow-lg transition-all border-dashed border-2 border-gray-300">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-bold text-sm">AD</span>
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-medium text-sm text-gray-600">赞助商广告位</h4>
+                  <p className="text-xs text-gray-500">
+                    {position === 'sidebar' ? '侧边栏推广位' : 
+                     position === 'banner' ? '横幅广告位' : '精选推广位'}
+                  </p>
+                </div>
+                <ExternalLink className="h-3 w-3 text-gray-400" />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      );
+    }
+    return null;
+  }
 
   if (position === 'sidebar') {
     return (

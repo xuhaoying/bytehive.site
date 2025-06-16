@@ -231,7 +231,23 @@ export function AffiliateLink({
 export function AffiliateProgramInfo({ toolId }: { toolId: string }) {
   const program = useAffiliateProgram(toolId);
 
-  if (!program) return null;
+  if (!program) {
+    // Show placeholder in development environment
+    if (process.env.NODE_ENV === 'development') {
+      return (
+        <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 bg-gray-50">
+          <div className="text-center">
+            <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
+              <Percent className="h-6 w-6 text-white" />
+            </div>
+            <div className="text-sm text-gray-600 font-medium">联盟推广信息</div>
+            <div className="text-xs text-gray-500 mt-1">暂无推广计划</div>
+          </div>
+        </div>
+      );
+    }
+    return null;
+  }
 
   return (
     <div className="bg-muted/30 rounded-lg p-4 space-y-3">

@@ -38,6 +38,28 @@ export function AdSense({
     }
   }, []);
 
+  // Show placeholder in development environment
+  if (process.env.NODE_ENV === 'development') {
+    return (
+      <div 
+        className={`${className} flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 border-2 border-dashed border-gray-300 rounded-lg`} 
+        style={{ minHeight: '250px', ...style }}
+      >
+        <div className="text-center">
+          <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+            <span className="text-white text-xl font-bold">AD</span>
+          </div>
+          <div className="text-sm text-gray-600 font-medium">AdSense 广告位</div>
+          <div className="text-xs text-gray-500 mt-1">
+            {adFormat === 'horizontal' ? '横幅广告' : 
+             adFormat === 'rectangle' ? '矩形广告' : 
+             adFormat === 'fluid' ? '信息流广告' : '自适应广告'}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={className} style={style}>
       <ins
