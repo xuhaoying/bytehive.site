@@ -106,7 +106,7 @@ export default function RelatedTools({
                       <span className="text-2xl">🔧</span>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold group-hover:text-primary transition-colors truncate">
+                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">
                         {tool.name}
                       </h3>
                       {tool.popularity > 80 && (
@@ -124,18 +124,13 @@ export default function RelatedTools({
 
                   {/* 受欢迎度和价格 */}
                   <div className="flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-1">
-                      <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                      <span className="font-medium">{(tool.popularity / 20).toFixed(1)}</span>
-                      <span className="text-muted-foreground">
-                        评分
-                      </span>
+                    <div className="flex items-center gap-2">
+                      <Badge variant={tool.pricing === 'Free' ? 'secondary' : 'outline'}>
+                        {tool.pricing === 'Free' ? '免费' : 
+                         tool.pricing === 'Freemium' ? '免费试用' :
+                         tool.pricing === 'Open Source' ? '开源' : '付费'}
+                      </Badge>
                     </div>
-                    <Badge variant={tool.pricing === 'Free' ? 'secondary' : 'outline'}>
-                      {tool.pricing === 'Free' ? '免费' : 
-                       tool.pricing === 'Freemium' ? '免费试用' :
-                       tool.pricing === 'Open Source' ? '开源' : '付费'}
-                    </Badge>
                   </div>
 
                   {/* 标签 */}

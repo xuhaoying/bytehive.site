@@ -116,7 +116,7 @@ function RankingItem({ tool, rank, metrics, showMetric, metricLabel, metricIcon 
               <div className="flex items-center gap-2 mb-1">
                 <Link 
                   href={`/tool/${tool.slug}`}
-                  className="font-semibold text-lg hover:text-primary transition-colors line-clamp-1"
+                  className="font-semibold text-lg text-foreground hover:text-primary transition-colors line-clamp-1"
                 >
                   {tool.name}
                 </Link>
@@ -132,11 +132,6 @@ function RankingItem({ tool, rank, metrics, showMetric, metricLabel, metricIcon 
               </p>
               
               <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                <div className="flex items-center gap-1">
-                  <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
-                  <span>{tool.popularity}/100</span>
-                </div>
-                
                 {category && (
                   <Badge variant="outline" className="text-xs">
                     {category.name}

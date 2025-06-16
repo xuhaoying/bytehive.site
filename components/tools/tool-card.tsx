@@ -96,7 +96,7 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
           )}
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between mb-1">
-              <h3 className="font-semibold text-lg line-clamp-1 flex-1">
+              <h3 className="font-semibold text-lg text-foreground line-clamp-1 flex-1">
                 {highlightText(tool.name, searchQuery)}
               </h3>
               <div onClick={(e) => e.stopPropagation()}>
@@ -104,11 +104,8 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1">
-                {getPopularityStars(tool.popularity)}
-              </div>
               <span className="text-xs text-muted-foreground">
-                {tool.popularity}/100
+                {tool.pricing}
               </span>
             </div>
           </div>
