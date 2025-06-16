@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Script from 'next/script';
+import { ADSENSE_CONFIG } from '@/config/adsense';
 
 declare global {
   interface Window {
@@ -65,7 +66,7 @@ export function AdSense({
       <ins
         className="adsbygoogle"
         style={{ display: 'block', ...style }}
-        data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX" // Replace with your AdSense client ID
+        data-ad-client={ADSENSE_CONFIG.client}
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
         data-ad-layout={adLayout}
@@ -78,10 +79,14 @@ export function AdSense({
 
 // AdSense Script Component
 export function AdSenseScript() {
+  if (!ADSENSE_CONFIG.client || ADSENSE_CONFIG.client === 'ca-pub-XXXXXXXXXX') {
+    return null;
+  }
+
   return (
     <Script
       async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX"
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CONFIG.client}`}
       crossOrigin="anonymous"
       strategy="afterInteractive"
     />
@@ -92,7 +97,7 @@ export function AdSenseScript() {
 export function BannerAd({ className }: { className?: string }) {
   return (
     <AdSense
-      adSlot="1234567890"
+      adSlot={ADSENSE_CONFIG.slots.homeTopBanner}
       adFormat="horizontal"
       className={className}
       style={{ minHeight: '250px' }}
@@ -103,7 +108,7 @@ export function BannerAd({ className }: { className?: string }) {
 export function SidebarAd({ className }: { className?: string }) {
   return (
     <AdSense
-      adSlot="1234567891"
+      adSlot={ADSENSE_CONFIG.slots.homeSidebar}
       adFormat="rectangle"
       className={className}
       style={{ minHeight: '280px' }}
@@ -114,7 +119,7 @@ export function SidebarAd({ className }: { className?: string }) {
 export function InArticleAd({ className }: { className?: string }) {
   return (
     <AdSense
-      adSlot="1234567892"
+      adSlot={ADSENSE_CONFIG.slots.articleInContent}
       adFormat="fluid"
       adLayout="in-article"
       className={className}
@@ -126,7 +131,7 @@ export function InArticleAd({ className }: { className?: string }) {
 export function SquareAd({ className }: { className?: string }) {
   return (
     <AdSense
-      adSlot="1234567893"
+      adSlot={ADSENSE_CONFIG.slots.homeSidebar}
       adFormat="rectangle"
       className={className}
       style={{ minHeight: '250px', minWidth: '250px' }}
@@ -136,6 +141,10 @@ export function SquareAd({ className }: { className?: string }) {
 
 // Auto Ad Component
 export function AutoAd() {
+  if (!ADSENSE_CONFIG.client || ADSENSE_CONFIG.client === 'ca-pub-XXXXXXXXXX') {
+    return null;
+  }
+
   return (
     <Script
       id="auto-ads"
@@ -143,7 +152,7 @@ export function AutoAd() {
       dangerouslySetInnerHTML={{
         __html: `
           (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-XXXXXXXXXXXXXXXXX",
+            google_ad_client: "${ADSENSE_CONFIG.client}",
             enable_page_level_ads: true
           });
         `,
