@@ -1,24 +1,21 @@
-# https://www.robotstxt.org/robotstxt.html
+# ByteHive Robots.txt
+
+# Allow all bots
 User-agent: *
 Allow: /
 
-# Crawl-delay
+# Specific rules for search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
 Crawl-delay: 1
 
-# Sitemap
-Sitemap: https://bytehive.site/sitemap.xml
-
-# Disallow admin and api routes if any
-Disallow: /api/
-Disallow: /_next/
-Disallow: /admin/
-
-# Allow search engines to index all content
-Allow: /tool/
-Allow: /category/
-Allow: /search
-Allow: /about
-Allow: /submit
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
 
 # Block bad bots
 User-agent: AhrefsBot
@@ -30,14 +27,31 @@ Disallow: /
 User-agent: MJ12bot
 Disallow: /
 
-User-agent: DotBot
-Disallow: /
+# Sitemap location
+Sitemap: https://bytehive.site/sitemap.xml
+Sitemap: https://bytehive.site/sitemap-tools.xml
+Sitemap: https://bytehive.site/sitemap-blog.xml
 
-# Google Image
-User-agent: Googlebot-Image
-Allow: /images/
+# Disallow admin pages (if any)
+Disallow: /admin/
+Disallow: /api/private/
+
+# Allow important pages
+Allow: /blog/
+Allow: /tool/
+Allow: /category/
+Allow: /about
+Allow: /submit
+
+# Cache static assets
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
 Allow: /*.jpg$
 Allow: /*.jpeg$
 Allow: /*.gif$
-Allow: /*.png$
+Allow: /*.svg$
 Allow: /*.webp$
+
+# Host
+Host: https://bytehive.site
