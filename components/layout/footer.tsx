@@ -4,9 +4,9 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="font-semibold text-lg mb-4">AI Nav</h3>
+            <h3 className="font-semibold text-lg mb-4">ByteHive</h3>
             <p className="text-muted-foreground">
-              A curated directory of AI tools to help you find the right solution for your needs.
+              精选500+优质AI工具，帮助您找到合适的AI解决方案。
             </p>
           </div>
           
@@ -53,7 +53,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-8 pt-6 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} AI Nav. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ByteHive. All rights reserved.</p>
         </div>
       </div>
     </footer>

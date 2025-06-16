@@ -6,9 +6,9 @@ import { Heart, Target, Users, Zap, Mail, Github } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: '关于我们 - DevHub | 开发者工具导航站',
-  description: 'DevHub 致力于为开发者提供精选的优质工具和资源，涵盖环境部署、开发工具、AI工具等8大分类。',
-  keywords: '关于DevHub,开发者工具,工具导航,技术资源',
+  title: '关于我们 - ByteHive | AI工具导航站',
+  description: 'ByteHive 致力于为用户提供精选的优质AI工具和资源，涵盖500+个精心挑选的AI工具。',
+  keywords: '关于ByteHive,AI工具,工具导航,人工智能资源',
 };
 
 export default function AboutPage() {
@@ -37,16 +37,16 @@ export default function AboutPage() {
     },
     {
       title: '完全免费',
-      description: 'DevHub 完全免费使用，无广告干扰，专注于用户体验。',
+      description: 'ByteHive 完全免费使用，无广告干扰，专注于用户体验。',
       icon: '💝',
     },
   ];
 
   const team = [
     {
-      name: 'DevHub Team',
+      name: 'ByteHive Team',
       role: '产品团队',
-      description: '由资深开发者和产品经理组成，致力于打造最佳的开发者工具导航体验。',
+      description: '由资深AI研究者和产品经理组成，致力于打造最佳的AI工具导航体验。',
     },
   ];
 
@@ -57,11 +57,11 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 py-16 md:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              关于 DevHub
+              关于 ByteHive
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              DevHub 是一个专为开发者打造的工具导航平台，我们致力于发现、整理和分享最优质的开发工具和资源，
-              帮助开发者提高效率，专注于创造价值。
+              ByteHive 是一个专为AI爱好者打造的工具导航平台，我们致力于发现、整理和分享最优质的AI工具和资源，
+              帮助用户探索AI技术，提高工作效率。
             </p>
             <div className="flex justify-center gap-4">
               <Button asChild size="lg">
@@ -102,8 +102,8 @@ export default function AboutPage() {
                   哪个工具最适合我的项目？哪个服务最值得信赖？哪个平台最符合我的需求？
                 </p>
                 <p className="mb-4">
-                  DevHub 的诞生就是为了解决这个问题。我们不是简单的工具列表，而是一个精心策划的
-                  开发者资源库。每个推荐的工具都经过我们团队的深度评估，包括功能性、稳定性、
+                  ByteHive 的诞生就是为了解决这个问题。我们不是简单的工具列表，而是一个精心策划的
+                  AI资源库。每个推荐的工具都经过我们团队的深度评估，包括功能性、稳定性、
                   用户体验和社区支持等多个维度。
                 </p>
                 <p>
@@ -117,7 +117,7 @@ export default function AboutPage() {
 
         {/* Features */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12">为什么选择 DevHub</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">为什么选择 ByteHive</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {features.map((feature, index) => (
               <Card key={index}>
@@ -192,13 +192,13 @@ export default function AboutPage() {
               </p>
               <div className="flex justify-center gap-4">
                 <Button asChild variant="outline">
-                  <a href="mailto:hello@devhub.com" className="flex items-center gap-2">
+                  <a href="mailto:hello@bytehive.site" className="flex items-center gap-2">
                     <Mail className="h-4 w-4" />
                     发送邮件
                   </a>
                 </Button>
                 <Button asChild variant="outline">
-                  <a href="https://github.com/devhub" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <a href="https://github.com/bytehive" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                     <Github className="h-4 w-4" />
                     GitHub
                   </a>

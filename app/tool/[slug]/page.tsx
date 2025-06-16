@@ -449,9 +449,6 @@ export default function ToolPage({ params }: ToolPageProps) {
             <TagCloud 
               maxTags={30} 
               showSearch={false}
-              onTagClick={(tag) => {
-                window.location.href = `/search?q=${encodeURIComponent(tag)}`;
-              }}
             />
           </div>
         </div>
