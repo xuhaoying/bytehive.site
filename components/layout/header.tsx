@@ -2,25 +2,13 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Search, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-// Removed theme toggle import
-import { useRouter } from 'next/navigation';
+import { SearchAutocomplete } from '@/components/search/search-autocomplete';
 import { categories } from '@/data/categories';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const router = useRouter();
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
-      setIsMenuOpen(false);
-    }
-  };
 
   const mainCategories = categories.slice(0, 6); // Show first 6 categories
 
@@ -109,16 +97,10 @@ export default function Header() {
 
           {/* Search Bar - Desktop */}
           <div className="hidden md:flex items-center space-x-4">
-            <form onSubmit={handleSearch} className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-              <Input
-                type="text"
-                placeholder="搜索工具..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 w-64"
-              />
-            </form>
+            <SearchAutocomplete 
+              className="w-64"
+              closeMenu={() => setIsMenuOpen(false)}
+            />
           </div>
 
           {/* Mobile Menu Button */}
@@ -137,16 +119,9 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden border-t py-4 space-y-4">
             {/* Mobile Search */}
-            <form onSubmit={handleSearch} className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-              <Input
-                type="text"
-                placeholder="搜索工具..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
-              />
-            </form>
+            <SearchAutocomplete 
+              closeMenu={() => setIsMenuOpen(false)}
+            />
 
             {/* Mobile Navigation */}
             <nav className="space-y-2">

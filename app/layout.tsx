@@ -6,6 +6,8 @@ import { WebSiteStructuredData, OrganizationStructuredData } from '@/components/
 import { AdSenseScript, AutoAd } from '@/components/ads/adsense';
 import GoogleAnalytics from '@/components/analytics/google-analytics';
 import WebVitalsMonitor from '@/components/analytics/web-vitals';
+import { ErrorBoundary } from '@/components/error-boundary';
+import { BackToTopWithProgress } from '@/components/back-to-top';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -75,7 +77,10 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
           <WebVitalsMonitor config={{ reportWebVitals: true, debug: process.env.NODE_ENV === 'development' }} />
-          {children}
+          <ErrorBoundary>
+            {children}
+            <BackToTopWithProgress />
+          </ErrorBoundary>
       </body>
     </html>
   );

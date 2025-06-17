@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import { useGoogleAnalytics } from '@/components/analytics/google-analytics';
 import { BookmarkSystem } from '@/components/tools/bookmark-system';
 import { AffiliateLink } from '@/components/affiliate/affiliate-link';
+import { getPricingConfig, getPricingClassName } from '@/lib/pricing-utils';
 
 interface ToolCardProps {
   tool: Tool;
@@ -20,20 +21,7 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const { trackToolClick } = useGoogleAnalytics(process.env.NEXT_PUBLIC_GA_ID || '');
   
-  const getPaymentBadgeColor = (model: string) => {
-    switch (model) {
-      case 'Free':
-        return 'bg-emerald-50 text-emerald-700';
-      case 'Freemium':
-        return 'bg-blue-50 text-blue-700';
-      case 'Paid':
-        return 'bg-purple-50 text-purple-700';
-      case 'Open Source':
-        return 'bg-amber-50 text-amber-700';
-      default:
-        return 'bg-gray-100 text-gray-700';
-    }
-  };
+  const pricingConfig = getPricingConfig(tool.pricing);
   
   const getPopularityStars = (popularity: number) => {
     const stars = Math.round(popularity / 20); // Convert 0-100 to 0-5 stars
@@ -135,12 +123,11 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
         
         <div className="flex flex-wrap gap-2 mt-auto">
           <span className={cn(
-            "px-2 py-1 rounded text-xs font-medium",
-            getPaymentBadgeColor(tool.pricing)
+            "px-2 py-1 rounded text-xs font-medium border",
+            getPricingClassName(tool.pricing)
           )}>
-            {tool.pricing === 'Open Source' ? '开源' : 
-             tool.pricing === 'Free' ? '免费' :
-             tool.pricing === 'Freemium' ? '免费试用' : '付费'}
+            {pricingConfig.icon && <span className="mr-1">{pricingConfig.icon}</span>}
+            {pricingConfig.label}
           </span>
           
           {category && (

@@ -18,6 +18,7 @@ import { SponsorBanner } from '@/components/sponsor/sponsor-banner';
 import { AffiliateLink, AffiliateProgramInfo } from '@/components/affiliate/affiliate-link';
 import { DetailedReview } from '@/components/tools/detailed-review';
 import { RelatedTools, TagCloud } from '@/components/tools/tag-cloud';
+import { getPricingConfig, getPricingClassName } from '@/lib/pricing-utils';
 
 interface ToolPageProps {
   params: {
@@ -65,19 +66,7 @@ export default function ToolPage({ params }: ToolPageProps) {
     .filter(t => t.id !== tool.id)
     .slice(0, 4);
 
-  const getPricingColor = (pricing: string) => {
-    switch (pricing) {
-      case 'Free':
-      case 'Open Source':
-        return 'bg-green-100 text-green-800';
-      case 'Freemium':
-        return 'bg-blue-100 text-blue-800';
-      case 'Paid':
-        return 'bg-orange-100 text-orange-800';
-      default:
-        return 'bg-gray-100 text-gray-800';
-    }
-  };
+  const pricingConfig = getPricingConfig(tool.pricing);
 
   return (
     <div className="min-h-screen bg-background">
@@ -124,10 +113,9 @@ export default function ToolPage({ params }: ToolPageProps) {
                 <p className="text-xl text-muted-foreground mb-4">{tool.description}</p>
                 
                 <div className="flex flex-wrap items-center gap-3 mb-6">
-                  <Badge className={getPricingColor(tool.pricing)}>
-                    {tool.pricing === 'Open Source' ? '开源' : 
-                     tool.pricing === 'Free' ? '免费' :
-                     tool.pricing === 'Freemium' ? '免费试用' : '付费'}
+                  <Badge className={cn('border', getPricingClassName(tool.pricing))}>
+                    {pricingConfig.icon && <span className="mr-1">{pricingConfig.icon}</span>}
+                    {pricingConfig.label}
                   </Badge>
                   {tool.subcategory && (
                     <Badge variant="outline">{tool.subcategory}</Badge>

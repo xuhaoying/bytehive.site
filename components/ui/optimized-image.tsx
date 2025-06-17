@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { cn } from '@/lib/utils';
+import { generateBlurDataURL, generateSrcSet, getOptimizedFormats } from '@/lib/image-utils';
 
 interface OptimizedImageProps {
   src: string;
@@ -12,8 +13,12 @@ interface OptimizedImageProps {
   loading?: 'lazy' | 'eager';
   placeholder?: string;
   fallback?: string;
+  priority?: boolean;
+  quality?: number;
+  blur?: boolean;
   onLoad?: () => void;
   onError?: () => void;
+  aspectRatio?: string;
 }
 
 export function OptimizedImage({
@@ -23,19 +28,31 @@ export function OptimizedImage({
   height,
   className,
   loading = 'lazy',
-  placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzlkYTNhZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkxvYWRpbmcuLi48L3RleHQ+Cjwvc3ZnPg==',
-  fallback = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzlkYTNhZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBhdmFpbGFibGU8L3RleHQ+Cjwvc3ZnPg==',
+  placeholder,
+  fallback = '/images/placeholder.png',
+  priority = false,
+  quality = 75,
+  blur = true,
   onLoad,
-  onError
+  onError,
+  aspectRatio
 }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  // 生成默认占位符
+  const defaultPlaceholder = useMemo(() => {
+    if (placeholder) return placeholder;
+    if (typeof window === 'undefined') return '';
+    return generateBlurDataURL(10, 10);
+  }, [placeholder]);
 
   // Intersection Observer for lazy loading
   useEffect(() => {
-    if (loading === 'eager') {
+    if (loading === 'eager' || priority) {
       setIsInView(true);
       return;
     }
@@ -49,17 +66,17 @@ export function OptimizedImage({
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: '50px'
+        threshold: 0.01,
+        rootMargin: '100px'
       }
     );
 
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
     }
 
     return () => observer.disconnect();
-  }, [loading]);
+  }, [loading, priority]);
 
   const handleLoad = () => {
     setIsLoading(false);
@@ -72,79 +89,115 @@ export function OptimizedImage({
     onError?.();
   };
 
-  // Generate optimized src URLs for different formats and sizes
-  const getOptimizedSrc = (originalSrc: string, format?: 'webp' | 'avif') => {
-    // For external URLs, return as-is (could be enhanced with proxy service)
-    if (originalSrc.startsWith('http')) {
-      return originalSrc;
-    }
-    
-    // For local images, return optimized version
-    // This would need to be implemented with a build-time optimization script
-    return originalSrc;
-  };
+  // 获取优化后的图片格式
+  const optimizedFormats = useMemo(() => {
+    if (src.startsWith('http')) return [];
+    return getOptimizedFormats(src);
+  }, [src]);
+  
+  // 生成响应式 srcSet
+  const srcSet = useMemo(() => generateSrcSet(src), [src]);
 
-  const generateSrcSet = (originalSrc: string) => {
-    const sizes = [320, 640, 1280];
-    return sizes
-      .map(size => `${getOptimizedSrc(originalSrc)} ${size}w`)
-      .join(', ');
-  };
+  const containerStyle = useMemo(() => {
+    const style: React.CSSProperties = {};
+    if (width) style.width = width;
+    if (height) style.height = height;
+    if (aspectRatio) style.aspectRatio = aspectRatio;
+    return style;
+  }, [width, height, aspectRatio]);
 
   return (
     <div
-      ref={imgRef}
+      ref={containerRef}
       className={cn(
-        'relative overflow-hidden bg-gray-100',
+        'relative overflow-hidden bg-gray-100 transition-colors',
         className
       )}
-      style={{ width, height }}
+      style={containerStyle}
     >
       {!isInView ? (
-        <img
-          src={placeholder}
-          alt=""
-          className="w-full h-full object-cover blur-sm transition-all duration-300"
-          loading="eager"
-        />
-      ) : (
-        <>
-          {/* Loading placeholder */}
-          {isLoading && (
+        // 懒加载占位符
+        <div className="absolute inset-0">
+          {defaultPlaceholder && blur && (
             <img
-              src={placeholder}
+              src={defaultPlaceholder}
               alt=""
-              className="absolute inset-0 w-full h-full object-cover blur-sm"
+              className="w-full h-full object-cover blur-lg scale-110"
               loading="eager"
             />
           )}
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-200/20 to-gray-100/20 animate-pulse" />
+        </div>
+      ) : (
+        <>
+          {/* 加载中的模糊占位符 */}
+          {isLoading && blur && (
+            <div className="absolute inset-0">
+              {defaultPlaceholder && (
+                <img
+                  src={defaultPlaceholder}
+                  alt=""
+                  className="w-full h-full object-cover blur-lg scale-110"
+                  loading="eager"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-200/10 to-transparent" />
+            </div>
+          )}
           
-          {/* Main image */}
+          {/* 主图片 */}
           <picture>
-            {/* WebP format for modern browsers */}
-            <source
-              srcSet={generateSrcSet(getOptimizedSrc(src, 'webp'))}
-              type="image/webp"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
+            {/* 优化格式 */}
+            {optimizedFormats.map((format, index) => (
+              <source
+                key={index}
+                srcSet={format.srcSet}
+                type={format.type}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
+              />
+            ))}
             
-            {/* Original format fallback */}
+            {/* 原始格式降级 */}
             <img
+              ref={imgRef}
               src={hasError ? fallback : src}
               alt={alt}
               width={width}
               height={height}
               className={cn(
-                'w-full h-full object-cover transition-all duration-300',
+                'w-full h-full object-cover transition-opacity duration-500',
                 isLoading ? 'opacity-0' : 'opacity-100'
               )}
-              loading={loading}
+              loading={priority ? 'eager' : loading}
               onLoad={handleLoad}
               onError={handleError}
-              srcSet={generateSrcSet(src)}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              srcSet={srcSet}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
+              decoding={priority ? 'sync' : 'async'}
             />
           </picture>
+
+          {/* 错误状态 */}
+          {hasError && (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+              <div className="text-center">
+                <svg
+                  className="mx-auto h-12 w-12 text-gray-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+                <p className="mt-2 text-sm text-gray-500">加载失败</p>
+              </div>
+            </div>
+          )}
         </>
       )}
     </div>
