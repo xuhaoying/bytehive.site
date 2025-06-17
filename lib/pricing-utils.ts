@@ -1,4 +1,4 @@
-import { PaymentModel } from '@/types/tool';
+import { PaymentModel } from '@/types';
 
 export interface PricingConfig {
   color: string;
