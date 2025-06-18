@@ -50,6 +50,12 @@ export default function Header() {
             >
               资讯
             </Link>
+            <Link 
+              href="/resources" 
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
+              工具导航
+            </Link>
             <div className="relative group">
               <button className="text-sm font-medium hover:text-primary transition-colors flex items-center">
                 分类
@@ -151,6 +157,13 @@ export default function Header() {
                 ))}
               </div>
               
+              <Link 
+                href="/resources" 
+                className="block py-2 text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                工具导航
+              </Link>
               <Link 
                 href="/about" 
                 className="block py-2 text-sm font-medium hover:text-primary transition-colors"
