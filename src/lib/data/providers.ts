@@ -1,10 +1,10 @@
-import { Provider, ServiceCategory } from '../../types/infrastructure';
-import hostingData from '../../../data/providers/hosting.json';
-import databaseData from '../../../data/providers/database.json';
-import serverlessData from '../../../data/providers/serverless.json';
-import emailData from '../../../data/providers/email.json';
-import storageData from '../../../data/providers/storage.json';
-import monitoringData from '../../../data/providers/monitoring.json';
+import { Provider, ServiceCategory } from '@/types/infrastructure';
+import hostingData from '@/data/providers/hosting.json';
+import databaseData from '@/data/providers/database.json';
+import serverlessData from '@/data/providers/serverless.json';
+import emailData from '@/data/providers/email.json';
+import storageData from '@/data/providers/storage.json';
+import monitoringData from '@/data/providers/monitoring.json';
 
 // 缓存所有providers (强制清除缓存进行调试)
 let providersCache: Provider[] | null = null;
