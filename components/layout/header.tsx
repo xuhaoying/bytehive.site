@@ -40,16 +40,16 @@ export default function Header() {
               首页
             </Link>
             <Link 
-              href="/compare" 
+              href="/infrastructure-navigator" 
               className="text-sm font-medium hover:text-primary transition-colors"
             >
-              工具对比
+              基础设施
             </Link>
             <Link 
-              href="/rankings" 
+              href="/resources" 
               className="text-sm font-medium hover:text-primary transition-colors"
             >
-              排行榜
+              工具导航
             </Link>
             <Link 
               href="/blog" 
@@ -58,10 +58,10 @@ export default function Header() {
               资讯
             </Link>
             <Link 
-              href="/resources" 
+              href="/search" 
               className="text-sm font-medium hover:text-primary transition-colors"
             >
-              工具导航
+              搜索
             </Link>
             <div className="relative group">
               <button className="text-sm font-medium hover:text-primary transition-colors flex items-center">

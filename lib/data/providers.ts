@@ -1,9 +1,26 @@
 import { Provider, ServiceCategory } from '@/types/infrastructure';
 import hostingData from '@/data/providers/hosting.json';
 import databaseData from '@/data/providers/database.json';
+import cdnData from '@/data/providers/cdn.json';
+import emailData from '@/data/providers/email.json';
+import monitoringData from '@/data/providers/monitoring.json';
+import securityData from '@/data/providers/security.json';
+import serverlessData from '@/data/providers/serverless.json';
+import storageData from '@/data/providers/storage.json';
 
 // 缓存所有providers
 let providersCache: Provider[] | null = null;
+
+// 标准化provider数据，确保所有必需字段存在
+function normalizeProvider(provider: any): Provider {
+  return {
+    ...provider,
+    logoUrl: provider.logoUrl || `/logos/${provider.name}.svg`, // 提供默认logo路径
+    highlights: provider.highlights || [],
+    searchKeywords: provider.searchKeywords || [],
+    alternativeNames: provider.alternativeNames || []
+  } as Provider;
+}
 
 // 加载所有providers
 export function loadAllProviders(): Provider[] {
@@ -15,15 +32,43 @@ export function loadAllProviders(): Provider[] {
   
   // 加载hosting providers
   if (hostingData && hostingData.providers) {
-    allProviders.push(...hostingData.providers as Provider[]);
+    allProviders.push(...hostingData.providers.map(normalizeProvider));
   }
   
   // 加载database providers
   if (databaseData && databaseData.providers) {
-    allProviders.push(...databaseData.providers as Provider[]);
+    allProviders.push(...databaseData.providers.map(normalizeProvider));
   }
   
-  // TODO: 加载serverless.json, email.json等
+  // 加载CDN providers
+  if (cdnData && cdnData.providers) {
+    allProviders.push(...cdnData.providers.map(normalizeProvider));
+  }
+  
+  // 加载email providers
+  if (emailData && emailData.providers) {
+    allProviders.push(...emailData.providers.map(normalizeProvider));
+  }
+  
+  // 加载monitoring providers
+  if (monitoringData && monitoringData.providers) {
+    allProviders.push(...monitoringData.providers.map(normalizeProvider));
+  }
+  
+  // 加载security providers
+  if (securityData && securityData.providers) {
+    allProviders.push(...securityData.providers.map(normalizeProvider));
+  }
+  
+  // 加载serverless providers
+  if (serverlessData && serverlessData.providers) {
+    allProviders.push(...serverlessData.providers.map(normalizeProvider));
+  }
+  
+  // 加载storage providers
+  if (storageData && storageData.providers) {
+    allProviders.push(...storageData.providers.map(normalizeProvider));
+  }
   
   providersCache = allProviders;
   return allProviders;

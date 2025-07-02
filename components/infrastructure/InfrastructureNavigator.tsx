@@ -13,7 +13,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Slider } from '@/components/ui/slider';
 import { Search, LayoutGrid, List, SlidersHorizontal } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { searchProviders, getProviderById } from '@/src/lib/data/providers';
+import { searchProviders, getProviderById } from '@/lib/data/providers';
 
 interface Category {
   id: string;
