@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "tw-animate-css";
 
 @layer base {
   :root {
@@ -24,6 +25,15 @@
     --input: 260 25% 92%;
     --ring: 260 60% 55%;
     --radius: 1rem;
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    
+    /* Animation variables */
+    --animate-shiny-text: shiny-text 8s infinite;
+    --animate-accordion-down: accordion-down 0.2s ease-out;
+    --animate-accordion-up: accordion-up 0.2s ease-out;
   }
 
   .dark {
@@ -87,4 +97,35 @@
 .dark .bg-grid {
   background-image: linear-gradient(to right, hsl(260 25% 98% / 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, hsl(260 25% 98% / 0.05) 1px, transparent 1px);
+}
+
+/* Animation keyframes */
+@keyframes shiny-text {
+  0%,
+  90%,
+  100% {
+    background-position: calc(-100% - var(--shiny-width)) 0;
+  }
+  30%,
+  60% {
+    background-position: calc(100% + var(--shiny-width)) 0;
+  }
+}
+
+/* Enhanced text effects */
+.text-gradient_indigo-purple {
+  background: linear-gradient(to right, hsl(260 60% 55%), hsl(280 60% 65%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Advanced blur effects */
+.backdrop-blur-enhanced {
+  backdrop-filter: blur(12px) saturate(200%);
+}
+
+/* Animated components classes */
+.animate-shiny-text {
+  animation: var(--animate-shiny-text);
 }
