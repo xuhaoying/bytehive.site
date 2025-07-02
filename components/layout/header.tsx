@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SearchAutocomplete } from '@/components/search/search-autocomplete';
@@ -18,8 +19,14 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="h-8 w-8 bg-gradient-to-br from-purple-500 via-violet-600 to-purple-700 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">B</span>
+            <div className="h-8 w-8 flex items-center justify-center">
+              <Image
+                src="/favicon.png"
+                alt="ByteHive Logo"
+                width={32}
+                height={32}
+                className="rounded-lg"
+              />
             </div>
             <span className="font-bold text-xl">ByteHive</span>
           </Link>
