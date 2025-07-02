@@ -1,0 +1,138 @@
+{
+  "categories": [
+    {
+      "id": "hosting",
+      "name": "网站托管",
+      "displayName": "网站托管",
+      "icon": "🌐",
+      "description": "静态网站、前端应用和全栈应用托管服务",
+      "subcategories": [
+        {
+          "id": "static",
+          "name": "静态网站",
+          "description": "HTML/CSS/JS静态资源托管"
+        },
+        {
+          "id": "frontend",
+          "name": "前端应用",
+          "description": "React、Vue、Angular等SPA应用"
+        },
+        {
+          "id": "fullstack",
+          "name": "全栈应用",
+          "description": "包含后端API的完整应用"
+        }
+      ]
+    },
+    {
+      "id": "database",
+      "name": "数据库",
+      "displayName": "数据库服务",
+      "icon": "🗄️",
+      "description": "关系型和非关系型数据库服务",
+      "subcategories": [
+        {
+          "id": "relational",
+          "name": "关系型数据库",
+          "description": "PostgreSQL、MySQL等SQL数据库"
+        },
+        {
+          "id": "nosql",
+          "name": "NoSQL数据库",
+          "description": "MongoDB、Redis等非关系型数据库"
+        },
+        {
+          "id": "vector",
+          "name": "向量数据库",
+          "description": "用于AI/ML的向量存储"
+        }
+      ]
+    },
+    {
+      "id": "serverless",
+      "name": "Serverless",
+      "displayName": "Serverless计算",
+      "icon": "⚡",
+      "description": "无服务器函数和边缘计算",
+      "subcategories": [
+        {
+          "id": "functions",
+          "name": "函数计算",
+          "description": "按需执行的无服务器函数"
+        },
+        {
+          "id": "edge",
+          "name": "边缘计算",
+          "description": "全球分布的边缘函数"
+        }
+      ]
+    },
+    {
+      "id": "email",
+      "name": "邮箱服务",
+      "displayName": "邮箱服务",
+      "icon": "📧",
+      "description": "企业邮箱和邮件发送服务",
+      "subcategories": [
+        {
+          "id": "business",
+          "name": "企业邮箱",
+          "description": "自定义域名的企业邮箱"
+        },
+        {
+          "id": "transactional",
+          "name": "事务邮件",
+          "description": "API驱动的邮件发送服务"
+        }
+      ]
+    },
+    {
+      "id": "storage",
+      "name": "存储服务",
+      "displayName": "存储服务",
+      "icon": "💾",
+      "description": "对象存储和文件存储服务",
+      "subcategories": [
+        {
+          "id": "object",
+          "name": "对象存储",
+          "description": "S3兼容的对象存储"
+        },
+        {
+          "id": "cdn",
+          "name": "CDN存储",
+          "description": "带CDN加速的存储"
+        }
+      ]
+    },
+    {
+      "id": "monitoring",
+      "name": "监控分析",
+      "displayName": "监控分析",
+      "icon": "📊",
+      "description": "应用监控、日志和分析服务",
+      "subcategories": [
+        {
+          "id": "apm",
+          "name": "应用监控",
+          "description": "应用性能监控"
+        },
+        {
+          "id": "analytics",
+          "name": "数据分析",
+          "description": "用户行为分析"
+        },
+        {
+          "id": "logs",
+          "name": "日志管理",
+          "description": "集中式日志收集和分析"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-12-02",
+    "totalCategories": 6
+  }
+}

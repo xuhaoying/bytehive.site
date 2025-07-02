@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2024-12-02T00:00:00Z",
+  "dataIntegrity": {
+    "providers": {
+      "total": 2,
+      "categories": {
+        "hosting": 2,
+        "database": 0,
+        "serverless": 0,
+        "email": 0,
+        "storage": 0,
+        "monitoring": 0
+      },
+      "lastCheck": "2024-12-02T00:00:00Z"
+    },
+    "templates": {
+      "total": 1,
+      "categories": {
+        "startup": 1,
+        "enterprise": 0,
+        "personal": 0,
+        "ai": 0,
+        "ecommerce": 0
+      }
+    }
+  },
+  "qualityMetrics": {
+    "dataFreshness": 100,
+    "dataAccuracy": 100,
+    "dataCompleteness": 85,
+    "dataConsistency": 100
+  },
+  "updateSchedule": {
+    "automatic": {
+      "enabled": true,
+      "frequency": "daily",
+      "nextRun": "2024-12-03T09:00:00Z"
+    },
+    "manual": {
+      "lastRun": "2024-12-02T00:00:00Z",
+      "triggeredBy": "system"
+    }
+  }
+}

@@ -1,123 +1,324 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import HeroSection from '@/components/hero-section';
-import CategoryFilter from '@/components/tools/category-filter';
-import ToolsGrid from '@/components/tools/tools-grid';
-import { FilterState } from '@/types';
-import { tools, getAllCategories, getAllPaymentModels } from '@/data/tools';
-import { categories, getTotalToolsCount } from '@/data/categories';
-import { Card, CardContent } from '@/components/ui/card';
+import { ServiceCard } from '@/components/infrastructure/ServiceCard';
+import { CostCalculator } from '@/components/infrastructure/CostCalculator';
+import { ServiceCategory, FilterState, Provider, Selection } from '@/types/infrastructure';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
-import Link from 'next/link';
-import { BannerAd } from '@/components/ads/adsense';
-import { SponsorBanner } from '@/components/sponsor/sponsor-banner';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Slider } from '@/components/ui/slider';
+import { Search, LayoutGrid, List, SlidersHorizontal } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { getCategoriesWithCount, getCategoryById } from '@/lib/data/categories';
+import { getProvidersByCategory, filterProviders, searchProviders } from '@/lib/data/providers';
+import { getProviderById } from '@/lib/data/providers';
 
 export default function Home() {
-  const [filters, setFilters] = useState<FilterState>({
-    categories: [],
-    paymentModels: [],
-    searchQuery: '',
+  const [selectedCategory, setSelectedCategory] = useState<string>('hosting');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selections, setSelections] = useState<Selection[]>([]);
+  const [providers, setProviders] = useState<Provider[]>([]);
+  const [categories, setCategories] = useState<Array<{ id: string; name: string; icon: string; count: number }>>([]);
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [showMobileCalculator, setShowMobileCalculator] = useState(false);
+  
+  // 筛选状态
+  const [filters, setFilters] = useState({
+    hasFreeTier: false,
+    globalNodes: false,
+    gdprCompliant: false,
+    priceRange: [0, 100] as [number, number]
   });
-  
-  const allCategories = getAllCategories();
-  const paymentModels = getAllPaymentModels();
-  const totalToolsCount = getTotalToolsCount();
-  
-  const handleSearch = (query: string) => {
-    setFilters(prev => ({
-      ...prev,
-      searchQuery: query
-    }));
+
+  // 加载分类
+  useEffect(() => {
+    const categoriesWithCount = getCategoriesWithCount();
+    setCategories(categoriesWithCount);
+  }, []);
+
+  // 加载服务提供商
+  useEffect(() => {
+    let filteredProviders: Provider[] = [];
     
-    const toolsSection = document.getElementById('tools-section');
-    if (toolsSection) {
-      toolsSection.scrollIntoView({ behavior: 'smooth' });
+    if (searchQuery) {
+      // 搜索模式
+      filteredProviders = searchProviders(searchQuery);
+    } else {
+      // 分类浏览模式
+      filteredProviders = getProvidersByCategory(selectedCategory);
+    }
+    
+    // 应用筛选条件
+    if (filters.hasFreeTier) {
+      filteredProviders = filteredProviders.filter(p => 
+        p.plans.some(plan => plan.billing.basePrice === 0)
+      );
+    }
+    
+    if (filters.priceRange[0] > 0 || filters.priceRange[1] < 500) {
+      filteredProviders = filteredProviders.filter(p => {
+        const minPrice = Math.min(...p.plans.map(plan => plan.billing.basePrice));
+        return minPrice >= filters.priceRange[0] && minPrice <= filters.priceRange[1];
+      });
+    }
+    
+    setProviders(filteredProviders);
+  }, [selectedCategory, searchQuery, filters]);
+
+  // 添加到估算器
+  const handleAddToCalculator = (providerId: string, planId: string) => {
+    const provider = getProviderById(providerId);
+    const plan = provider?.plans.find(p => p.id === planId);
+    
+    if (!provider || !plan) return;
+    
+    // 检查是否已存在
+    const exists = selections.some(s => s.providerId === providerId && s.planId === planId);
+    if (exists) return;
+    
+    // 创建默认变量值
+    const defaultVariables: Record<string, number> = {};
+    plan.calculatorConfig.variables.forEach(v => {
+      defaultVariables[v.name] = v.default as number;
+    });
+    
+    const newSelection: Selection = {
+      providerId,
+      planId,
+      variables: defaultVariables,
+      calculatedCost: plan.billing.basePrice
+    };
+    
+    setSelections([...selections, newSelection]);
+    
+    // 移动端显示计算器
+    if (window.innerWidth < 1024) {
+      setShowMobileCalculator(true);
     }
   };
-  
-  const handleFilterChange = (newFilters: FilterState) => {
-    setFilters(newFilters);
-  };
+
+  const currentCategory = getCategoryById(selectedCategory);
 
   return (
-    <main className="min-h-screen flex flex-col relative bg-grid">
+    <main className="min-h-screen flex flex-col bg-background">
       <Header />
       
-      <HeroSection onSearch={handleSearch} toolsCount={totalToolsCount} />
-      
-      {/* Top Banner Ad */}
-      <section className="container mx-auto px-4 py-8">
-        <div className="flex justify-center">
-          <BannerAd className="w-full max-w-4xl border rounded-lg p-4 bg-muted/30" />
-        </div>
-      </section>
-      
-      {/* Categories Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">工具分类</h2>
-          <p className="text-lg text-muted-foreground">浏览{categories.length}个主要分类，找到适合您的开发工具</p>
-        </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {categories.map((category) => (
-            <Link key={category.slug} href={`/category/${category.slug}`}>
-              <Card className="h-full hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer group">
-                <CardContent className="p-6 text-center">
-                  <div 
-                    className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center text-2xl transition-colors"
-                    style={{ 
-                      backgroundColor: `${category.color}20`,
-                      color: category.color 
-                    }}
-                  >
-                    {category.icon}
+      <div className="flex-1 container mx-auto px-4 py-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr_300px] gap-6">
+          {/* 左侧分类导航 */}
+          <aside className="space-y-6 lg:block hidden">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">服务分类</CardTitle>
+              </CardHeader>
+              <CardContent className="p-0">
+                <nav className="space-y-1">
+                  {categories.map((category) => (
+                    <button
+                      key={category.id}
+                      onClick={() => {
+                        setSelectedCategory(category.id);
+                        setSearchQuery('');
+                      }}
+                      className={cn(
+                        "w-full flex items-center justify-between px-4 py-3 text-sm hover:bg-muted transition-colors",
+                        selectedCategory === category.id && !searchQuery && "bg-muted font-medium"
+                      )}
+                    >
+                      <span className="flex items-center gap-2">
+                        <span className="text-lg">{category.icon}</span>
+                        <span>{category.name}</span>
+                      </span>
+                      <Badge variant="secondary" className="text-xs">
+                        {category.count}
+                      </Badge>
+                    </button>
+                  ))}
+                </nav>
+              </CardContent>
+            </Card>
+
+            {/* 筛选条件 */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <SlidersHorizontal className="h-4 w-4" />
+                  筛选条件
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-2">
+                    <Checkbox 
+                      id="free-tier"
+                      checked={filters.hasFreeTier}
+                      onCheckedChange={(checked) => 
+                        setFilters(prev => ({ ...prev, hasFreeTier: checked as boolean }))
+                      }
+                    />
+                    <Label htmlFor="free-tier" className="text-sm font-normal cursor-pointer">
+                      有免费层
+                    </Label>
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
-                    {category.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                    {category.description}
-                  </p>
-                  <Badge variant="secondary" className="text-xs">
-                    {category.toolCount} 个工具
-                  </Badge>
+                  <div className="flex items-center space-x-2">
+                    <Checkbox 
+                      id="global-nodes"
+                      checked={filters.globalNodes}
+                      onCheckedChange={(checked) => 
+                        setFilters(prev => ({ ...prev, globalNodes: checked as boolean }))
+                      }
+                    />
+                    <Label htmlFor="global-nodes" className="text-sm font-normal cursor-pointer">
+                      全球节点
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Checkbox 
+                      id="gdpr"
+                      checked={filters.gdprCompliant}
+                      onCheckedChange={(checked) => 
+                        setFilters(prev => ({ ...prev, gdprCompliant: checked as boolean }))
+                      }
+                    />
+                    <Label htmlFor="gdpr" className="text-sm font-normal cursor-pointer">
+                      GDPR合规
+                    </Label>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label className="text-sm">价格范围 ($/月)</Label>
+                  <Slider
+                    min={0}
+                    max={500}
+                    step={10}
+                    value={filters.priceRange}
+                    onValueChange={(value) => 
+                      setFilters(prev => ({ ...prev, priceRange: value as [number, number] }))
+                    }
+                    className="w-full"
+                  />
+                  <div className="flex justify-between text-xs text-muted-foreground">
+                    <span>${filters.priceRange[0]}</span>
+                    <span>${filters.priceRange[1]}</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </aside>
+
+          {/* 中间服务展示区 */}
+          <div className="space-y-6">
+            {/* 搜索和视图切换 */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                <Input
+                  type="search"
+                  placeholder="搜索服务..."
+                  className="pl-10"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant={viewMode === 'grid' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setViewMode('grid')}
+                >
+                  <LayoutGrid className="h-4 w-4" />
+                </Button>
+                <Button
+                  variant={viewMode === 'list' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setViewMode('list')}
+                >
+                  <List className="h-4 w-4" />
+                </Button>
+                {/* 移动端显示计算器按钮 */}
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="lg:hidden"
+                  onClick={() => setShowMobileCalculator(!showMobileCalculator)}
+                >
+                  成本计算器 ({selections.length})
+                </Button>
+              </div>
+            </div>
+
+            {/* 服务列表标题 */}
+            <div>
+              <h2 className="text-2xl font-bold mb-2">
+                {searchQuery 
+                  ? `搜索结果: "${searchQuery}" (${providers.length}个)`
+                  : `${currentCategory?.displayName || '所有服务'} (${providers.length}个)`
+                }
+              </h2>
+              {currentCategory?.description && !searchQuery && (
+                <p className="text-muted-foreground">{currentCategory.description}</p>
+              )}
+            </div>
+
+            {/* 服务卡片列表 */}
+            {providers.length === 0 ? (
+              <Card>
+                <CardContent className="flex flex-col items-center justify-center py-12">
+                  <p className="text-muted-foreground mb-2">未找到匹配的服务</p>
+                  <p className="text-sm text-muted-foreground">请尝试调整筛选条件或搜索其他关键词</p>
                 </CardContent>
               </Card>
-            </Link>
-          ))}
+            ) : (
+              <div className={cn(
+                "gap-4",
+                viewMode === 'grid' 
+                  ? "grid grid-cols-1 md:grid-cols-2" 
+                  : "space-y-4"
+              )}>
+                {providers.map((provider) => (
+                  <ServiceCard
+                    key={provider.id}
+                    provider={provider}
+                    onAddToCalculator={handleAddToCalculator}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* 右侧成本估算器 - 桌面端 */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-6">
+              <CostCalculator
+                selections={selections}
+                onUpdateSelections={setSelections}
+              />
+            </div>
+          </aside>
         </div>
-      </section>
-      
-      {/* Sponsor Section */}
-      <section className="container mx-auto px-4 py-12">
-        <SponsorBanner position="banner" className="mb-8" />
-      </section>
-      
-      {/* Middle Banner Ad */}
-      <section className="container mx-auto px-4 py-8">
-        <div className="flex justify-center">
-          <BannerAd className="w-full max-w-4xl border rounded-lg p-4 bg-muted/30" />
+      </div>
+
+      {/* 移动端成本计算器 */}
+      {showMobileCalculator && (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" 
+               onClick={() => setShowMobileCalculator(false)} />
+          <div className="absolute bottom-0 left-0 right-0 bg-background border-t">
+            <div className="max-h-[80vh] overflow-y-auto">
+              <CostCalculator
+                selections={selections}
+                onUpdateSelections={setSelections}
+              />
+            </div>
+          </div>
         </div>
-      </section>
-      
-      <section id="tools-section" className="container mx-auto px-4 py-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">所有工具</h2>
-          <p className="text-lg text-muted-foreground">浏览我们精选的{tools.length}个优质开发工具</p>
-        </div>
-        <CategoryFilter 
-          categories={allCategories}
-          paymentModels={paymentModels}
-          selectedFilters={filters}
-          onFilterChange={handleFilterChange}
-        />
-        
-        <ToolsGrid tools={tools} filters={filters} />
-      </section>
+      )}
       
       <Footer />
     </main>

@@ -1,0 +1,341 @@
+{
+  "providers": [
+    {
+      "id": "vercel",
+      "name": "vercel",
+      "displayName": "Vercel",
+      "category": "hosting",
+      "subcategory": "frontend",
+      "logoUrl": "/logos/vercel.svg",
+      "websiteUrl": "https://vercel.com",
+      "description": "前端框架和静态网站的托管平台，提供全球CDN、自动部署和预览环境",
+      "tags": ["免费层", "全球CDN", "自动部署", "预览环境", "Next.js"],
+      "highlights": [
+        "零配置部署",
+        "优秀的开发体验",
+        "内置Web Analytics",
+        "Edge Functions支持"
+      ],
+      "affiliate": {
+        "enabled": true,
+        "link": "https://vercel.com?ref=infranav",
+        "commission": 15,
+        "commissionType": "percentage"
+      },
+      "plans": [
+        {
+          "id": "hobby",
+          "name": "Hobby",
+          "displayName": "Hobby",
+          "description": "个人项目和爱好者",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "bandwidth",
+              "amount": 100,
+              "unit": "GB",
+              "description": "每月带宽"
+            },
+            {
+              "metric": "buildMinutes",
+              "amount": 6000,
+              "unit": "minutes",
+              "description": "构建时间"
+            },
+            {
+              "metric": "projects",
+              "amount": 200,
+              "unit": "projects",
+              "description": "项目数量"
+            }
+          ],
+          "overageRules": [],
+          "features": [
+            "自动HTTPS",
+            "GitHub/GitLab/Bitbucket集成",
+            "自定义域名",
+            "社区支持"
+          ],
+          "limitations": [
+            "仅限个人非商业使用",
+            "无团队协作功能",
+            "无SLA保障"
+          ],
+          "calculatorConfig": {
+            "variables": []
+          }
+        },
+        {
+          "id": "pro",
+          "name": "Pro",
+          "displayName": "Pro",
+          "description": "专业开发者和小团队",
+          "billing": {
+            "type": "hybrid",
+            "basePrice": 20,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "bandwidth",
+              "amount": 1000,
+              "unit": "GB",
+              "description": "每月带宽"
+            },
+            {
+              "metric": "buildMinutes",
+              "amount": 6000,
+              "unit": "minutes",
+              "description": "构建时间"
+            },
+            {
+              "metric": "teamMembers",
+              "amount": 1,
+              "unit": "members",
+              "description": "团队成员"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "bandwidth",
+              "pricePerUnit": 0.15,
+              "unit": "GB"
+            },
+            {
+              "metric": "buildMinutes",
+              "pricePerUnit": 0.01,
+              "unit": "minute"
+            },
+            {
+              "metric": "teamMembers",
+              "pricePerUnit": 20,
+              "unit": "member"
+            }
+          ],
+          "features": [
+            "所有Hobby功能",
+            "团队协作",
+            "分析面板",
+            "优先支持",
+            "自定义环境变量",
+            "密码保护"
+          ],
+          "limitations": [
+            "最多10个团队成员",
+            "基础DDoS防护"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthlyPageviews",
+                "label": "月度页面访问量",
+                "type": "slider",
+                "min": 1000,
+                "max": 10000000,
+                "default": 100000,
+                "unit": "次",
+                "helpText": "预计每月的页面访问次数"
+              },
+              {
+                "name": "teamMembers",
+                "label": "团队成员数",
+                "type": "number",
+                "min": 1,
+                "max": 10,
+                "default": 1,
+                "unit": "人"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 1,
+        "reliabilityScore": 99.9,
+        "communityRating": 4.8,
+        "documentationQuality": 5
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      },
+      "searchKeywords": ["vercel", "zeit", "now", "nextjs hosting"],
+      "alternativeNames": ["ZEIT", "Now"]
+    },
+    {
+      "id": "netlify",
+      "name": "netlify",
+      "displayName": "Netlify",
+      "category": "hosting",
+      "subcategory": "frontend",
+      "logoUrl": "/logos/netlify.svg",
+      "websiteUrl": "https://netlify.com",
+      "description": "现代Web项目的构建、部署和协作平台，支持JAMstack架构",
+      "tags": ["免费层", "表单处理", "函数支持", "分支部署", "A/B测试"],
+      "highlights": [
+        "一键部署",
+        "内置表单处理",
+        "Netlify Functions",
+        "即时回滚"
+      ],
+      "affiliate": {
+        "enabled": true,
+        "link": "https://netlify.com?ref=infranav",
+        "commission": 20,
+        "commissionType": "percentage"
+      },
+      "plans": [
+        {
+          "id": "starter",
+          "name": "Starter",
+          "displayName": "Starter",
+          "description": "个人项目和实验",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "bandwidth",
+              "amount": 100,
+              "unit": "GB",
+              "description": "每月带宽"
+            },
+            {
+              "metric": "buildMinutes",
+              "amount": 300,
+              "unit": "minutes",
+              "description": "构建时间"
+            },
+            {
+              "metric": "sites",
+              "amount": 500,
+              "unit": "sites",
+              "description": "网站数量"
+            }
+          ],
+          "overageRules": [],
+          "features": [
+            "自动部署",
+            "自定义域名",
+            "HTTPS证书",
+            "社区支持"
+          ],
+          "limitations": [
+            "仅限个人使用",
+            "基础构建环境",
+            "无密码保护"
+          ],
+          "calculatorConfig": {
+            "variables": []
+          }
+        },
+        {
+          "id": "pro",
+          "name": "Pro",
+          "displayName": "Pro",
+          "description": "商业项目和团队",
+          "billing": {
+            "type": "hybrid",
+            "basePrice": 19,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "bandwidth",
+              "amount": 1000,
+              "unit": "GB",
+              "description": "每月带宽"
+            },
+            {
+              "metric": "buildMinutes",
+              "amount": 1000,
+              "unit": "minutes",
+              "description": "构建时间"
+            },
+            {
+              "metric": "teamMembers",
+              "amount": 3,
+              "unit": "members",
+              "description": "团队成员"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "bandwidth",
+              "pricePerUnit": 0.20,
+              "unit": "GB"
+            },
+            {
+              "metric": "buildMinutes",
+              "pricePerUnit": 0.01,
+              "unit": "minute"
+            },
+            {
+              "metric": "teamMembers",
+              "pricePerUnit": 19,
+              "unit": "member"
+            }
+          ],
+          "features": [
+            "所有Starter功能",
+            "密码保护",
+            "表单处理(1000次/月)",
+            "分析功能",
+            "优先构建"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthlyPageviews",
+                "label": "月度页面访问量",
+                "type": "slider",
+                "min": 1000,
+                "max": 10000000,
+                "default": 100000,
+                "unit": "次"
+              },
+              {
+                "name": "teamMembers",
+                "label": "团队成员数",
+                "type": "number",
+                "min": 1,
+                "max": 50,
+                "default": 3,
+                "unit": "人"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 1,
+        "reliabilityScore": 99.9,
+        "communityRating": 4.7,
+        "documentationQuality": 5
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-12-02",
+    "totalProviders": 2
+  }
+}

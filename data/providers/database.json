@@ -1,0 +1,336 @@
+{
+  "providers": [
+    {
+      "id": "supabase",
+      "name": "supabase",
+      "displayName": "Supabase",
+      "category": "database",
+      "subcategory": "relational",
+      "logoUrl": "/logos/supabase.svg",
+      "websiteUrl": "https://supabase.com",
+      "description": "开源的Firebase替代品，提供PostgreSQL数据库、认证、实时订阅和存储",
+      "tags": ["免费层", "PostgreSQL", "实时API", "认证系统", "开源"],
+      "highlights": [
+        "内置用户认证",
+        "自动生成REST API",
+        "实时数据订阅",
+        "Row Level Security"
+      ],
+      "affiliate": {
+        "enabled": true,
+        "link": "https://supabase.com?ref=infranav",
+        "commission": 20,
+        "commissionType": "percentage"
+      },
+      "plans": [
+        {
+          "id": "free",
+          "name": "Free",
+          "displayName": "Free",
+          "description": "个人项目和原型开发",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "database_size",
+              "amount": 0.5,
+              "unit": "GB",
+              "description": "数据库存储"
+            },
+            {
+              "metric": "bandwidth",
+              "amount": 2,
+              "unit": "GB",
+              "description": "带宽"
+            },
+            {
+              "metric": "storage",
+              "amount": 1,
+              "unit": "GB",
+              "description": "文件存储"
+            }
+          ],
+          "overageRules": [],
+          "features": [
+            "最多2个项目",
+            "无限API请求",
+            "50,000 月活用户",
+            "社区支持"
+          ],
+          "limitations": [
+            "7天日志保留",
+            "无每日备份",
+            "共享CPU"
+          ],
+          "calculatorConfig": {
+            "variables": []
+          }
+        },
+        {
+          "id": "pro",
+          "name": "Pro",
+          "displayName": "Pro",
+          "description": "生产应用和成长中的业务",
+          "billing": {
+            "type": "hybrid",
+            "basePrice": 25,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "database_size",
+              "amount": 8,
+              "unit": "GB",
+              "description": "数据库存储"
+            },
+            {
+              "metric": "bandwidth",
+              "amount": 50,
+              "unit": "GB",
+              "description": "带宽"
+            },
+            {
+              "metric": "storage",
+              "amount": 100,
+              "unit": "GB",
+              "description": "文件存储"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "database_size",
+              "pricePerUnit": 0.125,
+              "unit": "GB"
+            },
+            {
+              "metric": "bandwidth",
+              "pricePerUnit": 0.09,
+              "unit": "GB"
+            },
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.021,
+              "unit": "GB"
+            }
+          ],
+          "features": [
+            "无限项目",
+            "无限API请求",
+            "100,000 月活用户",
+            "每日备份(7天保留)",
+            "优先支持"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "database_size",
+                "label": "数据库大小",
+                "type": "slider",
+                "min": 1,
+                "max": 100,
+                "default": 8,
+                "unit": "GB",
+                "helpText": "PostgreSQL数据库存储空间"
+              },
+              {
+                "name": "monthly_active_users",
+                "label": "月活用户数",
+                "type": "number",
+                "min": 0,
+                "max": 1000000,
+                "default": 10000,
+                "unit": "用户"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 98,
+        "communityRating": 4.7,
+        "documentationQuality": 5
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      },
+      "searchKeywords": ["supabase", "firebase alternative", "postgres", "baas"],
+      "alternativeNames": []
+    },
+    {
+      "id": "planetscale",
+      "name": "planetscale",
+      "displayName": "PlanetScale",
+      "category": "database",
+      "subcategory": "relational",
+      "logoUrl": "/logos/planetscale.svg",
+      "websiteUrl": "https://planetscale.com",
+      "description": "基于Vitess的无服务器MySQL数据库平台，支持无限扩展",
+      "tags": ["免费层", "MySQL兼容", "无服务器", "分支功能", "自动扩展"],
+      "highlights": [
+        "数据库分支工作流",
+        "无停机schema变更",
+        "自动备份",
+        "全球复制"
+      ],
+      "affiliate": {
+        "enabled": true,
+        "link": "https://planetscale.com?ref=infranav",
+        "commission": 25,
+        "commissionType": "fixed"
+      },
+      "plans": [
+        {
+          "id": "hobby",
+          "name": "Hobby",
+          "displayName": "Hobby",
+          "description": "业余项目和学习",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 5,
+              "unit": "GB",
+              "description": "存储空间"
+            },
+            {
+              "metric": "row_reads",
+              "amount": 1000000000,
+              "unit": "rows",
+              "description": "行读取"
+            },
+            {
+              "metric": "row_writes",
+              "amount": 10000000,
+              "unit": "rows",
+              "description": "行写入"
+            }
+          ],
+          "overageRules": [],
+          "features": [
+            "1个生产分支",
+            "1个开发分支",
+            "社区支持"
+          ],
+          "limitations": [
+            "无SLA",
+            "限制连接数"
+          ],
+          "calculatorConfig": {
+            "variables": []
+          }
+        },
+        {
+          "id": "scaler",
+          "name": "Scaler",
+          "displayName": "Scaler",
+          "description": "生产应用的理想选择",
+          "billing": {
+            "type": "hybrid",
+            "basePrice": 29,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 10,
+              "unit": "GB",
+              "description": "存储空间"
+            },
+            {
+              "metric": "row_reads",
+              "amount": 100000000000,
+              "unit": "rows",
+              "description": "行读取"
+            },
+            {
+              "metric": "row_writes",
+              "amount": 50000000,
+              "unit": "rows",
+              "description": "行写入"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 2.5,
+              "unit": "GB"
+            },
+            {
+              "metric": "row_reads",
+              "pricePerUnit": 0.001,
+              "unit": "million rows",
+              "tieredPricing": [
+                { "from": 0, "to": 10000, "pricePerUnit": 0.001 },
+                { "from": 10000, "to": 100000, "pricePerUnit": 0.0005 }
+              ]
+            }
+          ],
+          "features": [
+            "无限生产分支",
+            "无限开发分支",
+            "自动备份",
+            "Web数据查看器",
+            "99.95% SLA"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage",
+                "label": "存储空间",
+                "type": "slider",
+                "min": 10,
+                "max": 500,
+                "default": 10,
+                "unit": "GB"
+              },
+              {
+                "name": "monthly_queries",
+                "label": "月查询量",
+                "type": "select",
+                "default": "1M",
+                "options": [
+                  { "value": "1M", "label": "< 1百万" },
+                  { "value": "10M", "label": "1-10百万" },
+                  { "value": "100M", "label": "10-100百万" },
+                  { "value": "1B", "label": "> 1亿" }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 99.95,
+        "communityRating": 4.8,
+        "documentationQuality": 5
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-12-02",
+    "totalProviders": 2
+  }
+}

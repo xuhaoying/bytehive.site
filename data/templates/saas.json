@@ -1,0 +1,113 @@
+{
+  "id": "saas-mvp",
+  "name": "SaaS MVP",
+  "description": "快速验证产品市场契合度的最小可行产品",
+  "icon": "🚀",
+  "category": "startup",
+  "costEstimate": {
+    "monthly": {
+      "min": 50,
+      "typical": 75,
+      "max": 150
+    },
+    "setupCost": 0,
+    "scalingFactor": 2.5
+  },
+  "recommendedStack": [
+    {
+      "category": "hosting",
+      "primaryChoice": {
+        "providerId": "vercel",
+        "planId": "pro",
+        "reasoning": "零配置部署，优秀的开发体验，支持团队协作",
+        "pros": [
+          "自动部署",
+          "全球CDN",
+          "预览环境"
+        ],
+        "cons": [
+          "带宽限制",
+          "不支持后端"
+        ]
+      },
+      "alternatives": [
+        {
+          "providerId": "netlify",
+          "planId": "pro",
+          "scenario": "需要表单处理和函数功能时"
+        }
+      ]
+    },
+    {
+      "category": "database",
+      "primaryChoice": {
+        "providerId": "supabase",
+        "planId": "pro",
+        "reasoning": "提供认证、实时功能，减少后端开发工作量",
+        "pros": [
+          "内置认证",
+          "实时订阅",
+          "自动API生成"
+        ],
+        "cons": [
+          "PostgreSQL限定",
+          "中国访问较慢"
+        ]
+      },
+      "alternatives": [
+        {
+          "providerId": "planetscale",
+          "planId": "scaler",
+          "scenario": "需要MySQL兼容性或更好的扩展性"
+        }
+      ]
+    }
+  ],
+  "defaultVariables": {
+    "monthly_pageviews": 10000,
+    "registered_users": 100,
+    "database_size_gb": 2,
+    "team_members": 2
+  },
+  "decisionPoints": [
+    {
+      "threshold": "1000+ DAU",
+      "decision": "考虑添加缓存层",
+      "options": [
+        {
+          "name": "Redis (Upstash)",
+          "costImpact": "+$10/月",
+          "complexity": "低"
+        },
+        {
+          "name": "Redis (Redis Cloud)",
+          "costImpact": "+$25/月",
+          "complexity": "中"
+        }
+      ]
+    },
+    {
+      "threshold": "10GB+ 数据",
+      "decision": "考虑升级数据库计划",
+      "options": [
+        {
+          "name": "升级到更高计划",
+          "costImpact": "+$50/月",
+          "complexity": "低"
+        },
+        {
+          "name": "迁移到自管理数据库",
+          "costImpact": "+$30/月",
+          "complexity": "高"
+        }
+      ]
+    }
+  ],
+  "targetAudience": "独立开发者和小型创业团队",
+  "useCases": [
+    "B2B SaaS产品",
+    "订阅制服务",
+    "项目管理工具",
+    "在线教育平台"
+  ]
+}
