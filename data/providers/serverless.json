@@ -1,0 +1,697 @@
+{
+  "category": "serverless",
+  "categoryName": "Serverless",
+  "providers": [
+    {
+      "id": "aws-lambda",
+      "name": "aws-lambda",
+      "displayName": "AWS Lambda",
+      "category": "serverless",
+      "description": "事件驱动的无服务器计算服务，支持多种运行时环境",
+      "websiteUrl": "https://aws.amazon.com/lambda/",
+      "tags": ["FaaS", "事件驱动", "无服务器", "AWS生态", "多语言支持"],
+      "searchKeywords": ["lambda", "serverless", "function as a service", "aws", "事件触发"],
+      "plans": [
+        {
+          "id": "free",
+          "name": "free",
+          "displayName": "免费层",
+          "description": "每月100万次请求，400,000 GB秒计算时间",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "requests",
+              "amount": 1000000,
+              "unit": "次",
+              "description": "函数调用"
+            },
+            {
+              "metric": "compute",
+              "amount": 400000,
+              "unit": "GB秒",
+              "description": "计算时间"
+            },
+            {
+              "metric": "storage",
+              "amount": 0.5,
+              "unit": "GB",
+              "description": "临时存储"
+            }
+          ],
+          "features": ["128MB-10GB内存", "15分钟超时", "1000并发执行", "x86和ARM架构"],
+          "limitations": ["冷启动延迟", "无状态计算", "临时存储限制"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_requests",
+                "label": "月度请求数（百万）",
+                "type": "slider",
+                "min": 0,
+                "max": 100,
+                "default": 1,
+                "unit": "M",
+                "helpText": "函数调用次数"
+              },
+              {
+                "name": "avg_duration",
+                "label": "平均执行时间（毫秒）",
+                "type": "number",
+                "min": 100,
+                "max": 900000,
+                "default": 200,
+                "unit": "ms"
+              },
+              {
+                "name": "memory_size",
+                "label": "内存配置",
+                "type": "select",
+                "default": 512,
+                "unit": "MB",
+                "options": [
+                  { "value": 128, "label": "128 MB" },
+                  { "value": 256, "label": "256 MB" },
+                  { "value": 512, "label": "512 MB" },
+                  { "value": 1024, "label": "1024 MB" },
+                  { "value": 2048, "label": "2048 MB" },
+                  { "value": 3072, "label": "3072 MB" }
+                ]
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "requests",
+              "pricePerUnit": 0.0000002,
+              "unit": "请求"
+            },
+            {
+              "metric": "compute",
+              "pricePerUnit": 0.0000166667,
+              "unit": "GB秒"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "core": ["事件驱动架构", "自动扩展", "按需付费", "内置监控"],
+        "developer": ["多语言支持", "容器镜像支持", "层功能", "版本管理"],
+        "integration": ["AWS服务集成", "API Gateway", "EventBridge", "SQS/SNS触发器"],
+        "operations": ["CloudWatch集成", "X-Ray追踪", "并发控制", "死信队列"]
+      },
+      "integrations": ["API Gateway", "S3", "DynamoDB", "SQS", "SNS", "EventBridge", "CloudWatch"],
+      "metrics": {
+        "setupComplexity": 3,
+        "documentationQuality": 5,
+        "communityRating": 4.8,
+        "reliabilityScore": 99.99
+      },
+      "pros": ["AWS生态集成", "成熟稳定", "功能丰富", "性能优秀"],
+      "cons": ["厂商锁定", "冷启动问题", "调试困难", "VPC配置复杂"],
+      "recommendedFor": ["事件处理", "API后端", "数据处理", "定时任务"],
+      "notRecommendedFor": ["长时间运行任务", "有状态应用", "低延迟要求"],
+      "alternatives": ["Google Cloud Functions", "Azure Functions", "Cloudflare Workers"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方文档",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "google-cloud-functions",
+      "name": "google-cloud-functions",
+      "displayName": "Google Cloud Functions",
+      "category": "serverless",
+      "description": "Google Cloud的事件驱动无服务器计算平台，支持自动扩展",
+      "websiteUrl": "https://cloud.google.com/functions",
+      "tags": ["FaaS", "Google Cloud", "事件驱动", "HTTP函数", "云函数"],
+      "searchKeywords": ["gcf", "cloud functions", "google serverless", "firebase functions"],
+      "plans": [
+        {
+          "id": "free",
+          "name": "free",
+          "displayName": "免费层",
+          "description": "每月200万次调用，400,000 GB秒内存，200,000 GHz秒CPU",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "invocations",
+              "amount": 2000000,
+              "unit": "次",
+              "description": "函数调用"
+            },
+            {
+              "metric": "compute_memory",
+              "amount": 400000,
+              "unit": "GB秒",
+              "description": "内存计算时间"
+            },
+            {
+              "metric": "compute_cpu",
+              "amount": 200000,
+              "unit": "GHz秒",
+              "description": "CPU计算时间"
+            },
+            {
+              "metric": "network",
+              "amount": 5,
+              "unit": "GB",
+              "description": "网络出站流量"
+            }
+          ],
+          "features": ["最大4GB内存", "540秒超时", "1000并发", "自动HTTPS"],
+          "limitations": ["冷启动", "区域限制", "最大请求大小32MB"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_invocations",
+                "label": "月度调用数（百万）",
+                "type": "slider",
+                "min": 0,
+                "max": 50,
+                "default": 2,
+                "unit": "M",
+                "helpText": "函数调用次数"
+              },
+              {
+                "name": "avg_duration",
+                "label": "平均执行时间（毫秒）",
+                "type": "number",
+                "min": 100,
+                "max": 540000,
+                "default": 300,
+                "unit": "ms"
+              },
+              {
+                "name": "memory_size",
+                "label": "内存配置",
+                "type": "select",
+                "default": 256,
+                "unit": "MB",
+                "options": [
+                  { "value": 128, "label": "128 MB" },
+                  { "value": 256, "label": "256 MB" },
+                  { "value": 512, "label": "512 MB" },
+                  { "value": 1024, "label": "1 GB" },
+                  { "value": 2048, "label": "2 GB" },
+                  { "value": 4096, "label": "4 GB" }
+                ]
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "invocations",
+              "pricePerUnit": 0.0000004,
+              "unit": "调用"
+            },
+            {
+              "metric": "compute_memory",
+              "pricePerUnit": 0.0000025,
+              "unit": "GB秒"
+            },
+            {
+              "metric": "compute_cpu",
+              "pricePerUnit": 0.00001,
+              "unit": "GHz秒"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "core": ["事件驱动", "自动扩展", "HTTPS端点", "后台函数"],
+        "developer": ["Node.js/Python/Go/Java", "本地开发", "源代码部署", "环境变量"],
+        "integration": ["Cloud Storage触发", "Pub/Sub", "Firestore", "Cloud Scheduler"],
+        "operations": ["Cloud Logging", "Cloud Monitoring", "Error Reporting", "Cloud Trace"]
+      },
+      "integrations": ["Firebase", "Cloud Storage", "Pub/Sub", "BigQuery", "Cloud SQL"],
+      "metrics": {
+        "setupComplexity": 3,
+        "documentationQuality": 4,
+        "communityRating": 4.6,
+        "reliabilityScore": 99.95
+      },
+      "pros": ["Google生态集成", "Firebase支持", "简单易用", "慷慨的免费层"],
+      "cons": ["功能相对简单", "语言支持有限", "冷启动问题", "调试工具有限"],
+      "recommendedFor": ["移动后端", "Web应用", "数据处理", "IoT应用"],
+      "notRecommendedFor": ["复杂工作流", "低延迟应用", "大型企业应用"],
+      "alternatives": ["AWS Lambda", "Azure Functions", "Vercel Functions"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方文档",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "azure-functions",
+      "name": "azure-functions",
+      "displayName": "Azure Functions",
+      "category": "serverless",
+      "description": "Microsoft Azure的无服务器计算服务，支持多种触发器和绑定",
+      "websiteUrl": "https://azure.microsoft.com/en-us/services/functions/",
+      "tags": ["FaaS", "Azure", "无服务器", "事件驱动", "微软云"],
+      "searchKeywords": ["azure functions", "microsoft serverless", "函数应用", "durable functions"],
+      "plans": [
+        {
+          "id": "consumption",
+          "name": "consumption",
+          "displayName": "消费计划（免费层）",
+          "description": "每月100万次请求，400,000 GB秒执行时间",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "executions",
+              "amount": 1000000,
+              "unit": "次",
+              "description": "函数执行"
+            },
+            {
+              "metric": "compute",
+              "amount": 400000,
+              "unit": "GB秒",
+              "description": "资源消耗"
+            }
+          ],
+          "features": ["自动缩放", "10分钟超时", "1.5GB内存", "事件驱动"],
+          "limitations": ["冷启动", "有限的控制", "共享基础设施"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_executions",
+                "label": "月度执行数（百万）",
+                "type": "slider",
+                "min": 0,
+                "max": 50,
+                "default": 1,
+                "unit": "M",
+                "helpText": "函数执行次数"
+              },
+              {
+                "name": "avg_duration",
+                "label": "平均执行时间（秒）",
+                "type": "number",
+                "min": 0.1,
+                "max": 600,
+                "default": 1,
+                "unit": "秒"
+              },
+              {
+                "name": "memory_usage",
+                "label": "内存使用（MB）",
+                "type": "select",
+                "default": 512,
+                "unit": "MB",
+                "options": [
+                  { "value": 128, "label": "128 MB" },
+                  { "value": 256, "label": "256 MB" },
+                  { "value": 512, "label": "512 MB" },
+                  { "value": 1024, "label": "1 GB" },
+                  { "value": 1536, "label": "1.5 GB" }
+                ]
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "executions",
+              "pricePerUnit": 0.0000002,
+              "unit": "执行"
+            },
+            {
+              "metric": "compute",
+              "pricePerUnit": 0.000016,
+              "unit": "GB秒"
+            }
+          ]
+        },
+        {
+          "id": "premium",
+          "name": "premium",
+          "displayName": "Premium计划",
+          "description": "预热实例，无冷启动，增强性能和功能",
+          "billing": {
+            "basePrice": 173.6,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "vcpu",
+              "amount": 1,
+              "unit": "vCPU",
+              "description": "虚拟CPU"
+            },
+            {
+              "metric": "memory",
+              "amount": 3.5,
+              "unit": "GB",
+              "description": "内存"
+            },
+            {
+              "metric": "storage",
+              "amount": 250,
+              "unit": "GB",
+              "description": "存储"
+            }
+          ],
+          "features": ["无冷启动", "VNET集成", "无限执行时间", "更高性能"],
+          "limitations": ["固定成本", "需要容量规划"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "instances",
+                "label": "实例数量",
+                "type": "number",
+                "min": 1,
+                "max": 20,
+                "default": 1,
+                "unit": "个"
+              }
+            ]
+          },
+          "overageRules": []
+        }
+      ],
+      "features": {
+        "core": ["多种触发器", "输入输出绑定", "Durable Functions", "自动缩放"],
+        "developer": ["C#/Java/JavaScript/Python", "Visual Studio集成", "本地调试", "函数链"],
+        "integration": ["Azure服务集成", "Logic Apps", "Event Grid", "Service Bus"],
+        "operations": ["Application Insights", "Azure Monitor", "诊断日志", "实时监控"]
+      },
+      "integrations": ["Storage", "Cosmos DB", "Service Bus", "Event Hubs", "Logic Apps"],
+      "metrics": {
+        "setupComplexity": 3,
+        "documentationQuality": 4,
+        "communityRating": 4.5,
+        "reliabilityScore": 99.95
+      },
+      "pros": ["Microsoft生态", "Durable Functions", "丰富的绑定", "企业级支持"],
+      "cons": ["Azure依赖", "学习曲线", "调试复杂", "价格不透明"],
+      "recommendedFor": ["企业应用", ".NET应用", "工作流编排", "混合云"],
+      "notRecommendedFor": ["简单API", "成本敏感项目", "非Microsoft技术栈"],
+      "alternatives": ["AWS Lambda", "Google Cloud Functions", "IBM Cloud Functions"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方文档",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "cloudflare-workers",
+      "name": "cloudflare-workers",
+      "displayName": "Cloudflare Workers",
+      "category": "serverless",
+      "description": "在Cloudflare边缘网络上运行的无服务器JavaScript平台",
+      "websiteUrl": "https://workers.cloudflare.com/",
+      "tags": ["Edge Computing", "CDN", "JavaScript", "V8", "全球分布"],
+      "searchKeywords": ["workers", "edge functions", "cloudflare", "边缘计算"],
+      "plans": [
+        {
+          "id": "free",
+          "name": "free",
+          "displayName": "免费计划",
+          "description": "每天10万次请求，10ms CPU时间限制",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "requests",
+              "amount": 100000,
+              "unit": "次/天",
+              "description": "请求次数"
+            },
+            {
+              "metric": "cpu",
+              "amount": 10,
+              "unit": "ms",
+              "description": "CPU时间/请求"
+            }
+          ],
+          "features": ["全球部署", "KV存储", "即时部署", "Wrangler CLI"],
+          "limitations": ["10ms CPU限制", "128MB内存", "有限的API"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "daily_requests",
+                "label": "日均请求数（千）",
+                "type": "slider",
+                "min": 0,
+                "max": 1000,
+                "default": 100,
+                "unit": "K",
+                "helpText": "每天的请求次数"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "paid",
+          "name": "paid",
+          "displayName": "Paid计划",
+          "description": "每月1000万次请求，50ms CPU时间",
+          "billing": {
+            "basePrice": 5,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "requests",
+              "amount": 10000000,
+              "unit": "次",
+              "description": "月度请求"
+            },
+            {
+              "metric": "cpu",
+              "amount": 50,
+              "unit": "ms",
+              "description": "CPU时间/请求"
+            }
+          ],
+          "features": ["50ms CPU", "128MB内存", "更多API", "Durable Objects"],
+          "limitations": ["内存限制", "不支持Node.js API"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_requests",
+                "label": "月度请求数（百万）",
+                "type": "slider",
+                "min": 0,
+                "max": 100,
+                "default": 10,
+                "unit": "M"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "requests",
+              "pricePerUnit": 0.0000005,
+              "unit": "请求"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "core": ["边缘部署", "零冷启动", "V8引擎", "自动扩展"],
+        "developer": ["JavaScript/TypeScript", "WASM支持", "Workers KV", "Durable Objects"],
+        "integration": ["Cloudflare CDN", "R2存储", "D1数据库", "队列"],
+        "operations": ["实时日志", "分析", "错误追踪", "性能监控"]
+      },
+      "integrations": ["Cloudflare CDN", "KV", "R2", "D1", "Queues", "Durable Objects"],
+      "metrics": {
+        "setupComplexity": 2,
+        "documentationQuality": 4,
+        "communityRating": 4.7,
+        "reliabilityScore": 99.99
+      },
+      "pros": ["零冷启动", "全球分布", "低延迟", "简单定价"],
+      "cons": ["JavaScript限制", "CPU时间限制", "Node.js兼容性", "调试困难"],
+      "recommendedFor": ["API网关", "边缘处理", "A/B测试", "请求路由"],
+      "notRecommendedFor": ["长时间任务", "大内存需求", "复杂计算"],
+      "alternatives": ["Vercel Edge Functions", "Netlify Edge Functions", "Fastly Compute@Edge"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方网站",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "vercel-functions",
+      "name": "vercel-functions",
+      "displayName": "Vercel Functions",
+      "category": "serverless",
+      "description": "Vercel平台的无服务器函数，与前端部署深度集成",
+      "websiteUrl": "https://vercel.com/docs/functions",
+      "tags": ["Serverless", "Edge Functions", "Next.js", "API Routes", "全栈"],
+      "searchKeywords": ["vercel functions", "next.js api", "edge runtime", "serverless api"],
+      "plans": [
+        {
+          "id": "hobby",
+          "name": "hobby",
+          "displayName": "Hobby",
+          "description": "个人项目的免费计划",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "invocations",
+              "amount": 100000,
+              "unit": "次",
+              "description": "函数调用"
+            },
+            {
+              "metric": "compute",
+              "amount": 100,
+              "unit": "GB-小时",
+              "description": "函数执行时间"
+            }
+          ],
+          "features": ["Serverless Functions", "Edge Functions", "10秒超时", "环境变量"],
+          "limitations": ["商业使用限制", "团队功能限制", "有限的并发"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_invocations",
+                "label": "月度调用数（千）",
+                "type": "slider",
+                "min": 0,
+                "max": 500,
+                "default": 100,
+                "unit": "K"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "pro",
+          "name": "pro",
+          "displayName": "Pro",
+          "description": "专业开发者和小团队",
+          "billing": {
+            "basePrice": 20,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "invocations",
+              "amount": 1000000,
+              "unit": "次",
+              "description": "函数调用"
+            },
+            {
+              "metric": "compute",
+              "amount": 1000,
+              "unit": "GB-小时",
+              "description": "函数执行时间"
+            }
+          ],
+          "features": ["60秒超时", "更多并发", "团队协作", "分析功能"],
+          "limitations": ["区域限制"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_invocations",
+                "label": "月度调用数（百万）",
+                "type": "slider",
+                "min": 0,
+                "max": 10,
+                "default": 1,
+                "unit": "M"
+              },
+              {
+                "name": "compute_hours",
+                "label": "计算时间（GB-小时）",
+                "type": "number",
+                "min": 0,
+                "max": 5000,
+                "default": 1000,
+                "unit": "GB-小时"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "invocations",
+              "pricePerUnit": 0.00006,
+              "unit": "调用"
+            },
+            {
+              "metric": "compute",
+              "pricePerUnit": 0.00018,
+              "unit": "GB-小时"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "core": ["Serverless Functions", "Edge Functions", "API Routes", "中间件"],
+        "developer": ["Node.js/Python/Go/Ruby", "TypeScript", "本地开发", "预览部署"],
+        "integration": ["Next.js集成", "数据库连接", "第三方API", "Webhook"],
+        "operations": ["实时日志", "性能监控", "错误追踪", "分析"]
+      },
+      "integrations": ["Next.js", "GitHub", "GitLab", "Bitbucket"],
+      "metrics": {
+        "setupComplexity": 2,
+        "documentationQuality": 5,
+        "communityRating": 4.8,
+        "reliabilityScore": 99.99
+      },
+      "pros": ["Next.js集成", "简单部署", "Edge Runtime", "开发体验好"],
+      "cons": ["Vercel锁定", "价格较高", "自定义限制", "调试工具有限"],
+      "recommendedFor": ["Next.js应用", "API端点", "SSR/SSG", "全栈应用"],
+      "notRecommendedFor": ["纯后端API", "长时间任务", "需要特殊运行时"],
+      "alternatives": ["Netlify Functions", "AWS Lambda", "Cloudflare Workers"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方文档",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": true,
+        "link": "https://vercel.com?utm_source=infrastructure-nav",
+        "commission": "20%"
+      }
+    }
+  ]
+}

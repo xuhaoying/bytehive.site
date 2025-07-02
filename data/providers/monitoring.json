@@ -1,0 +1,923 @@
+{
+  "category": "monitoring",
+  "categoryName": "监控分析",
+  "providers": [
+    {
+      "id": "datadog",
+      "name": "datadog",
+      "displayName": "Datadog",
+      "category": "monitoring",
+      "description": "全栈监控和分析平台，提供基础设施、应用性能和日志监控",
+      "websiteUrl": "https://www.datadoghq.com/",
+      "tags": ["APM", "基础设施监控", "日志分析", "仪表板", "警报"],
+      "searchKeywords": ["datadog", "monitoring", "apm", "infrastructure", "observability"],
+      "plans": [
+        {
+          "id": "infrastructure-free",
+          "name": "infrastructure-free",
+          "displayName": "基础设施免费",
+          "description": "最多5个主机的免费监控",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "hosts",
+              "amount": 5,
+              "unit": "个",
+              "description": "监控主机数量"
+            },
+            {
+              "metric": "metrics",
+              "amount": 500,
+              "unit": "个",
+              "description": "自定义指标"
+            },
+            {
+              "metric": "retention",
+              "amount": 1,
+              "unit": "天",
+              "description": "数据保留期"
+            }
+          ],
+          "features": ["实时监控", "基础仪表板", "警报", "API集成"],
+          "limitations": ["5主机限制", "1天数据保留", "基础功能"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "hosts",
+                "label": "监控主机数",
+                "type": "slider",
+                "min": 1,
+                "max": 5,
+                "default": 3,
+                "unit": "个"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "infrastructure-pro",
+          "name": "infrastructure-pro",
+          "displayName": "基础设施Pro",
+          "description": "专业级基础设施监控",
+          "billing": {
+            "basePrice": 15,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "hosts",
+              "amount": 1,
+              "unit": "个",
+              "description": "每月每主机"
+            },
+            {
+              "metric": "metrics",
+              "amount": 100,
+              "unit": "个",
+              "description": "每主机自定义指标"
+            },
+            {
+              "metric": "retention",
+              "amount": 15,
+              "unit": "月",
+              "description": "数据保留期"
+            }
+          ],
+          "features": ["高级仪表板", "事件关联", "团队管理", "集成"],
+          "limitations": [],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "hosts",
+                "label": "监控主机数",
+                "type": "number",
+                "min": 1,
+                "max": 1000,
+                "default": 10,
+                "unit": "个"
+              },
+              {
+                "name": "custom_metrics",
+                "label": "额外自定义指标（百个）",
+                "type": "number",
+                "min": 0,
+                "max": 1000,
+                "default": 5,
+                "unit": "百个"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "custom_metrics",
+              "pricePerUnit": 5,
+              "unit": "百个"
+            }
+          ]
+        },
+        {
+          "id": "apm",
+          "name": "apm",
+          "displayName": "APM",
+          "description": "应用性能监控和分析",
+          "billing": {
+            "basePrice": 31,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "hosts",
+              "amount": 1,
+              "unit": "个",
+              "description": "每月每主机"
+            },
+            {
+              "metric": "span_ingestion",
+              "amount": 150,
+              "unit": "GB",
+              "description": "链路追踪数据摄取"
+            }
+          ],
+          "features": ["分布式链路追踪", "应用地图", "性能分析", "错误追踪"],
+          "limitations": ["需要基础设施Pro"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "apm_hosts",
+                "label": "APM主机数",
+                "type": "number",
+                "min": 1,
+                "max": 500,
+                "default": 5,
+                "unit": "个"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "span_ingestion",
+              "pricePerUnit": 1.7,
+              "unit": "GB"
+            }
+          ]
+        },
+        {
+          "id": "logs",
+          "name": "logs",
+          "displayName": "日志管理",
+          "description": "日志摄取、索引和分析",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["日志搜索", "实时分析", "告警", "归档"],
+          "limitations": [],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "log_ingestion",
+                "label": "日志摄取量（GB/月）",
+                "type": "number",
+                "min": 0,
+                "max": 10000,
+                "default": 100,
+                "unit": "GB"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "log_ingestion",
+              "pricePerUnit": 0.1,
+              "unit": "GB"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "monitoring": ["基础设施", "应用性能", "网络", "容器"],
+        "observability": ["指标", "日志", "链路追踪", "RUM"],
+        "analytics": ["机器学习", "异常检测", "预测性警报", "根因分析"],
+        "collaboration": ["仪表板共享", "通知集成", "团队管理", "报告"]
+      },
+      "integrations": ["AWS", "Kubernetes", "Docker", "Slack", "PagerDuty"],
+      "metrics": {
+        "setupComplexity": 3,
+        "documentationQuality": 5,
+        "communityRating": 4.5,
+        "reliabilityScore": 99.9
+      },
+      "pros": ["功能全面", "强大的分析", "丰富的集成", "用户体验好"],
+      "cons": ["价格昂贵", "复杂的计费", "配置错误风险高"],
+      "recommendedFor": ["大型企业", "复杂基础设施", "DevOps团队", "云原生应用"],
+      "notRecommendedFor": ["小团队", "预算有限", "简单应用"],
+      "alternatives": ["New Relic", "Grafana", "Prometheus"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方网站",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "new-relic",
+      "name": "new-relic",
+      "displayName": "New Relic",
+      "category": "monitoring",
+      "description": "现代化的可观测性平台，提供全栈监控和AI驱动的洞察",
+      "websiteUrl": "https://newrelic.com/",
+      "tags": ["可观测性", "APM", "基础设施", "AI洞察", "全栈监控"],
+      "searchKeywords": ["new relic", "observability", "apm", "monitoring", "ai insights"],
+      "plans": [
+        {
+          "id": "free",
+          "name": "free",
+          "displayName": "免费版",
+          "description": "永久免费，100GB数据摄取",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "data_ingestion",
+              "amount": 100,
+              "unit": "GB",
+              "description": "月度数据摄取"
+            },
+            {
+              "metric": "full_users",
+              "amount": 1,
+              "unit": "人",
+              "description": "全平台用户"
+            },
+            {
+              "metric": "retention",
+              "amount": 8,
+              "unit": "天",
+              "description": "数据保留期"
+            }
+          ],
+          "features": ["全平台访问", "无限基础用户", "50+平台功能", "查询和仪表板"],
+          "limitations": ["100GB摄取限制", "8天数据保留", "1个全平台用户"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "data_gb",
+                "label": "数据摄取量（GB）",
+                "type": "slider",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "unit": "GB"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "standard",
+          "name": "standard",
+          "displayName": "标准版",
+          "description": "适合团队的可观测性解决方案",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["扩展数据摄取", "更长保留期", "高级功能", "团队协作"],
+          "limitations": [],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "data_gb",
+                "label": "数据摄取量（GB/月）",
+                "type": "number",
+                "min": 100,
+                "max": 10000,
+                "default": 500,
+                "unit": "GB"
+              },
+              {
+                "name": "full_users",
+                "label": "全平台用户数",
+                "type": "number",
+                "min": 0,
+                "max": 100,
+                "default": 5,
+                "unit": "人"
+              },
+              {
+                "name": "core_users",
+                "label": "核心用户数",
+                "type": "number",
+                "min": 0,
+                "max": 100,
+                "default": 10,
+                "unit": "人"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "data_ingestion",
+              "pricePerUnit": 0.35,
+              "unit": "GB"
+            },
+            {
+              "metric": "full_users",
+              "pricePerUnit": 349,
+              "unit": "人"
+            },
+            {
+              "metric": "core_users",
+              "pricePerUnit": 49,
+              "unit": "人"
+            }
+          ]
+        },
+        {
+          "id": "data-plus",
+          "name": "data-plus",
+          "displayName": "Data Plus",
+          "description": "企业级安全和合规功能",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["HIPAA合规", "FedRAMP", "高级安全", "长期保留"],
+          "limitations": [],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "data_gb",
+                "label": "数据摄取量（GB/月）",
+                "type": "number",
+                "min": 0,
+                "max": 10000,
+                "default": 1000,
+                "unit": "GB"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "data_ingestion",
+              "pricePerUnit": 0.55,
+              "unit": "GB"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "observability": ["APM", "基础设施", "浏览器", "移动端", "合成监控"],
+        "analytics": ["AI洞察", "错误分析", "性能分析", "用户体验"],
+        "platform": ["查询语言", "仪表板", "警报", "自动化"],
+        "security": ["加密", "合规性", "访问控制", "审计"]
+      },
+      "integrations": ["AWS", "Azure", "GCP", "Kubernetes", "OpenTelemetry"],
+      "metrics": {
+        "setupComplexity": 2,
+        "documentationQuality": 4,
+        "communityRating": 4.3,
+        "reliabilityScore": 99.9
+      },
+      "pros": ["慷慨的免费层", "AI驱动洞察", "现代化界面", "全栈可观测性"],
+      "cons": ["高级功能昂贵", "学习曲线", "数据摄取计费复杂"],
+      "recommendedFor": ["现代应用", "云原生", "DevOps团队", "快速增长的公司"],
+      "notRecommendedFor": ["传统应用", "简单监控需求", "预算紧张"],
+      "alternatives": ["Datadog", "Grafana", "Dynatrace"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方网站",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "grafana-cloud",
+      "name": "grafana-cloud",
+      "displayName": "Grafana Cloud",
+      "category": "monitoring",
+      "description": "基于开源技术的可观测性平台，提供指标、日志和链路追踪",
+      "websiteUrl": "https://grafana.com/products/cloud/",
+      "tags": ["开源", "指标", "日志", "链路追踪", "可视化"],
+      "searchKeywords": ["grafana cloud", "prometheus", "loki", "tempo", "observability"],
+      "plans": [
+        {
+          "id": "free",
+          "name": "free",
+          "displayName": "免费版",
+          "description": "永久免费的可观测性解决方案",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "metrics",
+              "amount": 10000,
+              "unit": "个",
+              "description": "活跃指标序列"
+            },
+            {
+              "metric": "logs",
+              "amount": 50,
+              "unit": "GB",
+              "description": "月度日志摄取"
+            },
+            {
+              "metric": "traces",
+              "amount": 50,
+              "unit": "GB",
+              "description": "月度链路追踪"
+            },
+            {
+              "metric": "users",
+              "amount": 3,
+              "unit": "人",
+              "description": "Grafana用户"
+            },
+            {
+              "metric": "retention_metrics",
+              "amount": 13,
+              "unit": "月",
+              "description": "指标保留期"
+            },
+            {
+              "metric": "retention_logs",
+              "amount": 30,
+              "unit": "天",
+              "description": "日志保留期"
+            }
+          ],
+          "features": ["Grafana仪表板", "Prometheus指标", "Loki日志", "Tempo链路追踪"],
+          "limitations": ["使用量限制", "基础支持"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "metrics",
+                "label": "活跃指标数（千）",
+                "type": "slider",
+                "min": 0,
+                "max": 10,
+                "default": 5,
+                "unit": "K"
+              },
+              {
+                "name": "logs_gb",
+                "label": "日志量（GB）",
+                "type": "slider",
+                "min": 0,
+                "max": 50,
+                "default": 25,
+                "unit": "GB"
+              },
+              {
+                "name": "traces_gb",
+                "label": "链路追踪（GB）",
+                "type": "slider",
+                "min": 0,
+                "max": 50,
+                "default": 25,
+                "unit": "GB"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "pro",
+          "name": "pro",
+          "displayName": "Pro版",
+          "description": "按使用量付费的扩展计划",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["无限用户", "高级功能", "SLA保证", "技术支持"],
+          "limitations": [],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "metrics",
+                "label": "活跃指标数（万）",
+                "type": "number",
+                "min": 1,
+                "max": 1000,
+                "default": 10,
+                "unit": "万"
+              },
+              {
+                "name": "logs_gb",
+                "label": "月度日志（GB）",
+                "type": "number",
+                "min": 50,
+                "max": 10000,
+                "default": 200,
+                "unit": "GB"
+              },
+              {
+                "name": "traces_gb",
+                "label": "月度链路追踪（GB）",
+                "type": "number",
+                "min": 50,
+                "max": 5000,
+                "default": 100,
+                "unit": "GB"
+              },
+              {
+                "name": "users",
+                "label": "用户数",
+                "type": "number",
+                "min": 3,
+                "max": 100,
+                "default": 10,
+                "unit": "人"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "metrics",
+              "pricePerUnit": 3,
+              "unit": "万个"
+            },
+            {
+              "metric": "logs",
+              "pricePerUnit": 3,
+              "unit": "GB"
+            },
+            {
+              "metric": "traces",
+              "pricePerUnit": 2,
+              "unit": "GB"
+            },
+            {
+              "metric": "users",
+              "pricePerUnit": 8,
+              "unit": "人"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "visualization": ["Grafana仪表板", "丰富的图表", "模板", "插件"],
+        "metrics": ["Prometheus兼容", "PromQL查询", "告警", "规则"],
+        "logs": ["Loki存储", "LogQL查询", "标签索引", "聚合"],
+        "tracing": ["Tempo存储", "Jaeger兼容", "服务地图", "性能分析"]
+      },
+      "integrations": ["Prometheus", "Jaeger", "OpenTelemetry", "Kubernetes"],
+      "metrics": {
+        "setupComplexity": 3,
+        "documentationQuality": 4,
+        "communityRating": 4.6,
+        "reliabilityScore": 99.9
+      },
+      "pros": ["开源基础", "慷慨免费层", "灵活定价", "强大可视化"],
+      "cons": ["需要技术能力", "配置复杂", "社区支持依赖"],
+      "recommendedFor": ["开源爱好者", "技术团队", "成本敏感", "自定义需求"],
+      "notRecommendedFor": ["非技术团队", "即插即用需求", "企业级支持需求"],
+      "alternatives": ["Prometheus", "ELK Stack", "Datadog"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方网站",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "elastic-observability",
+      "name": "elastic-observability",
+      "displayName": "Elastic Observability",
+      "category": "monitoring",
+      "description": "基于Elastic Stack的统一可观测性解决方案",
+      "websiteUrl": "https://www.elastic.co/observability",
+      "tags": ["ELK Stack", "搜索", "日志分析", "APM", "指标"],
+      "searchKeywords": ["elastic", "elasticsearch", "kibana", "beats", "logstash"],
+      "plans": [
+        {
+          "id": "free",
+          "name": "free",
+          "displayName": "免费版",
+          "description": "基础Elastic Stack功能",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 14,
+              "unit": "天",
+              "description": "数据保留期"
+            }
+          ],
+          "features": ["Elasticsearch", "Kibana", "Beats", "基础安全"],
+          "limitations": ["功能限制", "基础支持", "单集群"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "daily_data",
+                "label": "日均数据量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 100,
+                "default": 10,
+                "unit": "GB"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "standard",
+          "name": "standard",
+          "displayName": "标准版",
+          "description": "商业功能和支持",
+          "billing": {
+            "basePrice": 95,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 30,
+              "unit": "天",
+              "description": "热数据保留"
+            }
+          ],
+          "features": ["机器学习", "高级安全", "监控", "支持"],
+          "limitations": [],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "daily_data",
+                "label": "日均数据量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 1000,
+                "default": 50,
+                "unit": "GB"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.108,
+              "unit": "GB/天"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "search": ["Elasticsearch引擎", "全文搜索", "聚合分析", "实时搜索"],
+        "visualization": ["Kibana仪表板", "图表", "地图", "时间序列"],
+        "ingestion": ["Beats采集", "Logstash处理", "API摄取", "代理"],
+        "observability": ["APM", "日志", "指标", "正常运行时间监控"]
+      },
+      "integrations": ["AWS", "Docker", "Kubernetes", "Apache", "Nginx"],
+      "metrics": {
+        "setupComplexity": 4,
+        "documentationQuality": 4,
+        "communityRating": 4.2,
+        "reliabilityScore": 99.5
+      },
+      "pros": ["强大的搜索", "开源基础", "灵活架构", "丰富生态"],
+      "cons": ["复杂配置", "资源消耗大", "学习曲线陡峭"],
+      "recommendedFor": ["日志分析", "搜索需求", "大数据", "技术团队"],
+      "notRecommendedFor": ["简单监控", "小团队", "即插即用"],
+      "alternatives": ["Splunk", "Datadog", "Grafana"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方网站",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "sentry",
+      "name": "sentry",
+      "displayName": "Sentry",
+      "category": "monitoring",
+      "description": "专注于错误监控和性能监控的开发者工具",
+      "websiteUrl": "https://sentry.io/",
+      "tags": ["错误监控", "性能监控", "开发者工具", "调试", "RUM"],
+      "searchKeywords": ["sentry", "error monitoring", "crash reporting", "performance"],
+      "plans": [
+        {
+          "id": "developer",
+          "name": "developer",
+          "displayName": "开发者免费",
+          "description": "个人项目和小团队",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "errors",
+              "amount": 5000,
+              "unit": "个",
+              "description": "月度错误事件"
+            },
+            {
+              "metric": "performance",
+              "amount": 10000,
+              "unit": "个",
+              "description": "性能监控事件"
+            },
+            {
+              "metric": "replay",
+              "amount": 100,
+              "unit": "个",
+              "description": "会话回放"
+            },
+            {
+              "metric": "users",
+              "amount": 1,
+              "unit": "人",
+              "description": "团队成员"
+            }
+          ],
+          "features": ["错误追踪", "性能监控", "发布追踪", "基础集成"],
+          "limitations": ["单用户", "基础功能", "社区支持"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "errors",
+                "label": "月度错误数（千）",
+                "type": "slider",
+                "min": 0,
+                "max": 5,
+                "default": 2,
+                "unit": "K"
+              },
+              {
+                "name": "performance",
+                "label": "性能事件数（千）",
+                "type": "slider",
+                "min": 0,
+                "max": 10,
+                "default": 5,
+                "unit": "K"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "team",
+          "name": "team",
+          "displayName": "团队版",
+          "description": "小团队的协作解决方案",
+          "billing": {
+            "basePrice": 26,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "errors",
+              "amount": 50000,
+              "unit": "个",
+              "description": "月度错误事件"
+            },
+            {
+              "metric": "performance",
+              "amount": 100000,
+              "unit": "个",
+              "description": "性能监控事件"
+            },
+            {
+              "metric": "replay",
+              "amount": 500,
+              "unit": "个",
+              "description": "会话回放"
+            },
+            {
+              "metric": "users",
+              "amount": 5,
+              "unit": "人",
+              "description": "团队成员"
+            }
+          ],
+          "features": ["团队管理", "高级警报", "数据转发", "更长保留期"],
+          "limitations": [],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "errors",
+                "label": "月度错误数（万）",
+                "type": "number",
+                "min": 5,
+                "max": 100,
+                "default": 20,
+                "unit": "万"
+              },
+              {
+                "name": "performance",
+                "label": "性能事件数（万）",
+                "type": "number",
+                "min": 10,
+                "max": 500,
+                "default": 50,
+                "unit": "万"
+              },
+              {
+                "name": "users",
+                "label": "团队成员数",
+                "type": "number",
+                "min": 1,
+                "max": 20,
+                "default": 5,
+                "unit": "人"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "errors",
+              "pricePerUnit": 2.4,
+              "unit": "万个"
+            },
+            {
+              "metric": "performance",
+              "pricePerUnit": 0.24,
+              "unit": "万个"
+            },
+            {
+              "metric": "users",
+              "pricePerUnit": 20,
+              "unit": "人"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "error_monitoring": ["实时错误追踪", "堆栈跟踪", "错误分组", "影响评估"],
+        "performance": ["事务追踪", "性能瀑布图", "用户体验", "Web Vitals"],
+        "debugging": ["源码映射", "面包屑", "用户上下文", "标签过滤"],
+        "collaboration": ["团队工作流", "集成", "通知", "仪表板"]
+      },
+      "integrations": ["GitHub", "Slack", "Jira", "PagerDuty", "Discord"],
+      "metrics": {
+        "setupComplexity": 2,
+        "documentationQuality": 5,
+        "communityRating": 4.7,
+        "reliabilityScore": 99.9
+      },
+      "pros": ["专注错误监控", "开发者友好", "丰富集成", "开源版本"],
+      "cons": ["功能相对单一", "企业功能昂贵", "复杂项目计费高"],
+      "recommendedFor": ["错误追踪", "开发团队", "Web应用", "移动应用"],
+      "notRecommendedFor": ["基础设施监控", "全栈可观测性", "简单应用"],
+      "alternatives": ["Rollbar", "Bugsnag", "Airbrake"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方网站",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    }
+  ]
+}

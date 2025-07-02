@@ -1,0 +1,842 @@
+{
+  "category": "email",
+  "categoryName": "邮箱服务",
+  "providers": [
+    {
+      "id": "google-workspace",
+      "name": "google-workspace",
+      "displayName": "Google Workspace",
+      "category": "email",
+      "description": "Google的企业级邮箱和协作套件，包含Gmail、Drive、Meet等",
+      "websiteUrl": "https://workspace.google.com/",
+      "tags": ["企业邮箱", "协作套件", "Gmail", "Google Drive", "办公软件"],
+      "searchKeywords": ["google workspace", "gmail business", "gsuite", "企业邮箱", "google 办公"],
+      "plans": [
+        {
+          "id": "business-starter",
+          "name": "business-starter",
+          "displayName": "Business Starter",
+          "description": "小团队的基础计划，包含30GB存储",
+          "billing": {
+            "basePrice": 7,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 30,
+              "unit": "GB",
+              "description": "每用户存储空间"
+            },
+            {
+              "metric": "meeting_participants",
+              "amount": 100,
+              "unit": "人",
+              "description": "视频会议参与者"
+            }
+          ],
+          "features": ["自定义域名邮箱", "Google Meet", "Google Drive", "Gmail", "日历"],
+          "limitations": ["存储空间有限", "无录制功能", "基础安全功能"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "users",
+                "label": "用户数量",
+                "type": "number",
+                "min": 1,
+                "max": 300,
+                "default": 5,
+                "unit": "人",
+                "helpText": "需要邮箱的员工数量"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "business-standard",
+          "name": "business-standard",
+          "displayName": "Business Standard",
+          "description": "中型团队，2TB存储，支持录制",
+          "billing": {
+            "basePrice": 14,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 2000,
+              "unit": "GB",
+              "description": "每用户存储空间"
+            },
+            {
+              "metric": "meeting_participants",
+              "amount": 150,
+              "unit": "人",
+              "description": "视频会议参与者"
+            }
+          ],
+          "features": ["会议录制", "Vault存档", "高级日历", "设备管理"],
+          "limitations": ["用户上限300人"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "users",
+                "label": "用户数量",
+                "type": "number",
+                "min": 1,
+                "max": 300,
+                "default": 10,
+                "unit": "人"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "business-plus",
+          "name": "business-plus",
+          "displayName": "Business Plus",
+          "description": "大型团队，5TB存储，高级安全功能",
+          "billing": {
+            "basePrice": 22,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 5000,
+              "unit": "GB",
+              "description": "每用户存储空间"
+            },
+            {
+              "metric": "meeting_participants",
+              "amount": 250,
+              "unit": "人",
+              "description": "视频会议参与者"
+            }
+          ],
+          "features": ["高级安全", "数据防泄漏", "设备管理", "合规工具"],
+          "limitations": ["用户上限300人"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "users",
+                "label": "用户数量",
+                "type": "number",
+                "min": 1,
+                "max": 300,
+                "default": 25,
+                "unit": "人"
+              }
+            ]
+          },
+          "overageRules": []
+        }
+      ],
+      "features": {
+        "core": ["Gmail企业版", "Google Drive", "Google Meet", "日历", "文档协作"],
+        "security": ["2FA认证", "SSL加密", "管理控制台", "设备管理"],
+        "collaboration": ["实时协作", "共享日历", "视频会议", "聊天"],
+        "compliance": ["数据归档", "审计日志", "合规性控制", "数据防泄漏"]
+      },
+      "integrations": ["Chrome", "Android", "iOS", "Outlook", "第三方应用"],
+      "metrics": {
+        "setupComplexity": 2,
+        "documentationQuality": 5,
+        "communityRating": 4.5,
+        "reliabilityScore": 99.9
+      },
+      "pros": ["Google生态集成", "易于使用", "强大的协作功能", "可靠性高"],
+      "cons": ["价格上涨", "Google依赖", "隐私顾虑", "定制化有限"],
+      "recommendedFor": ["中小企业", "远程团队", "协作密集型工作", "Google用户"],
+      "notRecommendedFor": ["隐私敏感企业", "离线工作", "非Google生态"],
+      "alternatives": ["Microsoft 365", "Zoho Workplace", "Fastmail"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方网站",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "sendgrid",
+      "name": "sendgrid",
+      "displayName": "SendGrid",
+      "category": "email",
+      "description": "Twilio旗下的邮件发送API服务，适合开发者和营销团队",
+      "websiteUrl": "https://sendgrid.com/",
+      "tags": ["邮件API", "事务邮件", "营销邮件", "开发者工具", "SMTP"],
+      "searchKeywords": ["sendgrid", "email api", "transactional email", "email marketing"],
+      "plans": [
+        {
+          "id": "free",
+          "name": "free",
+          "displayName": "免费计划",
+          "description": "每天100封邮件，前30天40000封",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "emails_daily",
+              "amount": 100,
+              "unit": "封/天",
+              "description": "每日邮件额度"
+            },
+            {
+              "metric": "emails_first_month",
+              "amount": 40000,
+              "unit": "封",
+              "description": "首月额外邮件"
+            }
+          ],
+          "features": ["Email API", "SMTP", "Webhooks", "基础分析", "拖拽编辑器"],
+          "limitations": ["每日100封限制", "基础功能", "有SendGrid标识"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "daily_emails",
+                "label": "日均邮件数",
+                "type": "slider",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "unit": "封",
+                "helpText": "每天发送的邮件数量"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "essentials",
+          "name": "essentials",
+          "displayName": "Essentials",
+          "description": "适合小企业的基础付费计划",
+          "billing": {
+            "basePrice": 19.95,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "emails",
+              "amount": 50000,
+              "unit": "封",
+              "description": "月度邮件额度"
+            }
+          ],
+          "features": ["无SendGrid标识", "邮件验证", "模板管理", "A/B测试"],
+          "limitations": ["基础支持", "功能有限"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_emails",
+                "label": "月度邮件数（千）",
+                "type": "slider",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "unit": "K"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "emails",
+              "pricePerUnit": 0.00088,
+              "unit": "封"
+            }
+          ]
+        },
+        {
+          "id": "pro",
+          "name": "pro",
+          "displayName": "Pro",
+          "description": "专业团队的高级功能",
+          "billing": {
+            "basePrice": 89.95,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "emails",
+              "amount": 1500000,
+              "unit": "封",
+              "description": "月度邮件额度"
+            }
+          ],
+          "features": ["高级分析", "子用户管理", "IP池", "专用IP选项"],
+          "limitations": ["价格较高"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_emails",
+                "label": "月度邮件数（百万）",
+                "type": "slider",
+                "min": 0,
+                "max": 5,
+                "default": 1.5,
+                "unit": "M"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "emails",
+              "pricePerUnit": 0.00060,
+              "unit": "封"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "core": ["RESTful API", "SMTP Relay", "Webhooks", "模板引擎"],
+        "analytics": ["实时统计", "点击追踪", "打开率", "退信分析"],
+        "delivery": ["IP热身", "域名验证", "信誉管理", "ISP反馈"],
+        "security": ["SPF/DKIM", "TLS加密", "2FA", "IP白名单"]
+      },
+      "integrations": ["WordPress", "Shopify", "Salesforce", "HubSpot", "Zapier"],
+      "metrics": {
+        "setupComplexity": 3,
+        "documentationQuality": 5,
+        "communityRating": 4.4,
+        "reliabilityScore": 99.8
+      },
+      "pros": ["强大的API", "高送达率", "丰富的功能", "良好的文档"],
+      "cons": ["价格较高", "复杂配置", "学习曲线陡峭"],
+      "recommendedFor": ["开发者", "SaaS应用", "电商网站", "营销团队"],
+      "notRecommendedFor": ["简单需求", "预算紧张", "非技术用户"],
+      "alternatives": ["Mailgun", "Amazon SES", "Postmark"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方网站",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "mailgun",
+      "name": "mailgun",
+      "displayName": "Mailgun",
+      "category": "email",
+      "description": "专为开发者设计的邮件API服务，简单易用",
+      "websiteUrl": "https://www.mailgun.com/",
+      "tags": ["邮件API", "开发者友好", "事务邮件", "SMTP", "RESTful API"],
+      "searchKeywords": ["mailgun", "email api", "developer email", "transactional"],
+      "plans": [
+        {
+          "id": "free",
+          "name": "free",
+          "displayName": "免费计划",
+          "description": "每天100封邮件，适合测试和小项目",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "emails_daily",
+              "amount": 100,
+              "unit": "封/天",
+              "description": "每日邮件限额"
+            },
+            {
+              "metric": "domains",
+              "amount": 1,
+              "unit": "个",
+              "description": "自定义域名"
+            },
+            {
+              "metric": "log_retention",
+              "amount": 1,
+              "unit": "天",
+              "description": "日志保留时间"
+            }
+          ],
+          "features": ["RESTful API", "SMTP", "Webhooks", "基础分析"],
+          "limitations": ["每日100封限制", "1天日志", "基础支持"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "daily_emails",
+                "label": "日均邮件数",
+                "type": "slider",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "unit": "封"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "foundation",
+          "name": "foundation",
+          "displayName": "Foundation",
+          "description": "小企业和初创公司的基础计划",
+          "billing": {
+            "basePrice": 15,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "emails",
+              "amount": 10000,
+              "unit": "封",
+              "description": "月度邮件额度"
+            },
+            {
+              "metric": "domains",
+              "amount": 3,
+              "unit": "个",
+              "description": "自定义域名"
+            },
+            {
+              "metric": "log_retention",
+              "amount": 7,
+              "unit": "天",
+              "description": "日志保留时间"
+            }
+          ],
+          "features": ["无每日限制", "邮件验证", "模板", "统计报告"],
+          "limitations": ["基础功能"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_emails",
+                "label": "月度邮件数（千）",
+                "type": "slider",
+                "min": 0,
+                "max": 50,
+                "default": 10,
+                "unit": "K"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "emails",
+              "pricePerUnit": 0.0008,
+              "unit": "封"
+            }
+          ]
+        },
+        {
+          "id": "scale",
+          "name": "scale",
+          "displayName": "Scale",
+          "description": "高容量邮件发送，适合大型应用",
+          "billing": {
+            "basePrice": 90,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "emails",
+              "amount": 100000,
+              "unit": "封",
+              "description": "月度邮件额度"
+            },
+            {
+              "metric": "domains",
+              "amount": 100,
+              "unit": "个",
+              "description": "自定义域名"
+            },
+            {
+              "metric": "log_retention",
+              "amount": 30,
+              "unit": "天",
+              "description": "日志保留时间"
+            }
+          ],
+          "features": ["专用IP", "高级分析", "优先支持", "SLA保证"],
+          "limitations": [],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_emails",
+                "label": "月度邮件数（万）",
+                "type": "slider",
+                "min": 0,
+                "max": 50,
+                "default": 10,
+                "unit": "万"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "emails",
+              "pricePerUnit": 0.0005,
+              "unit": "封"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "core": ["RESTful API", "SMTP", "批量发送", "模板引擎"],
+        "analytics": ["实时追踪", "投递统计", "点击分析", "退信处理"],
+        "deliverability": ["域名验证", "IP管理", "信誉监控", "黑名单管理"],
+        "developer": ["SDK库", "Webhooks", "路由规则", "收件箱测试"]
+      },
+      "integrations": ["Heroku", "Laravel", "Django", "Ruby on Rails"],
+      "metrics": {
+        "setupComplexity": 2,
+        "documentationQuality": 4,
+        "communityRating": 4.3,
+        "reliabilityScore": 99.7
+      },
+      "pros": ["开发者友好", "简单易用", "性价比高", "快速集成"],
+      "cons": ["功能相对简单", "免费层限制大", "UI较旧"],
+      "recommendedFor": ["开发者", "初创公司", "简单应用", "预算有限"],
+      "notRecommendedFor": ["复杂营销", "大企业", "高级功能需求"],
+      "alternatives": ["SendGrid", "Postmark", "Amazon SES"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方网站",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "resend",
+      "name": "resend",
+      "displayName": "Resend",
+      "category": "email",
+      "description": "现代化的开发者邮件API，注重开发体验",
+      "websiteUrl": "https://resend.com/",
+      "tags": ["现代邮件API", "开发者优先", "React Email", "TypeScript", "简单易用"],
+      "searchKeywords": ["resend", "modern email api", "developer email", "react email"],
+      "plans": [
+        {
+          "id": "free",
+          "name": "free",
+          "displayName": "免费计划",
+          "description": "每月3000封邮件，每天100封限制",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "emails_monthly",
+              "amount": 3000,
+              "unit": "封",
+              "description": "月度邮件额度"
+            },
+            {
+              "metric": "emails_daily",
+              "amount": 100,
+              "unit": "封/天",
+              "description": "每日邮件限制"
+            },
+            {
+              "metric": "domains",
+              "amount": 1,
+              "unit": "个",
+              "description": "自定义域名"
+            },
+            {
+              "metric": "marketing_contacts",
+              "amount": 1000,
+              "unit": "个",
+              "description": "营销邮件联系人"
+            }
+          ],
+          "features": ["React Email", "TypeScript支持", "Webhooks", "营销邮件"],
+          "limitations": ["每日100封", "1个域名", "基础功能"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_emails",
+                "label": "月度邮件数（千）",
+                "type": "slider",
+                "min": 0,
+                "max": 3,
+                "default": 1,
+                "unit": "K"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "pro",
+          "name": "pro",
+          "displayName": "Pro",
+          "description": "专业开发者和团队使用",
+          "billing": {
+            "basePrice": 20,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "emails",
+              "amount": 50000,
+              "unit": "封",
+              "description": "月度邮件额度"
+            },
+            {
+              "metric": "domains",
+              "amount": 999,
+              "unit": "个",
+              "description": "无限域名"
+            }
+          ],
+          "features": ["无限域名", "多区域发送", "高级分析", "优先支持"],
+          "limitations": [],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_emails",
+                "label": "月度邮件数（万）",
+                "type": "slider",
+                "min": 0,
+                "max": 20,
+                "default": 5,
+                "unit": "万"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "emails",
+              "pricePerUnit": 0.0003,
+              "unit": "封"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "core": ["React Email", "TypeScript SDK", "RESTful API", "SMTP"],
+        "developer": ["现代DX", "快速集成", "本地开发", "组件化模板"],
+        "analytics": ["实时统计", "投递追踪", "事件Webhooks", "错误监控"],
+        "collaboration": ["团队管理", "API密钥管理", "域名管理", "环境分离"]
+      },
+      "integrations": ["React", "Next.js", "Vercel", "Node.js", "TypeScript"],
+      "metrics": {
+        "setupComplexity": 1,
+        "documentationQuality": 5,
+        "communityRating": 4.9,
+        "reliabilityScore": 99.9
+      },
+      "pros": ["现代开发体验", "React集成", "简单易用", "优秀文档"],
+      "cons": ["相对新的服务", "功能较少", "企业功能有限"],
+      "recommendedFor": ["React开发者", "现代应用", "快速原型", "初创公司"],
+      "notRecommendedFor": ["传统企业", "复杂需求", "大规模营销"],
+      "alternatives": ["Postmark", "SendGrid", "Mailgun"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方网站",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "postmark",
+      "name": "postmark",
+      "displayName": "Postmark",
+      "category": "email",
+      "description": "专注于事务邮件的高速投递服务",
+      "websiteUrl": "https://postmarkapp.com/",
+      "tags": ["事务邮件", "高速投递", "可靠性", "开发者工具", "模板"],
+      "searchKeywords": ["postmark", "transactional email", "fast delivery", "reliable email"],
+      "plans": [
+        {
+          "id": "developer",
+          "name": "developer",
+          "displayName": "开发者免费",
+          "description": "永久免费，每月100封邮件",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "emails",
+              "amount": 100,
+              "unit": "封",
+              "description": "月度邮件额度"
+            },
+            {
+              "metric": "history",
+              "amount": 45,
+              "unit": "天",
+              "description": "邮件历史记录"
+            }
+          ],
+          "features": ["快速投递", "响应式模板", "Webhooks", "API支持"],
+          "limitations": ["100封/月限制", "基础功能"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_emails",
+                "label": "月度邮件数",
+                "type": "slider",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "unit": "封"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "starter",
+          "name": "starter",
+          "displayName": "Starter",
+          "description": "小企业的基础付费计划",
+          "billing": {
+            "basePrice": 10,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "emails",
+              "amount": 10000,
+              "unit": "封",
+              "description": "月度邮件额度"
+            },
+            {
+              "metric": "history",
+              "amount": 45,
+              "unit": "天",
+              "description": "邮件历史记录"
+            }
+          ],
+          "features": ["4倍投递速度", "模板管理", "分析报告", "专业支持"],
+          "limitations": [],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_emails",
+                "label": "月度邮件数（千）",
+                "type": "slider",
+                "min": 0,
+                "max": 50,
+                "default": 10,
+                "unit": "K"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "emails",
+              "pricePerUnit": 0.001,
+              "unit": "封"
+            }
+          ]
+        },
+        {
+          "id": "growth",
+          "name": "growth",
+          "displayName": "Growth",
+          "description": "成长型企业的高容量计划",
+          "billing": {
+            "basePrice": 85,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "emails",
+              "amount": 100000,
+              "unit": "封",
+              "description": "月度邮件额度"
+            },
+            {
+              "metric": "history",
+              "amount": 45,
+              "unit": "天",
+              "description": "邮件历史记录"
+            }
+          ],
+          "features": ["专用IP选项", "高级分析", "自定义历史记录", "优先支持"],
+          "limitations": [],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_emails",
+                "label": "月度邮件数（万）",
+                "type": "slider",
+                "min": 0,
+                "max": 50,
+                "default": 10,
+                "unit": "万"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "emails",
+              "pricePerUnit": 0.00045,
+              "unit": "封"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "core": ["超快投递", "模板引擎", "API库", "SMTP支持"],
+        "reliability": ["99.9%正常运行", "投递监控", "黑名单监控", "信誉管理"],
+        "analytics": ["详细统计", "投递追踪", "打开率", "点击率"],
+        "developer": ["多语言SDK", "Webhooks", "本地测试", "调试工具"]
+      },
+      "integrations": ["Ruby", "Python", "PHP", "Node.js", "C#", ".NET"],
+      "metrics": {
+        "setupComplexity": 2,
+        "documentationQuality": 5,
+        "communityRating": 4.8,
+        "reliabilityScore": 99.9
+      },
+      "pros": ["投递速度快", "可靠性高", "简单易用", "优秀支持"],
+      "cons": ["功能相对简单", "价格较高", "主要针对事务邮件"],
+      "recommendedFor": ["事务邮件", "应用通知", "SaaS应用", "对速度要求高"],
+      "notRecommendedFor": ["营销邮件", "批量发送", "复杂需求"],
+      "alternatives": ["SendGrid", "Mailgun", "Amazon SES"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方网站",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    }
+  ]
+}

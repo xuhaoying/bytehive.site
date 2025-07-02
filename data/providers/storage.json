@@ -1,0 +1,867 @@
+{
+  "category": "storage",
+  "categoryName": "存储服务",
+  "providers": [
+    {
+      "id": "aws-s3",
+      "name": "aws-s3",
+      "displayName": "Amazon S3",
+      "category": "storage",
+      "description": "AWS的对象存储服务，提供多种存储类别和高可用性",
+      "websiteUrl": "https://aws.amazon.com/s3/",
+      "tags": ["对象存储", "云存储", "AWS", "高可用", "多存储类别"],
+      "searchKeywords": ["s3", "amazon storage", "aws storage", "object storage"],
+      "plans": [
+        {
+          "id": "free-tier",
+          "name": "free-tier",
+          "displayName": "免费套餐",
+          "description": "首年免费，5GB标准存储",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 5,
+              "unit": "GB",
+              "description": "S3标准存储"
+            },
+            {
+              "metric": "get_requests",
+              "amount": 20000,
+              "unit": "次",
+              "description": "GET请求"
+            },
+            {
+              "metric": "put_requests",
+              "amount": 2000,
+              "unit": "次",
+              "description": "PUT/COPY/POST/LIST请求"
+            },
+            {
+              "metric": "data_transfer",
+              "amount": 100,
+              "unit": "GB",
+              "description": "数据传出"
+            }
+          ],
+          "features": ["11个9的数据持久性", "多种存储类别", "生命周期管理", "版本控制"],
+          "limitations": ["仅限前12个月", "只适用于标准存储类别"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage_gb",
+                "label": "存储容量（GB）",
+                "type": "slider",
+                "min": 0,
+                "max": 5,
+                "default": 2,
+                "unit": "GB"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "standard",
+          "name": "standard",
+          "displayName": "S3标准存储",
+          "description": "频繁访问数据的默认存储类别",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["毫秒级访问", "高可用性", "支持所有S3功能"],
+          "limitations": [],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage_tb",
+                "label": "存储容量（TB）",
+                "type": "number",
+                "min": 0,
+                "max": 1000,
+                "default": 1,
+                "unit": "TB"
+              },
+              {
+                "name": "get_requests",
+                "label": "GET请求数（千/月）",
+                "type": "number",
+                "min": 0,
+                "max": 10000,
+                "default": 100,
+                "unit": "K"
+              },
+              {
+                "name": "put_requests",
+                "label": "PUT请求数（千/月）",
+                "type": "number",
+                "min": 0,
+                "max": 1000,
+                "default": 10,
+                "unit": "K"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.023,
+              "unit": "GB",
+              "tieredPricing": [
+                { "from": 0, "to": 50000, "pricePerUnit": 0.023 },
+                { "from": 50000, "to": 500000, "pricePerUnit": 0.022 },
+                { "from": 500000, "to": null, "pricePerUnit": 0.021 }
+              ]
+            },
+            {
+              "metric": "get_requests",
+              "pricePerUnit": 0.0004,
+              "unit": "千次"
+            },
+            {
+              "metric": "put_requests",
+              "pricePerUnit": 0.005,
+              "unit": "千次"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "storage_classes": ["标准", "标准-IA", "一区IA", "智能分层", "Glacier", "Glacier深度归档"],
+        "durability": ["11个9的数据持久性", "跨多个设施存储", "自动备份"],
+        "management": ["生命周期策略", "版本控制", "跨区域复制", "访问控制"],
+        "performance": ["请求加速", "多部分上传", "字节范围获取", "静态网站托管"]
+      },
+      "integrations": ["CloudFront", "Lambda", "EC2", "第三方工具"],
+      "metrics": {
+        "setupComplexity": 3,
+        "documentationQuality": 5,
+        "communityRating": 4.6,
+        "reliabilityScore": 99.999999999
+      },
+      "pros": ["行业标准", "功能丰富", "高可靠性", "全球部署"],
+      "cons": ["复杂的定价", "出站流量费用", "学习曲线陡峭"],
+      "recommendedFor": ["企业应用", "数据备份", "静态网站", "大数据分析"],
+      "notRecommendedFor": ["简单需求", "成本敏感项目", "频繁数据传输"],
+      "alternatives": ["Google Cloud Storage", "Azure Blob", "Cloudflare R2"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方文档",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "google-cloud-storage",
+      "name": "google-cloud-storage",
+      "displayName": "Google Cloud Storage",
+      "category": "storage",
+      "description": "Google Cloud的统一对象存储服务，提供多种存储类别",
+      "websiteUrl": "https://cloud.google.com/storage",
+      "tags": ["对象存储", "Google Cloud", "智能分层", "多区域", "冷存储"],
+      "searchKeywords": ["gcs", "google storage", "cloud storage", "nearline", "coldline"],
+      "plans": [
+        {
+          "id": "standard",
+          "name": "standard",
+          "displayName": "标准存储",
+          "description": "频繁访问数据的热存储",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["即时访问", "高可用性", "地理冗余", "最佳性能"],
+          "limitations": [],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage_gb",
+                "label": "存储容量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 100000,
+                "default": 100,
+                "unit": "GB"
+              },
+              {
+                "name": "class_a_ops",
+                "label": "A类操作（千次/月）",
+                "type": "number",
+                "min": 0,
+                "max": 1000,
+                "default": 10,
+                "unit": "K"
+              },
+              {
+                "name": "class_b_ops",
+                "label": "B类操作（千次/月）",
+                "type": "number",
+                "min": 0,
+                "max": 10000,
+                "default": 100,
+                "unit": "K"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.026,
+              "unit": "GB"
+            },
+            {
+              "metric": "class_a_ops",
+              "pricePerUnit": 0.05,
+              "unit": "万次"
+            },
+            {
+              "metric": "class_b_ops",
+              "pricePerUnit": 0.004,
+              "unit": "万次"
+            }
+          ]
+        },
+        {
+          "id": "nearline",
+          "name": "nearline",
+          "displayName": "Nearline存储",
+          "description": "月访问少于一次的数据",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["30天最短存储期", "较低存储成本", "秒级访问"],
+          "limitations": ["检索费用", "最短存储30天"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage_gb",
+                "label": "存储容量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 100000,
+                "default": 500,
+                "unit": "GB"
+              },
+              {
+                "name": "retrieval_gb",
+                "label": "月检索量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 1000,
+                "default": 50,
+                "unit": "GB"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.015,
+              "unit": "GB"
+            },
+            {
+              "metric": "retrieval",
+              "pricePerUnit": 0.01,
+              "unit": "GB"
+            }
+          ]
+        },
+        {
+          "id": "coldline",
+          "name": "coldline",
+          "displayName": "Coldline存储",
+          "description": "季度访问少于一次的数据",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["90天最短存储期", "更低存储成本", "秒级访问"],
+          "limitations": ["检索费用更高", "最短存储90天"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage_gb",
+                "label": "存储容量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 100000,
+                "default": 1000,
+                "unit": "GB"
+              },
+              {
+                "name": "retrieval_gb",
+                "label": "月检索量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 100,
+                "default": 10,
+                "unit": "GB"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.004,
+              "unit": "GB"
+            },
+            {
+              "metric": "retrieval",
+              "pricePerUnit": 0.02,
+              "unit": "GB"
+            }
+          ]
+        },
+        {
+          "id": "archive",
+          "name": "archive",
+          "displayName": "Archive存储",
+          "description": "年访问少于一次的长期归档",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["365天最短存储期", "最低存储成本", "秒级访问"],
+          "limitations": ["高检索费用", "最短存储365天"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage_gb",
+                "label": "存储容量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 1000000,
+                "default": 10000,
+                "unit": "GB"
+              },
+              {
+                "name": "retrieval_gb",
+                "label": "年检索量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 100,
+                "default": 5,
+                "unit": "GB"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.0012,
+              "unit": "GB"
+            },
+            {
+              "metric": "retrieval",
+              "pricePerUnit": 0.05,
+              "unit": "GB"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "storage_classes": ["标准", "Nearline", "Coldline", "Archive"],
+        "performance": ["强一致性", "低延迟", "高吞吐量", "全球分布"],
+        "management": ["生命周期管理", "版本控制", "IAM集成", "审计日志"],
+        "integration": ["BigQuery", "Dataflow", "AI/ML服务", "Compute Engine"]
+      },
+      "integrations": ["BigQuery", "Dataflow", "AI Platform", "Kubernetes"],
+      "metrics": {
+        "setupComplexity": 3,
+        "documentationQuality": 4,
+        "communityRating": 4.4,
+        "reliabilityScore": 99.999999999
+      },
+      "pros": ["Google生态集成", "AI/ML友好", "强一致性", "全球性能"],
+      "cons": ["定价复杂", "出站费用", "供应商锁定"],
+      "recommendedFor": ["数据分析", "AI/ML项目", "媒体存储", "企业备份"],
+      "notRecommendedFor": ["简单文件存储", "成本敏感", "非Google生态"],
+      "alternatives": ["AWS S3", "Azure Blob", "Wasabi"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方文档",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "cloudflare-r2",
+      "name": "cloudflare-r2",
+      "displayName": "Cloudflare R2",
+      "category": "storage",
+      "description": "零出站费用的S3兼容对象存储服务",
+      "websiteUrl": "https://www.cloudflare.com/products/r2/",
+      "tags": ["对象存储", "零出站费用", "S3兼容", "边缘存储", "CDN"],
+      "searchKeywords": ["r2", "cloudflare storage", "zero egress", "s3 compatible"],
+      "plans": [
+        {
+          "id": "free",
+          "name": "free",
+          "displayName": "免费计划",
+          "description": "每月10GB存储，零出站费用",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 10,
+              "unit": "GB",
+              "description": "标准存储"
+            },
+            {
+              "metric": "class_a_ops",
+              "amount": 1000000,
+              "unit": "次",
+              "description": "A类操作"
+            },
+            {
+              "metric": "class_b_ops",
+              "amount": 10000000,
+              "unit": "次",
+              "description": "B类操作"
+            }
+          ],
+          "features": ["零出站费用", "S3兼容API", "全球边缘网络", "Workers集成"],
+          "limitations": ["10GB存储限制", "基础功能"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage_gb",
+                "label": "存储容量（GB）",
+                "type": "slider",
+                "min": 0,
+                "max": 10,
+                "default": 5,
+                "unit": "GB"
+              }
+            ]
+          },
+          "overageRules": []
+        },
+        {
+          "id": "standard",
+          "name": "standard",
+          "displayName": "标准存储",
+          "description": "按使用量付费的对象存储",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["零出站费用", "99.9%可用性SLA", "全球分布", "即时访问"],
+          "limitations": [],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage_gb",
+                "label": "存储容量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 100000,
+                "default": 100,
+                "unit": "GB"
+              },
+              {
+                "name": "class_a_ops",
+                "label": "A类操作（万次/月）",
+                "type": "number",
+                "min": 0,
+                "max": 1000,
+                "default": 10,
+                "unit": "万次"
+              },
+              {
+                "name": "class_b_ops",
+                "label": "B类操作（万次/月）",
+                "type": "number",
+                "min": 0,
+                "max": 10000,
+                "default": 100,
+                "unit": "万次"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.015,
+              "unit": "GB"
+            },
+            {
+              "metric": "class_a_ops",
+              "pricePerUnit": 4.5,
+              "unit": "万次"
+            },
+            {
+              "metric": "class_b_ops",
+              "pricePerUnit": 0.36,
+              "unit": "万次"
+            }
+          ]
+        },
+        {
+          "id": "infrequent-access",
+          "name": "infrequent-access",
+          "displayName": "不频繁访问",
+          "description": "较少访问数据的低成本存储",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["更低存储成本", "零出站费用", "30天最短存储期"],
+          "limitations": ["检索费用", "最短存储期"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage_gb",
+                "label": "存储容量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 100000,
+                "default": 1000,
+                "unit": "GB"
+              },
+              {
+                "name": "retrieval_gb",
+                "label": "月检索量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 1000,
+                "default": 100,
+                "unit": "GB"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.01,
+              "unit": "GB"
+            },
+            {
+              "metric": "retrieval",
+              "pricePerUnit": 0.01,
+              "unit": "GB"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "core": ["零出站费用", "S3兼容API", "全球分布", "高性能"],
+        "developer": ["Workers集成", "简单API", "快速迁移", "现代架构"],
+        "storage_classes": ["标准存储", "不频繁访问"],
+        "management": ["版本控制", "生命周期规则", "访问控制", "监控"]
+      },
+      "integrations": ["Cloudflare Workers", "S3工具", "第三方应用"],
+      "metrics": {
+        "setupComplexity": 2,
+        "documentationQuality": 4,
+        "communityRating": 4.7,
+        "reliabilityScore": 99.9
+      },
+      "pros": ["零出站费用", "简单定价", "快速部署", "Workers集成"],
+      "cons": ["相对新的服务", "功能较少", "生态系统小"],
+      "recommendedFor": ["网站资源", "CDN存储", "数据分发", "成本优化"],
+      "notRecommendedFor": ["复杂需求", "传统企业", "高级功能"],
+      "alternatives": ["AWS S3", "Wasabi", "Backblaze B2"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方文档",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "azure-blob",
+      "name": "azure-blob",
+      "displayName": "Azure Blob Storage",
+      "category": "storage",
+      "description": "Microsoft Azure的对象存储服务，支持多种访问层",
+      "websiteUrl": "https://azure.microsoft.com/en-us/products/storage/blobs/",
+      "tags": ["对象存储", "Azure", "热存储", "冷存储", "归档"],
+      "searchKeywords": ["azure blob", "azure storage", "hot cool archive", "microsoft storage"],
+      "plans": [
+        {
+          "id": "hot",
+          "name": "hot",
+          "displayName": "热存储层",
+          "description": "频繁访问的活跃数据",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["即时访问", "高性能", "无最短存储期", "优化的访问成本"],
+          "limitations": ["较高的存储成本"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage_gb",
+                "label": "存储容量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 100000,
+                "default": 100,
+                "unit": "GB"
+              },
+              {
+                "name": "transactions",
+                "label": "事务数（万次/月）",
+                "type": "number",
+                "min": 0,
+                "max": 1000,
+                "default": 10,
+                "unit": "万次"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.018,
+              "unit": "GB"
+            },
+            {
+              "metric": "transactions",
+              "pricePerUnit": 0.0036,
+              "unit": "万次"
+            }
+          ]
+        },
+        {
+          "id": "cool",
+          "name": "cool",
+          "displayName": "冷存储层",
+          "description": "不常访问的数据，30天最短存储期",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["较低存储成本", "30天最短存储期", "快速访问"],
+          "limitations": ["早期删除费用", "较高访问成本"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage_gb",
+                "label": "存储容量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 100000,
+                "default": 1000,
+                "unit": "GB"
+              },
+              {
+                "name": "retrieval_gb",
+                "label": "月检索量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 1000,
+                "default": 50,
+                "unit": "GB"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.01,
+              "unit": "GB"
+            },
+            {
+              "metric": "retrieval",
+              "pricePerUnit": 0.01,
+              "unit": "GB"
+            }
+          ]
+        },
+        {
+          "id": "archive",
+          "name": "archive",
+          "displayName": "归档存储层",
+          "description": "长期归档数据，180天最短存储期",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["最低存储成本", "长期保存", "95%成本节省"],
+          "limitations": ["180天最短存储期", "重新激活时间", "高检索费用"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage_gb",
+                "label": "存储容量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 1000000,
+                "default": 10000,
+                "unit": "GB"
+              },
+              {
+                "name": "rehydration_gb",
+                "label": "年重新激活量（GB）",
+                "type": "number",
+                "min": 0,
+                "max": 1000,
+                "default": 100,
+                "unit": "GB"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.00099,
+              "unit": "GB"
+            },
+            {
+              "metric": "rehydration",
+              "pricePerUnit": 0.022,
+              "unit": "GB"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "access_tiers": ["热", "冷", "冷", "归档", "高级"],
+        "durability": ["11个9的持久性", "地理冗余", "本地冗余", "区域冗余"],
+        "management": ["生命周期管理", "版本控制", "软删除", "访问控制"],
+        "integration": ["Azure服务", "Power BI", "HDInsight", "Data Factory"]
+      },
+      "integrations": ["Azure Functions", "Logic Apps", "Power BI", "Office 365"],
+      "metrics": {
+        "setupComplexity": 3,
+        "documentationQuality": 4,
+        "communityRating": 4.3,
+        "reliabilityScore": 99.999999999
+      },
+      "pros": ["Azure生态集成", "多种访问层", "企业级功能", "混合云支持"],
+      "cons": ["复杂的定价", "出站费用", "学习曲线"],
+      "recommendedFor": ["企业应用", "混合云", "Office 365用户", "合规需求"],
+      "notRecommendedFor": ["简单需求", "非微软环境", "成本敏感"],
+      "alternatives": ["AWS S3", "Google Cloud Storage", "IBM Cloud Object Storage"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方文档",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    },
+    {
+      "id": "wasabi",
+      "name": "wasabi",
+      "displayName": "Wasabi",
+      "category": "storage",
+      "description": "低成本的云存储服务，无出站费用和API调用费用",
+      "websiteUrl": "https://wasabi.com/",
+      "tags": ["低成本", "云存储", "无出站费用", "S3兼容", "简单定价"],
+      "searchKeywords": ["wasabi", "cheap storage", "hot cloud storage", "s3 alternative"],
+      "plans": [
+        {
+          "id": "hot-storage",
+          "name": "hot-storage",
+          "displayName": "热存储",
+          "description": "频繁访问数据的经济型存储",
+          "billing": {
+            "basePrice": 0,
+            "currency": "USD",
+            "billingCycle": "monthly"
+          },
+          "includedResources": [],
+          "features": ["无出站费用", "无API费用", "即时访问", "S3兼容"],
+          "limitations": ["90天最短存储期", "活跃存储要求"],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage_tb",
+                "label": "存储容量（TB）",
+                "type": "number",
+                "min": 0,
+                "max": 1000,
+                "default": 1,
+                "unit": "TB"
+              }
+            ]
+          },
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 5.99,
+              "unit": "TB"
+            }
+          ]
+        }
+      ],
+      "features": {
+        "core": ["S3兼容API", "11个9持久性", "无出站费用", "无API费用"],
+        "performance": ["高速传输", "低延迟", "全球可用", "99.9%可用性"],
+        "security": ["AES-256加密", "访问控制", "版本控制", "不可变存储"],
+        "compliance": ["SOC 2", "GDPR", "HIPAA就绪", "PCI DSS"]
+      },
+      "integrations": ["Veeam", "CommVault", "Acronis", "S3工具"],
+      "metrics": {
+        "setupComplexity": 2,
+        "documentationQuality": 4,
+        "communityRating": 4.5,
+        "reliabilityScore": 99.9
+      },
+      "pros": ["超低成本", "简单定价", "无隐藏费用", "快速迁移"],
+      "cons": ["功能相对简单", "地理位置有限", "生态系统小"],
+      "recommendedFor": ["备份存储", "归档数据", "成本优化", "替代S3"],
+      "notRecommendedFor": ["复杂应用", "频繁小文件", "高级功能需求"],
+      "alternatives": ["Backblaze B2", "Cloudflare R2", "AWS S3 IA"],
+      "dataQuality": {
+        "lastVerified": "2025-01-02",
+        "source": "官方网站",
+        "confidenceLevel": "high"
+      },
+      "affiliate": {
+        "enabled": false,
+        "link": null,
+        "commission": null
+      }
+    }
+  ]
+}

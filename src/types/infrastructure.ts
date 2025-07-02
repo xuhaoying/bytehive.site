@@ -61,9 +61,10 @@ export interface Plan {
   displayName?: string;
   description?: string;
   billing: {
-    type: BillingType;
+    type?: BillingType;
     basePrice: number;
-    cycle: BillingCycle;
+    cycle?: BillingCycle;
+    billingCycle?: BillingCycle;  // 兼容性字段
     currency?: string;      // 默认 USD
   };
   includedResources: ResourceQuota[];
@@ -110,7 +111,7 @@ export interface Provider {
   displayName: string;
   category: ServiceCategory;
   subcategory?: string;
-  logoUrl: string;
+  logoUrl?: string;
   websiteUrl: string;
   description: string;
   

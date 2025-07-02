@@ -1,8 +1,12 @@
-import { Provider, ServiceCategory } from '@/types/infrastructure';
-import hostingData from '@/data/providers/hosting.json';
-import databaseData from '@/data/providers/database.json';
+import { Provider, ServiceCategory } from '../../types/infrastructure';
+import hostingData from '../../../data/providers/hosting.json';
+import databaseData from '../../../data/providers/database.json';
+import serverlessData from '../../../data/providers/serverless.json';
+import emailData from '../../../data/providers/email.json';
+import storageData from '../../../data/providers/storage.json';
+import monitoringData from '../../../data/providers/monitoring.json';
 
-// 缓存所有providers
+// 缓存所有providers (强制清除缓存进行调试)
 let providersCache: Provider[] | null = null;
 
 // 加载所有providers
@@ -23,7 +27,25 @@ export function loadAllProviders(): Provider[] {
     allProviders.push(...databaseData.providers as Provider[]);
   }
   
-  // TODO: 加载serverless.json, email.json等
+  // 加载serverless providers
+  if (serverlessData && serverlessData.providers) {
+    allProviders.push(...serverlessData.providers as any[]);
+  }
+  
+  // 加载email providers
+  if (emailData && emailData.providers) {
+    allProviders.push(...emailData.providers as any[]);
+  }
+  
+  // 加载storage providers
+  if (storageData && storageData.providers) {
+    allProviders.push(...storageData.providers as any[]);
+  }
+  
+  // 加载monitoring providers
+  if (monitoringData && monitoringData.providers) {
+    allProviders.push(...monitoringData.providers as any[]);
+  }
   
   providersCache = allProviders;
   return allProviders;
