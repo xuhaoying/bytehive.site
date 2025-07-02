@@ -164,9 +164,9 @@ export default function TutorialPage({ params }: TutorialPageProps) {
                   <p className="text-muted-foreground">{step.content}</p>
                   
                   {/* Placeholder for step demonstration */}
-                  <div className="mt-4 aspect-video bg-gradient-to-br from-indigo-50 to-cyan-50 border-2 border-dashed border-gray-200 rounded-lg flex items-center justify-center">
+                  <div className="mt-4 aspect-video bg-gradient-to-br from-blue-50 to-emerald-50 border-2 border-dashed border-gray-200 rounded-lg flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-indigo-500 to-cyan-600 rounded-xl flex items-center justify-center">
+                      <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-xl flex items-center justify-center">
                         <BookOpen className="h-8 w-8 text-white" />
                       </div>
                       <span className="text-muted-foreground text-sm">步骤 {index + 1} 演示</span>

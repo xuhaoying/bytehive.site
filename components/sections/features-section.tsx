@@ -67,7 +67,7 @@ export default function FeaturesSection() {
           <div className="grid gap-12 sm:px-12 lg:grid-cols-12 lg:gap-24 lg:px-0">
             <div className="lg:col-span-5 flex flex-col gap-8">
               <div className="lg:pr-0 text-left">
-                <h3 className="text-3xl font-semibold lg:text-4xl text-gradient_indigo-purple leading-normal py-1">
+                <h3 className="text-3xl font-semibold lg:text-4xl text-gradient_brand leading-normal py-1">
                   强大的功能特性
                 </h3>
                 <p className="mt-4 text-muted-foreground">
@@ -171,8 +171,8 @@ export default function FeaturesSection() {
               <BorderBeam
                 duration={6}
                 size={200}
-                colorFrom="hsl(260 60% 55%)"
-                colorTo="hsl(280 60% 65%)"
+                colorFrom="hsl(214 82% 52%)"
+                colorTo="hsl(142 71% 45%)"
                 className="from-transparent via-primary/50 to-transparent dark:via-primary/80"
               />
             </div>

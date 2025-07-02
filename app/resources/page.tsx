@@ -159,14 +159,14 @@ export default function ResourcesPage() {
 
   const getCategoryColor = (category: string) => {
     const colors: Record<string, string> = {
-      'AI 开发': 'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300',
+      'AI 开发': 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-300',
       '代码托管': 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300',
       '部署托管': 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
       '后端服务': 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300',
       'API 工具': 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
       'UI 组件': 'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-300',
       '支付集成': 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300',
-      '用户认证': 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300',
+      '用户认证': 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300',
       'Starter Kit': 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'
     };
     return colors[category] || 'bg-gray-100 text-gray-700';

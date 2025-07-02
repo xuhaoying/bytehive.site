@@ -51,8 +51,8 @@ export const BorderBeam = ({
   size = 50,
   delay = 0,
   duration = 6,
-  colorFrom = "#8b5cf6", // ByteHive purple
-  colorTo = "#a855f7",   // ByteHive purple variation
+  colorFrom = "#1E7CE7", // ByteHive blue
+  colorTo = "#22C55E",   // ByteHive green
   transition,
   style,
   reverse = false,

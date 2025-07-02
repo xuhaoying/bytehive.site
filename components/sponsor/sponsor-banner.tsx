@@ -102,7 +102,7 @@ function SponsorCard({ sponsor, compact = false, onClose }: { sponsor: Sponsor; 
   const getTierColor = (tier: string) => {
     switch (tier) {
       case 'platinum':
-        return 'border-purple-200 bg-gradient-to-r from-purple-50 to-pink-50';
+        return 'border-cyan-200 bg-gradient-to-r from-cyan-50 to-emerald-50';
       case 'gold':
         return 'border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50';
       case 'silver':
@@ -117,7 +117,7 @@ function SponsorCard({ sponsor, compact = false, onClose }: { sponsor: Sponsor; 
   const getTierBadge = (tier: string) => {
     switch (tier) {
       case 'platinum':
-        return <Badge className="bg-purple-100 text-purple-700">白金赞助商</Badge>;
+        return <Badge className="bg-cyan-100 text-cyan-700">白金赞助商</Badge>;
       case 'gold':
         return <Badge className="bg-amber-100 text-amber-700">黄金赞助商</Badge>;
       case 'silver':

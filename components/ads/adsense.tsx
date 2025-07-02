@@ -47,7 +47,7 @@ export function AdSense({
         style={{ minHeight: '250px', ...style }}
       >
         <div className="text-center">
-          <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+          <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-xl flex items-center justify-center">
             <span className="text-white text-xl font-bold">AD</span>
           </div>
           <div className="text-sm text-gray-600 font-medium">AdSense 广告位</div>

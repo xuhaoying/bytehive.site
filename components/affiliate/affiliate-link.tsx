@@ -237,7 +237,7 @@ export function AffiliateProgramInfo({ toolId }: { toolId: string }) {
       return (
         <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 bg-gray-50">
           <div className="text-center">
-            <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-cyan-500 to-emerald-500 rounded-xl flex items-center justify-center">
               <Percent className="h-6 w-6 text-white" />
             </div>
             <div className="text-sm text-gray-600 font-medium">联盟推广信息</div>

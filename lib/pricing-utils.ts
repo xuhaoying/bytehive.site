@@ -25,9 +25,9 @@ export const PRICING_CONFIGS: Record<PaymentModel, PricingConfig> = {
     icon: '🎯'
   },
   'Paid': {
-    color: 'text-purple-700',
-    bgColor: 'bg-purple-50',
-    borderColor: 'border-purple-200',
+    color: 'text-cyan-700',
+    bgColor: 'bg-cyan-50',
+    borderColor: 'border-cyan-200',
     label: '付费',
     icon: '💎'
   },
