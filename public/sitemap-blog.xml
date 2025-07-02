@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+                            http://www.google.com/schemas/sitemap-news/0.9
+                            http://www.google.com/schemas/sitemap-news/0.9/sitemap-news.xsd">
+  <url>
+    <loc>https://bytehive.site/blog</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/blog"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/blog/best-ai-writing-tools-2024</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/blog/best-ai-writing-tools-2024"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/blog/best-ai-writing-tools-2024"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/blog/how-to-use-midjourney-beginner-guide</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/blog/how-to-use-midjourney-beginner-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/blog/how-to-use-midjourney-beginner-guide"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/blog/ai-tools-for-developers-2024</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/blog/ai-tools-for-developers-2024"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/blog/ai-tools-for-developers-2024"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/blog/ai-tools-review</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/blog/ai-tools-review"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/blog/ai-tools-review"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/blog/tutorials</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/blog/tutorials"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/blog/tutorials"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/blog/industry-news</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/blog/industry-news"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/blog/industry-news"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/blog/case-studies</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/blog/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/blog/case-studies"/>
+  </url>
+</urlset>

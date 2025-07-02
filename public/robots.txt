@@ -27,8 +27,14 @@ Disallow: /
 User-agent: MJ12bot
 Disallow: /
 
-# Sitemap location
+# Sitemap locations for all search engines
 Sitemap: https://bytehive.site/sitemap.xml
+Sitemap: https://bytehive.site/sitemap-index.xml
+Sitemap: https://bytehive.site/sitemap-tools.xml
+Sitemap: https://bytehive.site/sitemap-services.xml
+Sitemap: https://bytehive.site/sitemap-blog.xml
+Sitemap: https://bytehive.site/sitemap-categories.xml
+Sitemap: https://bytehive.site/sitemap-pages.xml
 
 # Disallow admin pages and private routes
 Disallow: /admin/

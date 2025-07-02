@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/generate-sitemap.js && next build",
+    "build": "npm run sitemap:all && next build",
     "start": "next start",
     "lint": "next lint",
-    "generate-sitemap": "node scripts/generate-sitemap.js"
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "sitemap": "node scripts/generate-sitemap.js",
+    "sitemap:all": "node scripts/generate-sitemap.js && node scripts/generate-specialized-sitemaps.js && node scripts/generate-sitemap-index.js",
+    "sitemap:ping": "node scripts/ping-search-engines.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

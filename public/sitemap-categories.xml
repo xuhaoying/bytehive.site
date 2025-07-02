@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://bytehive.site/category/deployment</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/deployment"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/deployment"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/cloud-servers</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/cloud-servers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/cloud-servers"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/containers</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/containers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/containers"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/cicd</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/cicd"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/cicd"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/hosting</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/hosting"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/hosting"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/cdn</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/cdn"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/cdn"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/infrastructure</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/infrastructure"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/infrastructure"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/development</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/development"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/development"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/code-editors</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/code-editors"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/code-editors"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/version-control</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/version-control"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/version-control"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/api-tools</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/api-tools"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/api-tools"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/debugging</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/debugging"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/debugging"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/frameworks</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/frameworks"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/frameworks"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/ai-tools</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/ai-tools"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/ai-tools"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/dev-assistants</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/dev-assistants"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/dev-assistants"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/ai-platforms</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/ai-platforms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/ai-platforms"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/ml-tools</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/ml-tools"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/ml-tools"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/content-generation</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/content-generation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/content-generation"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/chat-assistants</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/chat-assistants"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/chat-assistants"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/writing-tools</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/writing-tools"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/writing-tools"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/voice-tools</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/voice-tools"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/voice-tools"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/data-analysis</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/data-analysis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/data-analysis"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/design</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/design"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/design"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/ui-design</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/ui-design"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/ui-design"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/prototyping</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/prototyping"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/prototyping"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/graphics</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/graphics"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/graphics"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/assets</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/assets"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/assets"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/marketing</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/marketing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/marketing"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/analytics</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/analytics"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/analytics"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/email-marketing</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/email-marketing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/email-marketing"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/social-media</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/social-media"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/social-media"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/crm</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/crm"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/crm"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/seo</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/seo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/seo"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/database</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/database"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/database"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/relational</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/relational"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/relational"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/nosql</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/nosql"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/nosql"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/cloud-db</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/cloud-db"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/cloud-db"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/db-tools</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/db-tools"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/db-tools"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/search</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/search"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/search"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/monitoring</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/monitoring"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/monitoring"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/monitoring</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/monitoring"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/monitoring"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/logging</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/logging"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/logging"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/performance</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/performance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/performance"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/security</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/security"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/security"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/incident-management</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/incident-management"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/incident-management"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/uptime-monitoring</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/uptime-monitoring"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/uptime-monitoring"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/cloud-monitoring</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/cloud-monitoring"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/cloud-monitoring"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/learning</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/learning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/learning"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/courses</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/courses"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/courses"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/documentation</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/documentation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/documentation"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/practice</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/practice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/practice"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/category/communities</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/category/communities"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/category/communities"/>
+  </url>
+</urlset>

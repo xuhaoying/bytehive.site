@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                                  http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd">
+  <sitemap>
+    <loc>https://bytehive.site/sitemap.xml</loc>
+    <lastmod>2025-07-02T10:11:21.780Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://bytehive.site/sitemap-tools.xml</loc>
+    <lastmod>2025-07-02T10:11:21.780Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://bytehive.site/sitemap-services.xml</loc>
+    <lastmod>2025-07-02T10:11:21.780Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://bytehive.site/sitemap-blog.xml</loc>
+    <lastmod>2025-07-02T10:11:21.780Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://bytehive.site/sitemap-categories.xml</loc>
+    <lastmod>2025-07-02T10:11:21.780Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://bytehive.site/sitemap-pages.xml</loc>
+    <lastmod>2025-07-02T10:11:21.780Z</lastmod>
+  </sitemap>
+</sitemapindex>

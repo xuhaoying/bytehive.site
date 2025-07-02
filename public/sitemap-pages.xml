@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://bytehive.site/</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/about</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/about"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/search</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/search"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/search"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/submit</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/submit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/submit"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/infrastructure-navigator</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/infrastructure-navigator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/infrastructure-navigator"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/privacy</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/privacy"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/terms</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/terms"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/contact</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/contact"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/disclaimer</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/disclaimer"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/disclaimer"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/cookies</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/cookies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/cookies"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/dmca</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/dmca"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/dmca"/>
+  </url>
+</urlset>

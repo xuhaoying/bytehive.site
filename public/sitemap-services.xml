@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://bytehive.site/service/cloudflare</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/cloudflare"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/cloudflare"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/amazon-cloudfront</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/amazon-cloudfront"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/amazon-cloudfront"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/fastly</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/fastly"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/fastly"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/jsdelivr</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/jsdelivr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/jsdelivr"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/keycdn</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/keycdn"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/keycdn"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/bunnycdn</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/bunnycdn"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/bunnycdn"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/supabase</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/supabase"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/supabase"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/planetscale</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/planetscale"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/planetscale"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/mongodb-atlas</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/mongodb-atlas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/mongodb-atlas"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/firebase-firestore</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/firebase-firestore"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/firebase-firestore"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/redis-cloud</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/redis-cloud"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/redis-cloud"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/cockroachdb</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/cockroachdb"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/cockroachdb"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/dynamodb</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/dynamodb"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/dynamodb"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/neon</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/neon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/neon"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/google-workspace</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/google-workspace"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/google-workspace"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/sendgrid</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/sendgrid"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/sendgrid"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/mailgun</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/mailgun"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/mailgun"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/resend</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/resend"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/resend"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/postmark</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/postmark"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/postmark"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/vercel</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/vercel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/vercel"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/netlify</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/netlify"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/netlify"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/railway</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/railway"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/railway"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/render</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/render"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/render"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/heroku</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/heroku"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/heroku"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/digitalocean-app-platform</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/digitalocean-app-platform"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/digitalocean-app-platform"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/aws-amplify</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/aws-amplify"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/aws-amplify"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/github-pages</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/github-pages"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/github-pages"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/datadog</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/datadog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/datadog"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/new-relic</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/new-relic"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/new-relic"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/grafana-cloud</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/grafana-cloud"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/grafana-cloud"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/elastic-observability</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/elastic-observability"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/elastic-observability"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/sentry</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/sentry"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/sentry"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/auth0</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/auth0"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/auth0"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/okta</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/okta"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/okta"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/snyk</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/snyk"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/snyk"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/aws-waf</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/aws-waf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/aws-waf"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/vault</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/vault"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/vault"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/1password-secrets</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/1password-secrets"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/1password-secrets"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/aws-lambda</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/aws-lambda"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/aws-lambda"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/google-cloud-functions</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/google-cloud-functions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/google-cloud-functions"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/azure-functions</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/azure-functions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/azure-functions"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/cloudflare-workers</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/cloudflare-workers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/cloudflare-workers"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/vercel-functions</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/vercel-functions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/vercel-functions"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/aws-s3</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/aws-s3"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/aws-s3"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/google-cloud-storage</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/google-cloud-storage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/google-cloud-storage"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/cloudflare-r2</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/cloudflare-r2"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/cloudflare-r2"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/azure-blob</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/azure-blob"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/azure-blob"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/service/wasabi</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/service/wasabi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/service/wasabi"/>
+  </url>
+</urlset>

@@ -57,8 +57,10 @@ for (const match of blogMatches) {
 // Define the base URL
 const BASE_URL = 'https://bytehive.site';
 
-// Generate sitemap content
+// Generate sitemap content with enhanced metadata for multiple search engines
 const generateSitemap = () => {
+  const currentDate = new Date().toISOString().split('T')[0];
+  
   const staticPages = [
     { url: '/', priority: '1.0', changefreq: 'daily' },
     { url: '/about', priority: '0.8', changefreq: 'monthly' },
@@ -75,16 +77,26 @@ const generateSitemap = () => {
   ];
 
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">`;
 
   // Add static pages
   staticPages.forEach(page => {
     sitemap += `
   <url>
     <loc>${BASE_URL}${page.url}</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${currentDate}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="${BASE_URL}${page.url}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${page.url}"/>
   </url>`;
   });
 
@@ -93,31 +105,37 @@ const generateSitemap = () => {
     sitemap += `
   <url>
     <loc>${BASE_URL}/category/${slug}</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="${BASE_URL}/category/${slug}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/category/${slug}"/>
   </url>`;
   });
 
-  // Add tool pages
+  // Add tool pages with enhanced metadata
   toolSlugs.forEach(slug => {
     sitemap += `
   <url>
     <loc>${BASE_URL}/tool/${slug}</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="${BASE_URL}/tool/${slug}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/tool/${slug}"/>
   </url>`;
   });
 
-  // Add blog pages
+  // Add blog pages with news sitemap support
   blogSlugs.forEach(slug => {
     sitemap += `
   <url>
     <loc>${BASE_URL}/blog/${slug}</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="${BASE_URL}/blog/${slug}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/blog/${slug}"/>
   </url>`;
   });
 
@@ -126,9 +144,11 @@ const generateSitemap = () => {
     sitemap += `
   <url>
     <loc>${BASE_URL}/service/${id}</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="${BASE_URL}/service/${id}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/service/${id}"/>
   </url>`;
   });
 
