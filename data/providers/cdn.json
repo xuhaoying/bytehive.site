@@ -1,0 +1,609 @@
+{
+  "category": "cdn",
+  "categoryName": "CDN加速",
+  "providers": [
+    {
+      "id": "cloudflare",
+      "name": "cloudflare",
+      "displayName": "Cloudflare",
+      "category": "cdn",
+      "subcategory": "global",
+      "logoUrl": "/logos/cloudflare.svg",
+      "websiteUrl": "https://www.cloudflare.com",
+      "description": "全球领先的CDN和网络安全服务，提供网站加速、DDoS防护和边缘计算",
+      "tags": ["全球CDN", "DDoS防护", "边缘计算", "DNS服务", "免费层"],
+      "highlights": [
+        "全球最大CDN网络",
+        "免费DDoS防护",
+        "边缘计算能力",
+        "DNS服务"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "free",
+          "name": "Free",
+          "displayName": "免费计划",
+          "description": "基础CDN和安全功能",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "bandwidth",
+              "amount": 999999,
+              "unit": "GB",
+              "description": "无限带宽"
+            },
+            {
+              "metric": "requests",
+              "amount": 100000000,
+              "unit": "requests",
+              "description": "无限请求"
+            }
+          ],
+          "features": [
+            "全球CDN",
+            "免费SSL证书",
+            "基础DDoS防护",
+            "基础分析"
+          ],
+          "limitations": [
+            "基础功能",
+            "社区支持",
+            "有限缓存规则"
+          ],
+          "calculatorConfig": {
+            "variables": []
+          }
+        },
+        {
+          "id": "pro",
+          "name": "Pro",
+          "displayName": "Pro",
+          "description": "小企业的专业功能",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 20,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "bandwidth",
+              "amount": 999999,
+              "unit": "GB",
+              "description": "无限带宽"
+            },
+            {
+              "metric": "page_rules",
+              "amount": 20,
+              "unit": "rules",
+              "description": "页面规则"
+            }
+          ],
+          "features": [
+            "Web应用防火墙",
+            "图像优化",
+            "移动优化",
+            "高级分析"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "domains",
+                "label": "域名数量",
+                "type": "number",
+                "min": 1,
+                "max": 50,
+                "default": 1,
+                "unit": "个"
+              }
+            ]
+          }
+        },
+        {
+          "id": "business",
+          "name": "Business",
+          "displayName": "Business",
+          "description": "企业级功能和性能",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 200,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "bandwidth",
+              "amount": 999999,
+              "unit": "GB",
+              "description": "无限带宽"
+            },
+            {
+              "metric": "page_rules",
+              "amount": 100,
+              "unit": "rules",
+              "description": "页面规则"
+            }
+          ],
+          "features": [
+            "高级WAF",
+            "负载均衡",
+            "速率限制",
+            "优先支持"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "domains",
+                "label": "域名数量",
+                "type": "number",
+                "min": 1,
+                "max": 100,
+                "default": 5,
+                "unit": "个"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 99.9,
+        "communityRating": 4.7,
+        "documentationQuality": 5
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "amazon-cloudfront",
+      "name": "amazon-cloudfront",
+      "displayName": "Amazon CloudFront",
+      "category": "cdn",
+      "subcategory": "aws",
+      "logoUrl": "/logos/aws-cloudfront.svg",
+      "websiteUrl": "https://aws.amazon.com/cloudfront",
+      "description": "AWS的全球内容分发网络，与AWS服务深度集成",
+      "tags": ["AWS CDN", "边缘计算", "Lambda@Edge", "全球分布"],
+      "highlights": [
+        "AWS生态集成",
+        "Lambda@Edge",
+        "高性能缓存",
+        "企业级安全"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "pay-as-you-go",
+          "name": "Pay as you go",
+          "displayName": "按使用付费",
+          "description": "按实际使用量计费",
+          "billing": {
+            "type": "usage",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "free_tier",
+              "amount": 1000,
+              "unit": "GB",
+              "description": "前12个月免费1TB"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "data_transfer",
+              "pricePerUnit": 0.085,
+              "unit": "GB",
+              "tieredPricing": [
+                { "from": 0, "to": 10000, "pricePerUnit": 0.085 },
+                { "from": 10000, "to": 50000, "pricePerUnit": 0.080 },
+                { "from": 50000, "to": null, "pricePerUnit": 0.060 }
+              ]
+            },
+            {
+              "metric": "requests",
+              "pricePerUnit": 0.0075,
+              "unit": "万次"
+            }
+          ],
+          "features": [
+            "全球边缘节点",
+            "实时日志",
+            "地理限制",
+            "自定义SSL证书"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_traffic",
+                "label": "月度流量",
+                "type": "slider",
+                "min": 1,
+                "max": 10000,
+                "default": 100,
+                "unit": "GB"
+              },
+              {
+                "name": "monthly_requests",
+                "label": "月度请求数",
+                "type": "slider",
+                "min": 10,
+                "max": 10000,
+                "default": 1000,
+                "unit": "万次"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 3,
+        "reliabilityScore": 99.9,
+        "communityRating": 4.3,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "fastly",
+      "name": "fastly",
+      "displayName": "Fastly",
+      "category": "cdn",
+      "subcategory": "edge-computing",
+      "logoUrl": "/logos/fastly.svg",
+      "websiteUrl": "https://www.fastly.com",
+      "description": "高性能边缘云平台，提供CDN、边缘计算和安全服务",
+      "tags": ["边缘计算", "实时配置", "VCL编程", "高性能"],
+      "highlights": [
+        "实时配置更新",
+        "VCL编程能力",
+        "边缘计算平台",
+        "高级缓存控制"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "starter",
+          "name": "Starter",
+          "displayName": "入门版",
+          "description": "小企业和开发者",
+          "billing": {
+            "type": "usage",
+            "basePrice": 50,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "bandwidth",
+              "amount": 100,
+              "unit": "GB",
+              "description": "包含流量"
+            },
+            {
+              "metric": "requests",
+              "amount": 1000000,
+              "unit": "requests",
+              "description": "包含请求"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "bandwidth",
+              "pricePerUnit": 0.12,
+              "unit": "GB"
+            },
+            {
+              "metric": "requests",
+              "pricePerUnit": 0.0036,
+              "unit": "万次"
+            }
+          ],
+          "features": [
+            "实时缓存清除",
+            "基础WAF",
+            "SSL/TLS",
+            "API支持"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "bandwidth",
+                "label": "月度带宽",
+                "type": "slider",
+                "min": 50,
+                "max": 5000,
+                "default": 500,
+                "unit": "GB"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 4,
+        "reliabilityScore": 99.9,
+        "communityRating": 4.4,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "jsdelivr",
+      "name": "jsdelivr",
+      "displayName": "jsDelivr",
+      "category": "cdn",
+      "subcategory": "open-source",
+      "logoUrl": "/logos/jsdelivr.svg",
+      "websiteUrl": "https://www.jsdelivr.com",
+      "description": "免费的开源CDN，专为npm、GitHub和WordPress提供服务",
+      "tags": ["免费CDN", "开源", "npm CDN", "GitHub CDN"],
+      "highlights": [
+        "完全免费",
+        "npm包CDN",
+        "GitHub文件CDN",
+        "全球高速节点"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "free",
+          "name": "Free",
+          "displayName": "免费服务",
+          "description": "永久免费的CDN服务",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "bandwidth",
+              "amount": 999999,
+              "unit": "GB",
+              "description": "无限带宽"
+            },
+            {
+              "metric": "requests",
+              "amount": 999999999,
+              "unit": "requests",
+              "description": "无限请求"
+            }
+          ],
+          "features": [
+            "npm包CDN",
+            "GitHub文件CDN",
+            "WordPress插件CDN",
+            "全球CDN节点"
+          ],
+          "limitations": [
+            "仅限开源项目",
+            "文件大小限制",
+            "无SLA保证"
+          ],
+          "calculatorConfig": {
+            "variables": []
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 1,
+        "reliabilityScore": 99.5,
+        "communityRating": 4.8,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "keycdn",
+      "name": "keycdn",
+      "displayName": "KeyCDN",
+      "category": "cdn",
+      "subcategory": "performance",
+      "logoUrl": "/logos/keycdn.svg",
+      "websiteUrl": "https://www.keycdn.com",
+      "description": "高性能CDN服务，注重速度和简单易用",
+      "tags": ["高性能", "简单定价", "实时分析", "HTTP/2"],
+      "highlights": [
+        "超快加载速度",
+        "简单透明定价",
+        "实时分析",
+        "24/7技术支持"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "pay-as-you-go",
+          "name": "Pay as you go",
+          "displayName": "按使用付费",
+          "description": "按实际使用的流量付费",
+          "billing": {
+            "type": "usage",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [],
+          "overageRules": [
+            {
+              "metric": "bandwidth",
+              "pricePerUnit": 0.04,
+              "unit": "GB",
+              "tieredPricing": [
+                { "from": 0, "to": 10000, "pricePerUnit": 0.04 },
+                { "from": 10000, "to": 100000, "pricePerUnit": 0.03 },
+                { "from": 100000, "to": null, "pricePerUnit": 0.025 }
+              ]
+            }
+          ],
+          "features": [
+            "HTTP/2支持",
+            "实时缓存清除",
+            "Gzip压缩",
+            "免费SSL证书"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_traffic",
+                "label": "月度流量",
+                "type": "slider",
+                "min": 1,
+                "max": 10000,
+                "default": 100,
+                "unit": "GB"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 99.9,
+        "communityRating": 4.5,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "bunnycdn",
+      "name": "bunnycdn",
+      "displayName": "BunnyCDN",
+      "category": "cdn",
+      "subcategory": "affordable",
+      "logoUrl": "/logos/bunnycdn.svg",
+      "websiteUrl": "https://bunny.net",
+      "description": "性价比极高的CDN服务，提供边缘存储和视频流功能",
+      "tags": ["低价格", "边缘存储", "视频CDN", "高性价比"],
+      "highlights": [
+        "超低价格",
+        "边缘存储",
+        "视频优化",
+        "全球覆盖"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "volume",
+          "name": "Volume",
+          "displayName": "按量计费",
+          "description": "按实际使用量付费，最低$1起",
+          "billing": {
+            "type": "usage",
+            "basePrice": 1,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [],
+          "overageRules": [
+            {
+              "metric": "bandwidth",
+              "pricePerUnit": 0.01,
+              "unit": "GB",
+              "tieredPricing": [
+                { "from": 0, "to": 500, "pricePerUnit": 0.01 },
+                { "from": 500, "to": 5000, "pricePerUnit": 0.009 },
+                { "from": 5000, "to": null, "pricePerUnit": 0.005 }
+              ]
+            },
+            {
+              "metric": "requests",
+              "pricePerUnit": 1,
+              "unit": "百万次"
+            }
+          ],
+          "features": [
+            "边缘存储",
+            "视频优化",
+            "图像优化",
+            "实时统计"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "bandwidth",
+                "label": "月度带宽",
+                "type": "slider",
+                "min": 10,
+                "max": 10000,
+                "default": 1000,
+                "unit": "GB"
+              },
+              {
+                "name": "requests",
+                "label": "月度请求数",
+                "type": "slider",
+                "min": 1,
+                "max": 1000,
+                "default": 100,
+                "unit": "百万次"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 99.8,
+        "communityRating": 4.6,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-12-02",
+    "totalProviders": 6
+  }
+}

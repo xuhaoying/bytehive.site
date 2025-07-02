@@ -326,11 +326,754 @@
         "confidenceLevel": "high",
         "source": "official"
       }
+    },
+    {
+      "id": "mongodb-atlas",
+      "name": "mongodb-atlas",
+      "displayName": "MongoDB Atlas",
+      "category": "database",
+      "subcategory": "nosql",
+      "logoUrl": "/logos/mongodb.svg",
+      "websiteUrl": "https://www.mongodb.com/atlas",
+      "description": "MongoDB的云数据库服务，提供自动扩展的NoSQL数据库",
+      "tags": ["NoSQL", "文档数据库", "自动扩容", "全球分布", "免费层"],
+      "highlights": [
+        "自动扩容和备份",
+        "全球多区域部署",
+        "实时分析",
+        "免费512MB存储"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "m0",
+          "name": "M0",
+          "displayName": "M0 Sandbox",
+          "description": "免费共享集群",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 512,
+              "unit": "MB",
+              "description": "存储空间"
+            },
+            {
+              "metric": "memory",
+              "amount": 512,
+              "unit": "MB",
+              "description": "RAM"
+            }
+          ],
+          "features": [
+            "MongoDB 7.0",
+            "共享RAM和CPU",
+            "网络访问",
+            "免费监控"
+          ],
+          "limitations": [
+            "共享资源",
+            "无备份",
+            "连接数限制"
+          ],
+          "calculatorConfig": {
+            "variables": []
+          }
+        },
+        {
+          "id": "m10",
+          "name": "M10",
+          "displayName": "M10",
+          "description": "专用集群入门版",
+          "billing": {
+            "type": "hybrid",
+            "basePrice": 57,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 10,
+              "unit": "GB",
+              "description": "存储空间"
+            },
+            {
+              "metric": "memory",
+              "amount": 2,
+              "unit": "GB",
+              "description": "RAM"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.25,
+              "unit": "GB"
+            }
+          ],
+          "features": [
+            "专用资源",
+            "自动备份",
+            "连接池",
+            "性能监控"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage",
+                "label": "额外存储",
+                "type": "slider",
+                "min": 0,
+                "max": 100,
+                "default": 0,
+                "unit": "GB"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 99.95,
+        "communityRating": 4.5,
+        "documentationQuality": 5
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "firebase-firestore",
+      "name": "firebase-firestore",
+      "displayName": "Firebase Firestore",
+      "category": "database",
+      "subcategory": "nosql",
+      "logoUrl": "/logos/firebase.svg",
+      "websiteUrl": "https://firebase.google.com/products/firestore",
+      "description": "Google的NoSQL文档数据库，支持实时同步和离线支持",
+      "tags": ["NoSQL", "实时同步", "离线支持", "移动优化", "免费层"],
+      "highlights": [
+        "实时数据同步",
+        "自动多区域复制",
+        "离线支持",
+        "强大的查询能力"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "spark",
+          "name": "Spark",
+          "displayName": "Spark (免费)",
+          "description": "免费使用量",
+          "billing": {
+            "type": "usage",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "reads",
+              "amount": 50000,
+              "unit": "reads",
+              "description": "文档读取"
+            },
+            {
+              "metric": "writes",
+              "amount": 20000,
+              "unit": "writes",
+              "description": "文档写入"
+            },
+            {
+              "metric": "storage",
+              "amount": 1,
+              "unit": "GB",
+              "description": "存储空间"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "reads",
+              "pricePerUnit": 0.06,
+              "unit": "100k reads"
+            },
+            {
+              "metric": "writes",
+              "pricePerUnit": 0.18,
+              "unit": "100k writes"
+            },
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.18,
+              "unit": "GB"
+            }
+          ],
+          "features": [
+            "实时监听器",
+            "离线支持",
+            "安全规则",
+            "多平台SDK"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "reads",
+                "label": "月度读取次数",
+                "type": "slider",
+                "min": 10000,
+                "max": 10000000,
+                "default": 100000,
+                "unit": "次"
+              },
+              {
+                "name": "writes",
+                "label": "月度写入次数",
+                "type": "slider",
+                "min": 5000,
+                "max": 1000000,
+                "default": 50000,
+                "unit": "次"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 99.95,
+        "communityRating": 4.4,
+        "documentationQuality": 5
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "redis-cloud",
+      "name": "redis-cloud",
+      "displayName": "Redis Cloud",
+      "category": "database",
+      "subcategory": "cache",
+      "logoUrl": "/logos/redis.svg",
+      "websiteUrl": "https://redis.com/redis-enterprise-cloud",
+      "description": "完全托管的Redis服务，提供内存数据库和缓存解决方案",
+      "tags": ["内存数据库", "缓存", "高性能", "实时", "免费层"],
+      "highlights": [
+        "亚毫秒延迟",
+        "自动故障转移",
+        "多种数据结构",
+        "实时分析"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "free",
+          "name": "Free",
+          "displayName": "Free",
+          "description": "免费入门版",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "memory",
+              "amount": 30,
+              "unit": "MB",
+              "description": "内存"
+            },
+            {
+              "metric": "connections",
+              "amount": 30,
+              "unit": "connections",
+              "description": "并发连接"
+            }
+          ],
+          "features": [
+            "Redis 7.0",
+            "SSL加密",
+            "24/7监控",
+            "数据持久化"
+          ],
+          "limitations": [
+            "单一可用区",
+            "有限连接数",
+            "基础支持"
+          ],
+          "calculatorConfig": {
+            "variables": []
+          }
+        },
+        {
+          "id": "fixed",
+          "name": "Fixed",
+          "displayName": "Fixed",
+          "description": "固定配置",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 7,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "memory",
+              "amount": 250,
+              "unit": "MB",
+              "description": "内存"
+            },
+            {
+              "metric": "connections",
+              "amount": 256,
+              "unit": "connections",
+              "description": "并发连接"
+            }
+          ],
+          "features": [
+            "专用资源",
+            "多可用区",
+            "高级监控",
+            "邮件支持"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "instances",
+                "label": "实例数量",
+                "type": "number",
+                "min": 1,
+                "max": 10,
+                "default": 1,
+                "unit": "个"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 99.99,
+        "communityRating": 4.6,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "cockroachdb",
+      "name": "cockroachdb",
+      "displayName": "CockroachDB",
+      "category": "database",
+      "subcategory": "distributed",
+      "logoUrl": "/logos/cockroachdb.svg",
+      "websiteUrl": "https://www.cockroachlabs.com",
+      "description": "分布式SQL数据库，提供云原生的弹性扩展和高可用性",
+      "tags": ["分布式SQL", "云原生", "自动扩容", "强一致性", "免费层"],
+      "highlights": [
+        "分布式架构",
+        "自动分片",
+        "强一致性",
+        "云原生设计"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "free",
+          "name": "Free",
+          "displayName": "CockroachDB Serverless",
+          "description": "免费无服务器版本",
+          "billing": {
+            "type": "usage",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 5,
+              "unit": "GB",
+              "description": "存储空间"
+            },
+            {
+              "metric": "requests",
+              "amount": 250000,
+              "unit": "requests",
+              "description": "请求单元"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.50,
+              "unit": "GB"
+            },
+            {
+              "metric": "requests",
+              "pricePerUnit": 1.00,
+              "unit": "1M requests"
+            }
+          ],
+          "features": [
+            "无服务器",
+            "自动扩容",
+            "PostgreSQL兼容",
+            "内置备份"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage",
+                "label": "存储使用量",
+                "type": "slider",
+                "min": 0,
+                "max": 50,
+                "default": 5,
+                "unit": "GB"
+              }
+            ]
+          }
+        },
+        {
+          "id": "basic",
+          "name": "Basic",
+          "displayName": "Basic",
+          "description": "专用集群",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 295,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 15,
+              "unit": "GB",
+              "description": "存储空间"
+            },
+            {
+              "metric": "cpu",
+              "amount": 2,
+              "unit": "vCPU",
+              "description": "CPU"
+            }
+          ],
+          "features": [
+            "专用集群",
+            "高可用性",
+            "24/7支持",
+            "高级监控"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "nodes",
+                "label": "节点数量",
+                "type": "number",
+                "min": 3,
+                "max": 50,
+                "default": 3,
+                "unit": "个"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 3,
+        "reliabilityScore": 99.95,
+        "communityRating": 4.3,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "dynamodb",
+      "name": "dynamodb",
+      "displayName": "Amazon DynamoDB",
+      "category": "database",
+      "subcategory": "nosql",
+      "logoUrl": "/logos/aws-dynamodb.svg",
+      "websiteUrl": "https://aws.amazon.com/dynamodb",
+      "description": "AWS的全托管NoSQL数据库服务，提供快速和可预测的性能",
+      "tags": ["NoSQL", "无服务器", "自动扩容", "低延迟", "免费层"],
+      "highlights": [
+        "单位数毫秒延迟",
+        "自动扩缩容",
+        "内置安全性",
+        "全球表支持"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "on-demand",
+          "name": "On-Demand",
+          "displayName": "按需计费",
+          "description": "按使用量付费",
+          "billing": {
+            "type": "usage",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "reads",
+              "amount": 25,
+              "unit": "RCU",
+              "description": "免费读取容量(每月前25万次)"
+            },
+            {
+              "metric": "writes",
+              "amount": 25,
+              "unit": "WCU",
+              "description": "免费写入容量(每月前25万次)"
+            },
+            {
+              "metric": "storage",
+              "amount": 25,
+              "unit": "GB",
+              "description": "免费存储"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "reads",
+              "pricePerUnit": 0.25,
+              "unit": "million reads"
+            },
+            {
+              "metric": "writes",
+              "pricePerUnit": 1.25,
+              "unit": "million writes"
+            },
+            {
+              "metric": "storage",
+              "pricePerUnit": 0.25,
+              "unit": "GB"
+            }
+          ],
+          "features": [
+            "按需扩容",
+            "无容量规划",
+            "全球表",
+            "时点恢复"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "reads",
+                "label": "月度读取次数",
+                "type": "slider",
+                "min": 100000,
+                "max": 100000000,
+                "default": 1000000,
+                "unit": "次"
+              },
+              {
+                "name": "writes",
+                "label": "月度写入次数",
+                "type": "slider",
+                "min": 50000,
+                "max": 10000000,
+                "default": 500000,
+                "unit": "次"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 99.999,
+        "communityRating": 4.4,
+        "documentationQuality": 5
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "neon",
+      "name": "neon",
+      "displayName": "Neon",
+      "category": "database",
+      "subcategory": "relational",
+      "logoUrl": "/logos/neon.svg",
+      "websiteUrl": "https://neon.tech",
+      "description": "现代化的无服务器PostgreSQL数据库，支持分支和即时扩容",
+      "tags": ["PostgreSQL", "无服务器", "分支", "自动扩容", "免费层"],
+      "highlights": [
+        "数据库分支",
+        "即时扩容",
+        "PostgreSQL兼容",
+        "零停机时间"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "free",
+          "name": "Free",
+          "displayName": "Free",
+          "description": "免费开发版",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 3,
+              "unit": "GB",
+              "description": "存储空间"
+            },
+            {
+              "metric": "branches",
+              "amount": 10,
+              "unit": "branches",
+              "description": "数据库分支"
+            }
+          ],
+          "features": [
+            "PostgreSQL 16",
+            "数据库分支",
+            "自动暂停",
+            "时点恢复"
+          ],
+          "limitations": [
+            "自动暂停",
+            "有限分支数",
+            "社区支持"
+          ],
+          "calculatorConfig": {
+            "variables": []
+          }
+        },
+        {
+          "id": "launch",
+          "name": "Launch",
+          "displayName": "Launch",
+          "description": "生产环境入门版",
+          "billing": {
+            "type": "usage",
+            "basePrice": 19,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "storage",
+              "amount": 10,
+              "unit": "GB",
+              "description": "包含存储"
+            },
+            {
+              "metric": "compute",
+              "amount": 100,
+              "unit": "hours",
+              "description": "计算时间"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "storage",
+              "pricePerUnit": 1.50,
+              "unit": "GB"
+            },
+            {
+              "metric": "compute",
+              "pricePerUnit": 0.102,
+              "unit": "hour"
+            }
+          ],
+          "features": [
+            "24/7运行",
+            "无限分支",
+            "只读副本",
+            "优先支持"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "storage",
+                "label": "存储使用量",
+                "type": "slider",
+                "min": 10,
+                "max": 1000,
+                "default": 50,
+                "unit": "GB"
+              },
+              {
+                "name": "computeHours",
+                "label": "月度计算时间",
+                "type": "slider",
+                "min": 100,
+                "max": 1000,
+                "default": 300,
+                "unit": "小时"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 1,
+        "reliabilityScore": 99.9,
+        "communityRating": 4.7,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
     }
   ],
   "metadata": {
     "version": "1.0.0",
     "lastUpdated": "2024-12-02",
-    "totalProviders": 2
+    "totalProviders": 8
   }
 }

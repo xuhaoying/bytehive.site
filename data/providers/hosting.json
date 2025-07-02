@@ -331,11 +331,650 @@
         "confidenceLevel": "high",
         "source": "official"
       }
+    },
+    {
+      "id": "railway",
+      "name": "railway",
+      "displayName": "Railway",
+      "category": "hosting",
+      "subcategory": "fullstack",
+      "logoUrl": "/logos/railway.svg",
+      "websiteUrl": "https://railway.app",
+      "description": "现代化的应用部署平台，支持任何语言、框架或数据库，零配置部署",
+      "tags": ["零配置", "全栈应用", "数据库支持", "容器化", "Git集成"],
+      "highlights": [
+        "零配置部署",
+        "内置数据库",
+        "自动扩容",
+        "实时监控"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "developer",
+          "name": "Developer",
+          "displayName": "Developer",
+          "description": "个人开发者",
+          "billing": {
+            "type": "usage",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "usage",
+              "amount": 5,
+              "unit": "USD",
+              "description": "每月免费额度"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "cpu",
+              "pricePerUnit": 0.000463,
+              "unit": "vCPU-minute"
+            },
+            {
+              "metric": "memory",
+              "pricePerUnit": 0.000231,
+              "unit": "GB-minute"
+            }
+          ],
+          "features": [
+            "无限制项目",
+            "GitHub集成",
+            "自定义域名",
+            "环境变量"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "cpuHours",
+                "label": "CPU使用时间",
+                "type": "slider",
+                "min": 10,
+                "max": 1000,
+                "default": 100,
+                "unit": "小时/月"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hobby",
+          "name": "Hobby",
+          "displayName": "Hobby",
+          "description": "个人项目",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 5,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "usage",
+              "amount": 5,
+              "unit": "USD",
+              "description": "包含使用额度"
+            }
+          ],
+          "features": [
+            "所有Developer功能",
+            "更高优先级",
+            "邮件支持"
+          ],
+          "calculatorConfig": {
+            "variables": []
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 1,
+        "reliabilityScore": 99.5,
+        "communityRating": 4.6,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "render",
+      "name": "render",
+      "displayName": "Render",
+      "category": "hosting",
+      "subcategory": "fullstack",
+      "logoUrl": "/logos/render.svg",
+      "websiteUrl": "https://render.com",
+      "description": "统一的云平台，支持静态网站、Web服务、数据库和任务处理",
+      "tags": ["免费层", "自动扩容", "PostgreSQL", "Redis", "SSL证书"],
+      "highlights": [
+        "免费SSL证书",
+        "自动部署",
+        "托管数据库",
+        "DDoS保护"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "free",
+          "name": "Free",
+          "displayName": "Free",
+          "description": "个人项目和学习",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "bandwidth",
+              "amount": 100,
+              "unit": "GB",
+              "description": "每月带宽"
+            }
+          ],
+          "features": [
+            "静态网站托管",
+            "自动SSL证书",
+            "自定义域名",
+            "GitHub/GitLab集成"
+          ],
+          "limitations": [
+            "服务会休眠",
+            "构建时间限制",
+            "无自定义环境"
+          ],
+          "calculatorConfig": {
+            "variables": []
+          }
+        },
+        {
+          "id": "starter",
+          "name": "Starter",
+          "displayName": "Starter",
+          "description": "小型应用",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 7,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "memory",
+              "amount": 512,
+              "unit": "MB",
+              "description": "内存"
+            },
+            {
+              "metric": "cpu",
+              "amount": 0.1,
+              "unit": "vCPU",
+              "description": "CPU"
+            }
+          ],
+          "features": [
+            "24/7运行",
+            "更快构建",
+            "环境变量",
+            "日志查看"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "services",
+                "label": "服务数量",
+                "type": "number",
+                "min": 1,
+                "max": 10,
+                "default": 1,
+                "unit": "个"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 99.0,
+        "communityRating": 4.4,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "heroku",
+      "name": "heroku",
+      "displayName": "Heroku",
+      "category": "hosting",
+      "subcategory": "fullstack",
+      "logoUrl": "/logos/heroku.svg",
+      "websiteUrl": "https://heroku.com",
+      "description": "经典的云应用平台，支持多种编程语言和框架",
+      "tags": ["多语言支持", "插件生态", "自动扩容", "企业级"],
+      "highlights": [
+        "丰富的插件市场",
+        "支持多种语言",
+        "简单的扩容",
+        "强大的CLI工具"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "eco",
+          "name": "Eco",
+          "displayName": "Eco",
+          "description": "轻量级应用",
+          "billing": {
+            "type": "usage",
+            "basePrice": 5,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "dynoHours",
+              "amount": 1000,
+              "unit": "hours",
+              "description": "Dyno运行时间"
+            }
+          ],
+          "features": [
+            "睡眠模式",
+            "GitHub集成",
+            "自定义域名",
+            "SSL证书"
+          ],
+          "limitations": [
+            "30分钟无活动后休眠"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "dynoHours",
+                "label": "Dyno运行时间",
+                "type": "slider",
+                "min": 100,
+                "max": 1000,
+                "default": 500,
+                "unit": "小时/月"
+              }
+            ]
+          }
+        },
+        {
+          "id": "basic",
+          "name": "Basic",
+          "displayName": "Basic",
+          "description": "小型商业应用",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 25,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "memory",
+              "amount": 512,
+              "unit": "MB",
+              "description": "内存"
+            }
+          ],
+          "features": [
+            "24/7运行",
+            "度量指标",
+            "无睡眠",
+            "更多插件"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "dynos",
+                "label": "Dyno数量",
+                "type": "number",
+                "min": 1,
+                "max": 10,
+                "default": 1,
+                "unit": "个"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 99.5,
+        "communityRating": 4.3,
+        "documentationQuality": 5
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "digitalocean-app-platform",
+      "name": "digitalocean-app-platform",
+      "displayName": "DigitalOcean App Platform",
+      "category": "hosting",
+      "subcategory": "fullstack",
+      "logoUrl": "/logos/digitalocean.svg",
+      "websiteUrl": "https://www.digitalocean.com/products/app-platform",
+      "description": "DigitalOcean的现代应用平台，支持静态网站、API和数据库",
+      "tags": ["容器原生", "自动扩容", "数据库集成", "监控"],
+      "highlights": [
+        "容器原生",
+        "集成数据库",
+        "自动SSL",
+        "全球CDN"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "basic",
+          "name": "Basic",
+          "displayName": "Basic",
+          "description": "小型应用",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 5,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "memory",
+              "amount": 512,
+              "unit": "MB",
+              "description": "内存"
+            },
+            {
+              "metric": "cpu",
+              "amount": 0.5,
+              "unit": "vCPU",
+              "description": "CPU"
+            }
+          ],
+          "features": [
+            "自动部署",
+            "SSL证书",
+            "自定义域名",
+            "基础监控"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "apps",
+                "label": "应用数量",
+                "type": "number",
+                "min": 1,
+                "max": 5,
+                "default": 1,
+                "unit": "个"
+              }
+            ]
+          }
+        },
+        {
+          "id": "professional",
+          "name": "Professional",
+          "displayName": "Professional",
+          "description": "生产环境",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 12,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "memory",
+              "amount": 1024,
+              "unit": "MB",
+              "description": "内存"
+            },
+            {
+              "metric": "cpu",
+              "amount": 1,
+              "unit": "vCPU",
+              "description": "CPU"
+            }
+          ],
+          "features": [
+            "更高性能",
+            "高级监控",
+            "日志聚合",
+            "自动扩容"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "apps",
+                "label": "应用数量",
+                "type": "number",
+                "min": 1,
+                "max": 10,
+                "default": 1,
+                "unit": "个"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 99.9,
+        "communityRating": 4.5,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "aws-amplify",
+      "name": "aws-amplify",
+      "displayName": "AWS Amplify",
+      "category": "hosting",
+      "subcategory": "frontend",
+      "logoUrl": "/logos/aws-amplify.svg",
+      "websiteUrl": "https://aws.amazon.com/amplify",
+      "description": "AWS的全栈开发平台，快速构建和部署Web应用",
+      "tags": ["AWS生态", "全栈开发", "自动扩容", "CI/CD"],
+      "highlights": [
+        "AWS生态集成",
+        "全栈开发工具",
+        "自动CI/CD",
+        "全球CDN"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "free",
+          "name": "Free",
+          "displayName": "Free Tier",
+          "description": "免费试用",
+          "billing": {
+            "type": "usage",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "bandwidth",
+              "amount": 15,
+              "unit": "GB",
+              "description": "每月带宽"
+            },
+            {
+              "metric": "buildMinutes",
+              "amount": 1000,
+              "unit": "minutes",
+              "description": "构建分钟数"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "bandwidth",
+              "pricePerUnit": 0.15,
+              "unit": "GB"
+            },
+            {
+              "metric": "buildMinutes",
+              "pricePerUnit": 0.01,
+              "unit": "minute"
+            }
+          ],
+          "features": [
+            "自动部署",
+            "自定义域名",
+            "SSL证书",
+            "表单处理"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "bandwidth",
+                "label": "月度带宽使用",
+                "type": "slider",
+                "min": 1,
+                "max": 1000,
+                "default": 50,
+                "unit": "GB"
+              },
+              {
+                "name": "buildMinutes",
+                "label": "月度构建时间",
+                "type": "slider",
+                "min": 100,
+                "max": 10000,
+                "default": 1000,
+                "unit": "分钟"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 3,
+        "reliabilityScore": 99.9,
+        "communityRating": 4.2,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "github-pages",
+      "name": "github-pages",
+      "displayName": "GitHub Pages",
+      "category": "hosting",
+      "subcategory": "frontend",
+      "logoUrl": "/logos/github.svg",
+      "websiteUrl": "https://pages.github.com",
+      "description": "GitHub的免费静态网站托管服务，直接从仓库部署",
+      "tags": ["免费", "Jekyll支持", "自定义域名", "Git集成"],
+      "highlights": [
+        "完全免费",
+        "Git集成",
+        "Jekyll支持",
+        "简单易用"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "free",
+          "name": "Free",
+          "displayName": "Free",
+          "description": "免费静态网站托管",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "bandwidth",
+              "amount": 100,
+              "unit": "GB",
+              "description": "每月带宽(软限制)"
+            },
+            {
+              "metric": "builds",
+              "amount": 10,
+              "unit": "builds/hour",
+              "description": "每小时构建次数"
+            }
+          ],
+          "features": [
+            "静态网站托管",
+            "自定义域名",
+            "HTTPS支持",
+            "Jekyll构建"
+          ],
+          "limitations": [
+            "仅支持静态内容",
+            "仓库大小限制1GB",
+            "带宽软限制100GB/月"
+          ],
+          "calculatorConfig": {
+            "variables": []
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 1,
+        "reliabilityScore": 99.9,
+        "communityRating": 4.7,
+        "documentationQuality": 5
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
     }
   ],
   "metadata": {
     "version": "1.0.0",
     "lastUpdated": "2024-12-02",
-    "totalProviders": 2
+    "totalProviders": 8
   }
 }

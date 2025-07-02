@@ -128,11 +128,64 @@
           "description": "集中式日志收集和分析"
         }
       ]
+    },
+    {
+      "id": "cdn",
+      "name": "CDN加速",
+      "displayName": "CDN加速",
+      "icon": "🌍",
+      "description": "内容分发网络和边缘计算服务",
+      "subcategories": [
+        {
+          "id": "global",
+          "name": "全球CDN",
+          "description": "全球内容分发网络"
+        },
+        {
+          "id": "edge-computing",
+          "name": "边缘计算",
+          "description": "边缘计算和函数服务"
+        },
+        {
+          "id": "performance",
+          "name": "性能优化",
+          "description": "网站性能和速度优化"
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "name": "安全服务",
+      "displayName": "安全服务",
+      "icon": "🔒",
+      "description": "身份验证、安全防护和合规服务",
+      "subcategories": [
+        {
+          "id": "authentication",
+          "name": "身份验证",
+          "description": "用户认证和授权服务"
+        },
+        {
+          "id": "web-security",
+          "name": "Web安全",
+          "description": "Web应用防火墙和DDoS防护"
+        },
+        {
+          "id": "secrets-management",
+          "name": "秘密管理",
+          "description": "API密钥和证书管理"
+        },
+        {
+          "id": "code-security",
+          "name": "代码安全",
+          "description": "代码扫描和漏洞检测"
+        }
+      ]
     }
   ],
   "metadata": {
     "version": "1.0.0",
     "lastUpdated": "2024-12-02",
-    "totalCategories": 6
+    "totalCategories": 8
   }
 }

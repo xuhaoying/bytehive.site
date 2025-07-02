@@ -5,6 +5,8 @@ import serverlessData from '@/data/providers/serverless.json';
 import emailData from '@/data/providers/email.json';
 import storageData from '@/data/providers/storage.json';
 import monitoringData from '@/data/providers/monitoring.json';
+import cdnData from '@/data/providers/cdn.json';
+import securityData from '@/data/providers/security.json';
 
 // 缓存所有providers (强制清除缓存进行调试)
 let providersCache: Provider[] | null = null;
@@ -45,6 +47,16 @@ export function loadAllProviders(): Provider[] {
   // 加载monitoring providers
   if (monitoringData && monitoringData.providers) {
     allProviders.push(...monitoringData.providers as any[]);
+  }
+  
+  // 加载cdn providers
+  if (cdnData && cdnData.providers) {
+    allProviders.push(...cdnData.providers as any[]);
+  }
+  
+  // 加载security providers
+  if (securityData && securityData.providers) {
+    allProviders.push(...securityData.providers as any[]);
   }
   
   providersCache = allProviders;

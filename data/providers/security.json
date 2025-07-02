@@ -1,0 +1,723 @@
+{
+  "category": "security",
+  "categoryName": "安全服务",
+  "providers": [
+    {
+      "id": "auth0",
+      "name": "auth0",
+      "displayName": "Auth0",
+      "category": "security",
+      "subcategory": "authentication",
+      "logoUrl": "/logos/auth0.svg",
+      "websiteUrl": "https://auth0.com",
+      "description": "现代化的身份验证和授权平台，提供简单安全的用户管理",
+      "tags": ["身份验证", "单点登录", "多因素认证", "社交登录", "企业级"],
+      "highlights": [
+        "易于集成",
+        "多种认证方式",
+        "企业级安全",
+        "全球部署"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "free",
+          "name": "Free",
+          "displayName": "免费计划",
+          "description": "小项目和开发测试",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "monthly_active_users",
+              "amount": 7500,
+              "unit": "users",
+              "description": "月活跃用户"
+            },
+            {
+              "metric": "social_connections",
+              "amount": 2,
+              "unit": "connections",
+              "description": "社交登录"
+            }
+          ],
+          "features": [
+            "用户名密码认证",
+            "社交登录",
+            "多因素认证",
+            "基础自定义"
+          ],
+          "limitations": [
+            "7500 MAU限制",
+            "Auth0品牌",
+            "社区支持"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_active_users",
+                "label": "月活跃用户数",
+                "type": "slider",
+                "min": 0,
+                "max": 7500,
+                "default": 1000,
+                "unit": "用户"
+              }
+            ]
+          }
+        },
+        {
+          "id": "essentials",
+          "name": "Essentials",
+          "displayName": "基础版",
+          "description": "生产环境的基础需求",
+          "billing": {
+            "type": "usage",
+            "basePrice": 35,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "monthly_active_users",
+              "amount": 1500,
+              "unit": "users",
+              "description": "包含用户数"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "monthly_active_users",
+              "pricePerUnit": 0.023,
+              "unit": "user"
+            }
+          ],
+          "features": [
+            "移除Auth0品牌",
+            "自定义域名",
+            "基础RBAC",
+            "邮件支持"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_active_users",
+                "label": "月活跃用户数",
+                "type": "slider",
+                "min": 1500,
+                "max": 100000,
+                "default": 10000,
+                "unit": "用户"
+              }
+            ]
+          }
+        },
+        {
+          "id": "professional",
+          "name": "Professional",
+          "displayName": "专业版",
+          "description": "高级功能和企业需求",
+          "billing": {
+            "type": "usage",
+            "basePrice": 240,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "monthly_active_users",
+              "amount": 1500,
+              "unit": "users",
+              "description": "包含用户数"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "monthly_active_users",
+              "pricePerUnit": 0.16,
+              "unit": "user"
+            }
+          ],
+          "features": [
+            "高级RBAC",
+            "自定义数据库",
+            "多因素认证",
+            "异常检测"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_active_users",
+                "label": "月活跃用户数",
+                "type": "slider",
+                "min": 1500,
+                "max": 500000,
+                "default": 25000,
+                "unit": "用户"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 99.9,
+        "communityRating": 4.5,
+        "documentationQuality": 5
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "okta",
+      "name": "okta",
+      "displayName": "Okta",
+      "category": "security",
+      "subcategory": "identity",
+      "logoUrl": "/logos/okta.svg",
+      "websiteUrl": "https://www.okta.com",
+      "description": "企业级身份和访问管理平台，提供全面的IAM解决方案",
+      "tags": ["企业IAM", "单点登录", "目录集成", "零信任", "合规"],
+      "highlights": [
+        "企业级解决方案",
+        "广泛的应用集成",
+        "零信任架构",
+        "合规认证"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "workforce-identity",
+          "name": "Workforce Identity",
+          "displayName": "员工身份管理",
+          "description": "企业员工身份和访问管理",
+          "billing": {
+            "type": "usage",
+            "basePrice": 2,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "users",
+              "amount": 1,
+              "unit": "user",
+              "description": "每用户每月"
+            }
+          ],
+          "features": [
+            "单点登录",
+            "多因素认证",
+            "用户生命周期管理",
+            "基础报告"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "users",
+                "label": "用户数量",
+                "type": "number",
+                "min": 1,
+                "max": 10000,
+                "default": 100,
+                "unit": "用户"
+              }
+            ]
+          }
+        },
+        {
+          "id": "customer-identity",
+          "name": "Customer Identity",
+          "displayName": "客户身份管理",
+          "description": "面向客户的身份管理解决方案",
+          "billing": {
+            "type": "usage",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "monthly_active_users",
+              "amount": 1000,
+              "unit": "users",
+              "description": "免费MAU"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "monthly_active_users",
+              "pricePerUnit": 0.0275,
+              "unit": "user"
+            }
+          ],
+          "features": [
+            "自注册",
+            "社交登录",
+            "多因素认证",
+            "API访问管理"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_active_users",
+                "label": "月活跃用户",
+                "type": "slider",
+                "min": 1000,
+                "max": 1000000,
+                "default": 10000,
+                "unit": "用户"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 4,
+        "reliabilityScore": 99.99,
+        "communityRating": 4.3,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "snyk",
+      "name": "snyk",
+      "displayName": "Snyk",
+      "category": "security",
+      "subcategory": "code-security",
+      "logoUrl": "/logos/snyk.svg",
+      "websiteUrl": "https://snyk.io",
+      "description": "开发者优先的安全平台，保护代码、依赖、容器和基础设施",
+      "tags": ["代码安全", "漏洞扫描", "容器安全", "开源安全", "DevSecOps"],
+      "highlights": [
+        "开发者友好",
+        "CI/CD集成",
+        "实时漏洞检测",
+        "修复建议"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "free",
+          "name": "Free",
+          "displayName": "免费计划",
+          "description": "个人开发者和小团队",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "tests",
+              "amount": 200,
+              "unit": "tests",
+              "description": "每月测试次数"
+            },
+            {
+              "metric": "projects",
+              "amount": 999,
+              "unit": "projects",
+              "description": "无限项目"
+            }
+          ],
+          "features": [
+            "开源漏洞扫描",
+            "许可证检查",
+            "基础容器扫描",
+            "IDE集成"
+          ],
+          "limitations": [
+            "200次测试/月",
+            "有限的修复建议",
+            "社区支持"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_tests",
+                "label": "月度测试次数",
+                "type": "slider",
+                "min": 0,
+                "max": 200,
+                "default": 100,
+                "unit": "次"
+              }
+            ]
+          }
+        },
+        {
+          "id": "team",
+          "name": "Team",
+          "displayName": "团队版",
+          "description": "小团队的协作安全",
+          "billing": {
+            "type": "usage",
+            "basePrice": 57,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "tests",
+              "amount": 1200,
+              "unit": "tests",
+              "description": "每月测试次数"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "tests",
+              "pricePerUnit": 9.50,
+              "unit": "100次"
+            }
+          ],
+          "features": [
+            "私有仓库扫描",
+            "CI/CD集成",
+            "自动修复PR",
+            "团队管理"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "monthly_tests",
+                "label": "月度测试次数",
+                "type": "slider",
+                "min": 1200,
+                "max": 10000,
+                "default": 3000,
+                "unit": "次"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 99.5,
+        "communityRating": 4.6,
+        "documentationQuality": 5
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "aws-waf",
+      "name": "aws-waf",
+      "displayName": "AWS WAF",
+      "category": "security",
+      "subcategory": "web-security",
+      "logoUrl": "/logos/aws-waf.svg",
+      "websiteUrl": "https://aws.amazon.com/waf",
+      "description": "AWS的Web应用程序防火墙，保护Web应用免受常见攻击",
+      "tags": ["Web防火墙", "DDoS防护", "AWS集成", "规则引擎"],
+      "highlights": [
+        "AWS原生集成",
+        "实时防护",
+        "自定义规则",
+        "托管规则集"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "standard",
+          "name": "Standard",
+          "displayName": "标准定价",
+          "description": "按使用量付费",
+          "billing": {
+            "type": "usage",
+            "basePrice": 1,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [],
+          "overageRules": [
+            {
+              "metric": "web_acl",
+              "pricePerUnit": 1,
+              "unit": "个/月"
+            },
+            {
+              "metric": "rules",
+              "pricePerUnit": 1,
+              "unit": "个/月"
+            },
+            {
+              "metric": "requests",
+              "pricePerUnit": 0.6,
+              "unit": "百万次"
+            }
+          ],
+          "features": [
+            "CloudFront集成",
+            "Application Load Balancer集成",
+            "API Gateway集成",
+            "实时监控"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "web_acls",
+                "label": "Web ACL数量",
+                "type": "number",
+                "min": 1,
+                "max": 50,
+                "default": 1,
+                "unit": "个"
+              },
+              {
+                "name": "rules",
+                "label": "规则数量",
+                "type": "number",
+                "min": 0,
+                "max": 100,
+                "default": 10,
+                "unit": "个"
+              },
+              {
+                "name": "monthly_requests",
+                "label": "月度请求数",
+                "type": "slider",
+                "min": 1,
+                "max": 1000,
+                "default": 100,
+                "unit": "百万次"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 3,
+        "reliabilityScore": 99.9,
+        "communityRating": 4.2,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "vault",
+      "name": "vault",
+      "displayName": "HashiCorp Vault",
+      "category": "security",
+      "subcategory": "secrets-management",
+      "logoUrl": "/logos/vault.svg",
+      "websiteUrl": "https://www.vaultproject.io",
+      "description": "安全访问秘密信息的工具，提供统一的秘密管理",
+      "tags": ["秘密管理", "加密", "访问控制", "审计", "开源"],
+      "highlights": [
+        "统一秘密管理",
+        "动态秘密",
+        "加密即服务",
+        "详细审计日志"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "oss",
+          "name": "Open Source",
+          "displayName": "开源版",
+          "description": "免费的开源版本",
+          "billing": {
+            "type": "fixed",
+            "basePrice": 0,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [],
+          "features": [
+            "秘密存储",
+            "动态秘密",
+            "加密即服务",
+            "身份认证"
+          ],
+          "limitations": [
+            "自行部署",
+            "社区支持",
+            "基础功能"
+          ],
+          "calculatorConfig": {
+            "variables": []
+          }
+        },
+        {
+          "id": "cloud",
+          "name": "HCP Vault",
+          "displayName": "云托管版",
+          "description": "HashiCorp云平台托管的Vault",
+          "billing": {
+            "type": "usage",
+            "basePrice": 0.03,
+            "cycle": "hourly",
+            "currency": "USD"
+          },
+          "includedResources": [],
+          "overageRules": [
+            {
+              "metric": "client_count",
+              "pricePerUnit": 0.03,
+              "unit": "小时"
+            }
+          ],
+          "features": [
+            "完全托管",
+            "自动备份",
+            "高可用性",
+            "24/7支持"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "hours_per_month",
+                "label": "月运行小时数",
+                "type": "slider",
+                "min": 100,
+                "max": 744,
+                "default": 744,
+                "unit": "小时"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 4,
+        "reliabilityScore": 99.9,
+        "communityRating": 4.7,
+        "documentationQuality": 4
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    },
+    {
+      "id": "1password-secrets",
+      "name": "1password-secrets",
+      "displayName": "1Password Secrets Automation",
+      "category": "security",
+      "subcategory": "secrets-management",
+      "logoUrl": "/logos/1password.svg",
+      "websiteUrl": "https://1password.com/secrets",
+      "description": "为开发者设计的秘密管理解决方案，安全存储和访问API密钥、数据库密码等",
+      "tags": ["秘密管理", "开发者工具", "CI/CD", "API集成"],
+      "highlights": [
+        "开发者友好",
+        "CI/CD集成",
+        "零知识架构",
+        "简单部署"
+      ],
+      "affiliate": {
+        "enabled": false
+      },
+      "plans": [
+        {
+          "id": "starter",
+          "name": "Starter",
+          "displayName": "入门版",
+          "description": "小团队和个人项目",
+          "billing": {
+            "type": "usage",
+            "basePrice": 7.99,
+            "cycle": "monthly",
+            "currency": "USD"
+          },
+          "includedResources": [
+            {
+              "metric": "machine_accounts",
+              "amount": 5,
+              "unit": "accounts",
+              "description": "机器账户数量"
+            },
+            {
+              "metric": "vaults",
+              "amount": 3,
+              "unit": "vaults",
+              "description": "保险库数量"
+            }
+          ],
+          "overageRules": [
+            {
+              "metric": "machine_accounts",
+              "pricePerUnit": 1.60,
+              "unit": "账户/月"
+            }
+          ],
+          "features": [
+            "CLI工具",
+            "SDK支持",
+            "Kubernetes集成",
+            "基础审计"
+          ],
+          "calculatorConfig": {
+            "variables": [
+              {
+                "name": "machine_accounts",
+                "label": "机器账户数量",
+                "type": "slider",
+                "min": 1,
+                "max": 50,
+                "default": 5,
+                "unit": "个"
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "setupComplexity": 2,
+        "reliabilityScore": 99.9,
+        "communityRating": 4.5,
+        "documentationQuality": 5
+      },
+      "dataQuality": {
+        "version": "1.0.0",
+        "lastVerified": "2024-12-02",
+        "confidenceLevel": "high",
+        "source": "official"
+      }
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-12-02",
+    "totalProviders": 6
+  }
+}
