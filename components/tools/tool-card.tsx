@@ -7,7 +7,7 @@ import { getCategoryBySlug } from '@/data/categories';
 import Link from 'next/link';
 import { OptimizedImage } from '@/components/ui/optimized-image';
 import { cn } from '@/lib/utils';
-import { useGoogleAnalytics } from '@/components/analytics/google-analytics';
+import { useToolCardTracking } from '@/components/analytics/tracked-components';
 import { BookmarkSystem } from '@/components/tools/bookmark-system';
 import { AffiliateLink } from '@/components/affiliate/affiliate-link';
 import { getPricingConfig, getPricingClassName } from '@/lib/pricing-utils';
@@ -19,7 +19,8 @@ interface ToolCardProps {
 
 export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const { trackToolClick } = useGoogleAnalytics(process.env.NEXT_PUBLIC_GA_ID || '');
+  const { trackToolView, trackToolWebsite } = useToolCardTracking();
+  const category = getCategoryBySlug(tool.category);
   
   const pricingConfig = getPricingConfig(tool.pricing);
   
@@ -50,10 +51,8 @@ export default function ToolCard({ tool, searchQuery }: ToolCardProps) {
     );
   };
 
-  const category = getCategoryBySlug(tool.category);
-
   const handleCardClick = () => {
-    trackToolClick(tool.name, tool.category, 'view_details');
+    trackToolView(tool.name, category?.name || tool.category);
   };
 
   return (

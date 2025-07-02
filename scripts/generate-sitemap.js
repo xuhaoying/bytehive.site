@@ -11,6 +11,28 @@ const toolsContent = fs.readFileSync(toolsPath, 'utf8');
 const categoriesContent = fs.readFileSync(categoriesPath, 'utf8');
 const blogContent = fs.readFileSync(blogPostsPath, 'utf8');
 
+// Read infrastructure service providers
+const serviceIds = [];
+const providersDir = path.join(__dirname, '../data/providers');
+if (fs.existsSync(providersDir)) {
+  const providerFiles = fs.readdirSync(providersDir).filter(file => file.endsWith('.json'));
+  for (const file of providerFiles) {
+    const content = fs.readFileSync(path.join(providersDir, file), 'utf8');
+    try {
+      const data = JSON.parse(content);
+      if (data.providers && Array.isArray(data.providers)) {
+        data.providers.forEach(provider => {
+          if (provider.id) {
+            serviceIds.push(provider.id);
+          }
+        });
+      }
+    } catch (e) {
+      console.warn(`Error parsing ${file}:`, e.message);
+    }
+  }
+}
+
 // Extract tool slugs from the tools array
 const toolSlugs = [];
 const toolMatches = toolsContent.matchAll(/slug:\s*['"]([^'"]+)['"]/g);
@@ -42,7 +64,14 @@ const generateSitemap = () => {
     { url: '/about', priority: '0.8', changefreq: 'monthly' },
     { url: '/search', priority: '0.9', changefreq: 'daily' },
     { url: '/submit', priority: '0.7', changefreq: 'monthly' },
-    { url: '/blog', priority: '0.9', changefreq: 'daily' }
+    { url: '/blog', priority: '0.9', changefreq: 'daily' },
+    { url: '/infrastructure-navigator', priority: '0.9', changefreq: 'weekly' },
+    { url: '/privacy', priority: '0.6', changefreq: 'yearly' },
+    { url: '/terms', priority: '0.6', changefreq: 'yearly' },
+    { url: '/contact', priority: '0.7', changefreq: 'monthly' },
+    { url: '/disclaimer', priority: '0.6', changefreq: 'yearly' },
+    { url: '/cookies', priority: '0.6', changefreq: 'yearly' },
+    { url: '/dmca', priority: '0.5', changefreq: 'yearly' }
   ];
 
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -92,6 +121,17 @@ const generateSitemap = () => {
   </url>`;
   });
 
+  // Add infrastructure service pages
+  serviceIds.forEach(id => {
+    sitemap += `
+  <url>
+    <loc>${BASE_URL}/service/${id}</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+  });
+
   sitemap += `
 </urlset>`;
 
@@ -105,8 +145,9 @@ fs.writeFileSync(sitemapPath, sitemap);
 
 console.log(`✅ Sitemap generated successfully!`);
 console.log(`📍 Location: ${sitemapPath}`);
-console.log(`🔢 Total URLs: ${toolSlugs.length + categorySlugs.length + blogSlugs.length + 5}`);
-console.log(`   - Static pages: 5`);
+console.log(`🔢 Total URLs: ${toolSlugs.length + categorySlugs.length + blogSlugs.length + serviceIds.length + 12}`);
+console.log(`   - Static pages: 12`);
 console.log(`   - Categories: ${categorySlugs.length}`);
 console.log(`   - Tools: ${toolSlugs.length}`);
 console.log(`   - Blog posts: ${blogSlugs.length}`);
+console.log(`   - Infrastructure services: ${serviceIds.length}`);

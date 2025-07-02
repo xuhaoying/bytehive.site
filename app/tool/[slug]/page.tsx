@@ -19,6 +19,7 @@ import { AffiliateLink, AffiliateProgramInfo } from '@/components/affiliate/affi
 import { DetailedReview } from '@/components/tools/detailed-review';
 import { RelatedTools, TagCloud } from '@/components/tools/tag-cloud';
 import { getPricingConfig, getPricingClassName } from '@/lib/pricing-utils';
+import { ToolPageTracker } from '@/components/analytics/page-trackers';
 
 interface ToolPageProps {
   params: {
@@ -70,6 +71,7 @@ export default function ToolPage({ params }: ToolPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
+      <ToolPageTracker toolName={tool.name} category={category?.name || tool.category} />
       {/* Breadcrumb */}
       <div className="border-b bg-muted/30">
         <div className="container mx-auto px-4 py-4">

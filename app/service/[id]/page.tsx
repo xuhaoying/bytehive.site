@@ -4,6 +4,7 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { ServiceDetailClient } from '@/components/infrastructure/ServiceDetailClient';
 import { getProviderById, getProvidersByCategory, loadAllProviders } from '@/lib/data/providers';
+import { ServicePageTracker } from '@/components/analytics/page-trackers';
 
 // Generate static params for all providers
 export async function generateStaticParams() {
@@ -97,6 +98,7 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
   
   return (
     <main className="min-h-screen flex flex-col bg-background">
+      <ServicePageTracker serviceName={provider.displayName} category={provider.category} />
       <Header />
       <div className="flex-1">
         <ServiceDetailClient provider={provider} alternatives={alternatives} />

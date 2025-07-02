@@ -4,7 +4,8 @@ import { Inter } from 'next/font/google';
 // Removed theme provider for light mode only
 import { WebSiteStructuredData, OrganizationStructuredData } from '@/components/seo/structured-data';
 import { AdSenseScript, AutoAd } from '@/components/ads/adsense';
-import GoogleAnalytics from '@/components/analytics/google-analytics';
+import { GoogleAnalyticsProvider } from '@/components/analytics/google-analytics-provider';
+import { PageAnalytics } from '@/components/analytics/analytics-hooks';
 import WebVitalsMonitor from '@/components/analytics/web-vitals';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { BackToTopWithProgress } from '@/components/back-to-top';
@@ -72,16 +73,26 @@ export default function RootLayout({
         <OrganizationStructuredData />
         <AdSenseScript />
         <AutoAd />
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <GoogleAnalytics GA_TRACKING_ID={process.env.NEXT_PUBLIC_GA_ID} />
-        )}
       </head>
       <body className={inter.className}>
-          <WebVitalsMonitor config={{ reportWebVitals: true, debug: process.env.NODE_ENV === 'development' }} />
-          <ErrorBoundary>
-            {children}
-            <BackToTopWithProgress />
-          </ErrorBoundary>
+        {process.env.NEXT_PUBLIC_GA_ID ? (
+          <GoogleAnalyticsProvider GA_TRACKING_ID={process.env.NEXT_PUBLIC_GA_ID}>
+            <PageAnalytics />
+            <WebVitalsMonitor config={{ reportWebVitals: true, debug: process.env.NODE_ENV === 'development' }} />
+            <ErrorBoundary>
+              {children}
+              <BackToTopWithProgress />
+            </ErrorBoundary>
+          </GoogleAnalyticsProvider>
+        ) : (
+          <>
+            <WebVitalsMonitor config={{ reportWebVitals: true, debug: process.env.NODE_ENV === 'development' }} />
+            <ErrorBoundary>
+              {children}
+              <BackToTopWithProgress />
+            </ErrorBoundary>
+          </>
+        )}
       </body>
     </html>
   );

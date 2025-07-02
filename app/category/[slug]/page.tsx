@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
+import { CategoryPageTracker } from '@/components/analytics/page-trackers';
 
 interface CategoryPageProps {
   params: {
@@ -54,6 +55,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
+      <CategoryPageTracker categoryName={category.name} categoryType="tools" />
       {/* Breadcrumb */}
       <div className="border-b bg-muted/30">
         <div className="container mx-auto px-4 py-4">

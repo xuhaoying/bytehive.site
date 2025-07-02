@@ -29,19 +29,25 @@ Disallow: /
 
 # Sitemap location
 Sitemap: https://bytehive.site/sitemap.xml
-Sitemap: https://bytehive.site/sitemap-tools.xml
-Sitemap: https://bytehive.site/sitemap-blog.xml
 
-# Disallow admin pages (if any)
+# Disallow admin pages and private routes
 Disallow: /admin/
 Disallow: /api/private/
+Disallow: /_next/
+Disallow: /node_modules/
 
 # Allow important pages
 Allow: /blog/
 Allow: /tool/
 Allow: /category/
+Allow: /service/
+Allow: /infrastructure-navigator
 Allow: /about
 Allow: /submit
+Allow: /search
+Allow: /privacy
+Allow: /terms
+Allow: /contact
 
 # Cache static assets
 Allow: /*.js$

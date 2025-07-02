@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { useServiceCardTracking } from '@/components/analytics/tracked-components';
 
 interface ServiceCardProps {
   provider: Provider;
@@ -14,12 +15,23 @@ interface ServiceCardProps {
 }
 
 export function ServiceCard({ provider, onAddToCalculator, className }: ServiceCardProps) {
+  const { trackServiceView, trackServiceCalculate } = useServiceCardTracking();
+  
   // 获取最低价格的计划
   const lowestPricePlan = provider.plans.reduce((min, plan) => 
     plan.billing.basePrice < min.billing.basePrice ? plan : min
   );
   
   const hasFreeTier = provider.plans.some(plan => plan.billing.basePrice === 0);
+  
+  const handleCalculatorClick = () => {
+    trackServiceCalculate(provider.displayName, provider.category);
+    onAddToCalculator(provider.id, lowestPricePlan.id);
+  };
+  
+  const handleDetailsClick = () => {
+    trackServiceView(provider.displayName, provider.category);
+  };
   
   return (
     <Card className={cn("hover:shadow-lg transition-shadow", className)}>
@@ -99,11 +111,11 @@ export function ServiceCard({ provider, onAddToCalculator, className }: ServiceC
         <div className="flex gap-2">
           <Button 
             className="flex-1"
-            onClick={() => onAddToCalculator(provider.id, lowestPricePlan.id)}
+            onClick={handleCalculatorClick}
           >
             加入估算
           </Button>
-          <Button variant="outline" asChild>
+          <Button variant="outline" asChild onClick={handleDetailsClick}>
             <Link href={`/service/${provider.id}`}>
               详情
             </Link>
