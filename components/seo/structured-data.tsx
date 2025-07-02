@@ -3,9 +3,9 @@ export function WebSiteStructuredData() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'ByteHive',
-    alternateName: 'ByteHive AI工具导航站',
+    alternateName: 'ByteHive 基础设施导航平台',
     url: 'https://bytehive.site',
-    description: '精选500+优质AI工具和开发资源，帮助开发者和创作者提高工作效率',
+    description: '专业的云基础设施导航平台，帮助开发者选择最适合的云服务并计算成本',
     potentialAction: {
       '@type': 'SearchAction',
       target: {
@@ -31,7 +31,7 @@ export function OrganizationStructuredData() {
     name: 'ByteHive',
     url: 'https://bytehive.site',
     logo: 'https://bytehive.site/favicon.ico',
-    description: '专注于AI工具和开发资源的导航平台',
+    description: '专注于云基础设施导航和成本计算的专业平台',
     sameAs: [
       // Add social media URLs when available
     ]

@@ -12,12 +12,13 @@ import { BackToTopWithProgress } from '@/components/back-to-top';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'ByteHive - AI工具导航站 | 精选500+优质AI工具',
-  description: '为用户精选500+优质AI工具和资源，涵盖AI创作、智能助手、图像生成等多个分类。',
-  keywords: 'AI工具,人工智能,智能助手,图像生成,AI创作,自动化工具,ByteHive',
+  metadataBase: new URL('https://bytehive.site'),
+  title: 'ByteHive - 基础设施导航 | 云服务选择与成本计算器',
+  description: '专业的云基础设施导航平台，帮助开发者选择最适合的云服务并计算成本。涵盖主机托管、数据库、Serverless、存储等24个服务提供商。',
+  keywords: '云服务,基础设施,成本计算器,主机托管,数据库,Serverless,存储服务,云计算,开发者工具,ByteHive',
   openGraph: {
-    title: 'ByteHive - AI工具导航站',
-    description: '为用户精选500+优质AI工具和资源',
+    title: 'ByteHive - 基础设施导航 | 云服务选择与成本计算器',
+    description: '专业的云基础设施导航平台，帮助开发者选择最适合的云服务并计算成本',
     type: 'website',
     locale: 'zh_CN',
     url: 'https://bytehive.site',
@@ -25,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ByteHive - AI工具导航站',
-    description: '为用户精选500+优质AI工具和资源',
+    title: 'ByteHive - 基础设施导航',
+    description: '专业的云基础设施导航平台，帮助开发者选择最适合的云服务并计算成本',
     site: '@ByteHive',
   },
   robots: {
