@@ -40,6 +40,46 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/blog/ai-tools-for-developers-2024"/>
   </url>
   <url>
+    <loc>https://bytehive.site/blog/cloud-computing-cost-optimization-guide</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/blog/cloud-computing-cost-optimization-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/blog/cloud-computing-cost-optimization-guide"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/blog/docker-kubernetes-deployment-guide</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/blog/docker-kubernetes-deployment-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/blog/docker-kubernetes-deployment-guide"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/blog/web-security-best-practices-2024</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/blog/web-security-best-practices-2024"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/blog/web-security-best-practices-2024"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/blog/database-migration-strategies-guide</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/blog/database-migration-strategies-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/blog/database-migration-strategies-guide"/>
+  </url>
+  <url>
+    <loc>https://bytehive.site/blog/microservices-architecture-patterns</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://bytehive.site/blog/microservices-architecture-patterns"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bytehive.site/blog/microservices-architecture-patterns"/>
+  </url>
+  <url>
     <loc>https://bytehive.site/blog/ai-tools-review</loc>
     <lastmod>2025-07-02</lastmod>
     <changefreq>monthly</changefreq>
