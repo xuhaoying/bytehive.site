@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const metadata: Metadata = {
-  title: '服务条款 - ByteHive | 基础设施导航与成本计算器',
-  description: 'ByteHive服务条款详细说明使用我们网站和服务的规则和条件。',
+  title: '服务条款 - ByteHive云服务导航平台 | 用户协议与使用规则',
+  description: 'ByteHive服务条款详细说明使用我们网站和服务的规则和条件。包括用户权利与义务、知识产权保护、免责声明、服务变更政策等重要条款。我们致力于提供公平、透明、可靠的服务，保障用户合法权益。',
   keywords: '服务条款,使用条款,网站规则,ByteHive',
 };
 

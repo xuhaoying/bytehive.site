@@ -3,8 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 export const metadata: Metadata = {
-  title: 'Cookie政策 - ByteHive | 基础设施导航与成本计算器',
-  description: 'ByteHive Cookie政策详细说明我们如何使用Cookie和类似技术来改善用户体验。',
+  title: 'Cookie政策 - ByteHive技术平台 | 隐私保护与数据使用说明',
+  description: 'ByteHive Cookie政策详细说明我们如何使用Cookie和类似技术来改善用户体验。了解我们使用的Cookie类型、目的以及如何管理您的Cookie偏好设置。我们尊重您的选择权，提供灵活的隐私控制选项。',
   keywords: 'Cookie政策,数据跟踪,用户体验,ByteHive',
 };
 

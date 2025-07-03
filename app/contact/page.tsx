@@ -7,8 +7,8 @@ import { Label } from '@/components/ui/label';
 import { Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '联系我们 - ByteHive | 基础设施导航与成本计算器',
-  description: '联系ByteHive团队，获取技术支持、商务合作或提供建议反馈。',
+  title: '联系我们 - ByteHive技术支持与合作 | 云服务与AI工具咨询',
+  description: '联系ByteHive团队，获取技术支持、商务合作或提供建议反馈。我们提供24小时响应的专业服务，无论是技术咨询、产品建议还是合作机会，都将得到及时的专业回复。欢迎与我们一起构建更好的技术生态。',
   keywords: '联系我们,技术支持,商务合作,ByteHive',
 };
 

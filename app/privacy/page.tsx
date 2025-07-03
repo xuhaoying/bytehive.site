@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const metadata: Metadata = {
-  title: '隐私政策 - ByteHive | 基础设施导航与成本计算器',
-  description: 'ByteHive隐私政策详细说明我们如何收集、使用和保护您的个人信息。',
+  title: '隐私政策 - ByteHive技术平台 | 个人信息保护与数据安全承诺',
+  description: 'ByteHive隐私政策详细说明我们如何收集、使用和保护您的个人信息。我们承诺严格遵守数据保护法规，采用行业最佳安全实践，确保您的隐私得到全面保护。透明的数据使用政策，让您安心使用ByteHive平台。',
   keywords: '隐私政策,数据保护,用户信息,ByteHive',
 };
 

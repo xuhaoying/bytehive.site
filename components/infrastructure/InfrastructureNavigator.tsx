@@ -126,6 +126,14 @@ export function InfrastructureNavigator({
 
   return (
     <div className="container mx-auto px-4 py-6">
+      {/* Page Header */}
+      <div className="mb-8 text-center">
+        <h1 className="text-4xl font-bold mb-4">基础设施导航</h1>
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          探索和比较云服务、数据库、CDN等基础设施服务，使用智能成本计算器做出最佳决策
+        </p>
+      </div>
+      
       <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr_300px] gap-6">
         {/* 左侧分类导航 */}
         <aside className="space-y-6 lg:block hidden">

@@ -8,8 +8,8 @@ import { BannerAd } from '@/components/ads/adsense';
 import { BreadcrumbStructuredData } from '@/components/seo/structured-data';
 
 export const metadata: Metadata = {
-  title: 'AI工具博客 - 最新评测、教程和行业资讯 | ByteHive',
-  description: '探索AI工具的最新评测、使用教程和行业动态。深度分析各类AI工具，帮助您做出明智的选择。',
+  title: 'AI工具博客 - 最新评测、教程和行业资讯 | ByteHive技术分享社区',
+  description: '探索AI工具的最新评测、使用教程和行业动态。ByteHive博客深度分析各类AI工具、云服务和开发技术，提供实战经验分享、最佳实践指南和技术趋势解读，帮助您紧跟技术前沿，做出明智的技术选择。',
   keywords: 'AI工具博客,AI工具评测,AI教程,人工智能资讯,AI使用指南'
 };
 

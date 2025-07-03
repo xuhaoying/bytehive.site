@@ -6,8 +6,8 @@ import { Heart, Target, Users, Zap, Mail, Github } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: '关于我们 - ByteHive | AI工具导航站',
-  description: 'ByteHive 致力于为用户提供精选的优质AI工具和资源，涵盖500+个精心挑选的AI工具。',
+  title: '关于我们 - ByteHive专业AI工具与基础设施导航平台 | 技术选型指南',
+  description: 'ByteHive致力于为开发者、创业者和企业提供精选的优质AI工具和云基础设施资源。平台涵盖500+个精心挑选的AI工具、云服务、开发工具和设计资源，通过专业评测和成本分析，帮助您快速找到最适合的技术解决方案。',
   keywords: '关于ByteHive,AI工具,工具导航,人工智能资源',
 };
 

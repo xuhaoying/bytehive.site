@@ -6,8 +6,8 @@ import { getCategoriesWithCount } from '@/lib/data/categories';
 import { loadAllProviders } from '@/lib/data/providers';
 
 export const metadata: Metadata = {
-  title: '基础设施导航 | ByteHive',
-  description: '探索和比较各类云服务、数据库、CDN等基础设施服务，使用成本计算器估算费用',
+  title: '基础设施导航 - 云服务选择与成本计算器 | ByteHive技术平台',
+  description: '探索和比较各类云服务、数据库、CDN等基础设施服务。使用ByteHive智能成本计算器精确估算费用，对比AWS、Azure、阿里云等主流云服务商的产品特性与价格，帮助您做出最优化的技术选型决策。',
   keywords: '云服务,基础设施,成本计算器,云计算,数据库,CDN,服务器',
 };
 

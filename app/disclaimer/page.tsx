@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const metadata: Metadata = {
-  title: '免责声明 - ByteHive | 基础设施导航与成本计算器',
-  description: 'ByteHive免责声明，包含广告披露、联盟链接和服务推荐的相关说明。',
+  title: '免责声明 - ByteHive云服务与AI工具导航平台 | 使用条款与责任说明',
+  description: 'ByteHive免责声明，包含广告披露、联盟链接和服务推荐的相关说明。我们致力于提供准确、公正的信息，但不对第三方服务承担责任。所有推荐基于我们的专业评估，仅供参考。请在使用前仔细阅读本声明。',
   keywords: '免责声明,广告披露,联盟链接,服务推荐,ByteHive',
 };
 
